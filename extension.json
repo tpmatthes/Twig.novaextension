@@ -1,0 +1,13 @@
+{
+  "identifier": "tpmatthes.Twig",
+  "name": "Twig",
+  "organization": "Tim-Patrick Matthes",
+  "description": "Syntax Highlighting and Completions for Twig (and Craft CMS) Template Files (.twig)",
+  "version": "1.0",
+  "license": "MIT",
+  "bugs": "https://github.com/tpmatthes/Twig.novaextension/issues",
+  "repository": "https://github.com/tpmatthes/Twig.novaextension",
+  "keywords": ["twig", "craft", "craftcms", "html", "php", "templates", "syntax"],
+  "categories": ["languages", "completions"],
+  "activationEvents": ["onLanguage:twig"]
+}
