@@ -1,7 +1,7 @@
 {
   "identifier": "tpmatthes.Twig",
   "name": "Twig",
-  "organization": "Tim-Patrick Matthes",
+  "organization": "tpmatthes",
   "description": "Syntax Highlighting and Completions for Twig (and Craft CMS) Template Files (.twig)",
   "version": "1.0",
   "license": "MIT",
