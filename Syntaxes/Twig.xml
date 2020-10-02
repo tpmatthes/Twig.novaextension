@@ -1,248 +1,235 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <syntax name="twig-base" subsyntax="true">
-  <meta>
-   <name>Twig</name>
-   <type>markup</type>
-  </meta>
+	<meta>
+		<name>Twig</name>
+		<type>markup</type>
+	</meta>
 
-  <indentation>
-   <increase>
-    <expression>^\s*&lt;(([^!/?]|%)(?!.+?([/%]&gt;|&lt;/.+?&gt;))|[%!]--\s*$)</expression>
-   </increase>
-   <decrease>
-    <expression>^\s*(&lt;/[^&gt;]+&gt;|--&gt;|--%&gt;)</expression>
-   </decrease>
-  </indentation>
+	<indentation>
+		<increase>
+			<expression>^\s*&lt;(([^!/?]|%)(?!.+?([/%]&gt;|&lt;/.+?&gt;))|[%!]--\s*$)</expression>
+		</increase>
+		<decrease>
+			<expression>^\s*(&lt;/[^&gt;]+&gt;|--&gt;|--%&gt;)</expression>
+		</decrease>
+	</indentation>
 
-  <comments>
-   <multiline>
-    <starts-with>
-      <expression>{#</expression>
-    </starts-with>
-    <ends-with>
-      <expression>#}</expression>
-    </ends-with>
-   </multiline>
-  </comments>
+	<comments>
+		<multiline>
+			<starts-with>
+				<expression>{#</expression>
+			</starts-with>
+			<ends-with>
+				<expression>#}</expression>
+			</ends-with>
+		</multiline>
+	</comments>
 
-  <brackets>
-   <pair open="(" close=")" />
-   <pair open="[" close="]" />
-   <pair open="{" close="}" />
-  </brackets>
+	<brackets>
+		<pair open="(" close=")" />
+		<pair open="[" close="]" />
+		<pair open="{" close="}" />
+	</brackets>
 
-  <surrounding-pairs>
-   <pair open="&lt;" close="&gt;" />
-   <pair open="{" close="}" />
-   <pair open="[" close="]" />
-   <pair open="(" close=")" />
-   <pair open="&apos;" close="&apos;" />
-   <pair open="&quot;" close="&quot;" />
-   <pair open="`" close="`" />
-  </surrounding-pairs>
+	<surrounding-pairs>
+		<pair open="&lt;" close="&gt;" />
+		<pair open="{" close="}" />
+		<pair open="[" close="]" />
+		<pair open="(" close=")" />
+		<pair open="&apos;" close="&apos;" />
+		<pair open="&quot;" close="&quot;" />
+		<pair open="`" close="`" />
+	</surrounding-pairs>
 
-  <scopes>
-    <include syntax="self" collection="comments" />
-    <include syntax="self" collection="keywords" />
-    <include syntax="self" collection="values" />
-    <include syntax="self" collection="identifiers" />
-    <include syntax="self" collection="syntax" />
-   </scopes>
-  
-   <collections>
-    <!-- Comments -->
-    <collection name="comments">
-      <scope name="twig.comment.block" spell-check="true">
-       <starts-with>
-        <expression>\{\#</expression>
-       </starts-with>
-       <ends-with>
-        <expression>\#\}</expression>
-       </ends-with>
-      </scope>
-    </collection>
-  
-    <!-- Built-in Keywords -->
-    <collection name="keywords">
-      <scope name="twig.keyword" spell-check="false">
-       <strings prefix="\b" suffix="\b" word-boundary="false">
-        <string>apply</string>
-        <string>endapply</string>
-        <string>autoescape</string>
-        <string>endautoescape</string>
-        <string>block</string>
-        <string>endblock</string>
-        <string>deprecated</string>
-        <string>do</string>
-        <string>embed</string>
-        <string>endembed</string>
-        <string>extends</string>
-        <string>flush</string>
-        <string>for</string>
-        <string>endfor</string>
-        <string>from</string>
-        <string>if</string>
-        <string>elseif</string>
-        <string>else</string>
-        <string>endif</string>
-        <string>import</string>
-        <string>include</string>
-        <string>ignore</string>
-        <string>missing</string>
-        <string>with</string>
-        <string>only</string>
-        <string>macro</string>
-        <string>endmacro</string>
-        <string>sandbox</string>
-        <string>endsandbox</string>
-        <string>set</string>
-        <string>endset</string>
-        <string>use</string>
-        <string>verbatim</string>
-        <string>endverbatim</string>
-        <string>with</string>
-        <string>and</string>
-        <string>or</string>
-        <string>not</string>
-        <string>in</string>
-        <string>is</string>
-        <string>as</string>
-        <string>defined</string>
-        <string>empty</string>
-        <string>even</string>
-        <string>odd</string>
-        <string>iterable</string>
-        <!-- Craft CMS -->
-        <string>cache</string>
-        <string>endcache</string>
-        <string>css</string>
-        <string>endcss</string>
-        <string>dd</string>
-        <string>exit</string>
-        <string>header</string>
-        <string>hook</string>
-        <string>html</string>
-        <string>endcss</string>
-        <string>endhtml</string>
-        <string>js</string>
-        <string>endjs</string>
-        <string>namespace</string>
-        <string>paginate</string>
-        <string>redirect</string>
-        <string>requireGuest</string>
-        <string>requireLogin</string>
-        <string>requirePermission</string>
-        <string>switch</string>
-        <string>endswitch</string>
-        <string>nav</string>
-        <string>endnav</string>
-        <string>ifchildren</string>
-        <string>endifchildren</string>
-       </strings>
-      </scope>
-    </collection>
-  
-    <!-- Values -->
-    <collection name="values">
-      <scope name="twig.string.double-quoted">
-       <starts-with>
-        <expression>&quot;</expression>
-        <capture number="0" name="twig.string.double-quoted.delimiter" />
-       </starts-with>
-       <ends-with>
-        <expression>&quot;|(?:(?&lt;!\\)$)</expression>
-        <capture number="0" name="twig.string.double-quoted.delimiter" />
-       </ends-with>
-       <subscopes>
-        <scope name="twig.string.double-quoted.escape">
-          <expression>\\(?:\\|&quot;|n|r|t|b|f)</expression>
-        </scope>
-       </subscopes>
-      </scope>
-      <scope name="twig.string.single-quoted">
-       <starts-with>
-        <expression>&apos;</expression>
-        <capture number="0" name="twig.string.single-quoted.delimiter" />
-       </starts-with>
-       <ends-with>
-        <expression>&apos;|(?:(?&lt;!\\)$)</expression>
-        <capture number="0" name="twig.string.single-quoted.delimiter" />
-       </ends-with>
-       <subscopes>
-        <scope name="twig.string.single-quoted.escape">
-          <expression>\\(?:\\|&apos;|n|r|t|b|f)</expression>
-        </scope>
-       </subscopes>
-      </scope>
-      <scope name="twig.value.null">
-       <strings>
-        <string>null</string>
-       </strings>
-      </scope>
-      <scope name="twig.value.boolean">
-       <strings>
-        <string>true</string>
-        <string>false</string>
-       </strings>
-      </scope>
-      <scope name="twig.value.number">
-       <expression>\b\-?(?:\d+(?:\.\d*)?|(?:\.\d+))\b</expression>
-      </scope>
-    </collection>
-  
-    <!-- Identifiers -->
-    <collection name="identifiers">
-      <!-- Properties in {} -->
-      <scope name="twig.identifier">
-       <expression>\b([a-zA-Z_][A-Za-zÀ-ÖØ-öø-ÿ0-9_]*)(\s*\:\s*)</expression>
-       <capture number="1" name="twig.identifier.property" />
-      </scope>
-      <!-- Object.properties -->
-      <scope name="twig.identifier">
-       <expression>(\s*\.\s*)([a-zA-Z_][A-Za-zÀ-ÖØ-öø-ÿ0-9_]*)(?!\()\b</expression>
-       <capture number="2" name="twig.identifier.property" />
-      </scope>
-      <!-- Methods -->
-      <scope name="twig.identifier">
-       <expression>(\s*\.\s*)([a-zA-Z_][A-Za-zÀ-ÖØ-öø-ÿ0-9_]*)(?=\()\b</expression>
-       <capture number="2" name="twig.identifier.method" />
-      </scope>
-      <!-- Filters -->
-      <scope name="twig.identifier">
-       <expression>(\s*\|\s*)([a-zA-Z_][A-Za-zÀ-ÖØ-öø-ÿ0-9_]*)\b</expression>
-       <capture number="2" name="twig.identifier.method" />
-      </scope>
-      <!-- Functions -->
-      <scope name="twig.identifier.function">
-       <expression>\b(?&lt;!\.)([a-zA-Z_][A-Za-zÀ-ÖØ-öø-ÿ0-9_]*)(?=\()\b</expression>
-      </scope>
-      <!-- Tests -->
-      <scope name="twig.identifier.function" spell-check="false">
-       <strings prefix="\b" suffix="\b" word-boundary="false">
-        <string>constant</string>
-        <string>divisible by</string>
-        <string>divisibleby</string>
-        <string>same as</string>
-        <string>sameas</string>
-       </strings>
-      </scope>
-      <!-- Regular Identifiers -->
-      <scope name="twig.identifier">
-       <expression>\b[a-zA-Z_][A-Za-zÀ-ÖØ-öø-ÿ0-9_]*\b</expression>
-      </scope>
-    </collection>
-  
-    <!-- Syntax -->
-    <collection name="syntax">
-      <scope name="twig.bracket">
-       <expression>[\(\[\{\)\]\}]</expression>
-      </scope>
-      <scope name="twig.operator">
-       <expression>(\+|\-|\*|\/|\%|\/\/|\*\*|\=|\~|\&amp;|\^|\=\=|\!\=|&lt;|&gt;|&gt;\=|&lt;\=|\.\.|\?|\?\:|\?\?|\:)</expression>
-      </scope>
-      <scope name="twig.comma">
-       <expression>,</expression>
-      </scope>
-    </collection>
-   </collections>
+	<scopes>
+		<include syntax="self" collection="keywords" />
+		<include syntax="self" collection="values" />
+		<include syntax="self" collection="identifiers" />
+		<include syntax="self" collection="syntax" />
+	</scopes>
+	
+	<collections>
+		<!-- Built-in Keywords -->
+		<collection name="keywords">
+			<scope name="twig.keyword" spell-check="false">
+				<strings prefix="\b" suffix="\b" word-boundary="false">
+					<string>apply</string>
+					<string>endapply</string>
+					<string>autoescape</string>
+					<string>endautoescape</string>
+					<string>block</string>
+					<string>endblock</string>
+					<string>deprecated</string>
+					<string>do</string>
+					<string>embed</string>
+					<string>endembed</string>
+					<string>extends</string>
+					<string>flush</string>
+					<string>for</string>
+					<string>endfor</string>
+					<string>from</string>
+					<string>if</string>
+					<string>elseif</string>
+					<string>else</string>
+					<string>endif</string>
+					<string>import</string>
+					<string>include</string>
+					<string>ignore</string>
+					<string>missing</string>
+					<string>with</string>
+					<string>only</string>
+					<string>macro</string>
+					<string>endmacro</string>
+					<string>sandbox</string>
+					<string>endsandbox</string>
+					<string>set</string>
+					<string>endset</string>
+					<string>use</string>
+					<string>verbatim</string>
+					<string>endverbatim</string>
+					<string>with</string>
+					<string>and</string>
+					<string>or</string>
+					<string>not</string>
+					<string>in</string>
+					<string>is</string>
+					<string>as</string>
+					<string>defined</string>
+					<string>empty</string>
+					<string>even</string>
+					<string>odd</string>
+					<string>iterable</string>
+					<!-- Craft CMS -->
+					<string>cache</string>
+					<string>endcache</string>
+					<string>css</string>
+					<string>endcss</string>
+					<string>dd</string>
+					<string>exit</string>
+					<string>header</string>
+					<string>hook</string>
+					<string>html</string>
+					<string>endcss</string>
+					<string>endhtml</string>
+					<string>js</string>
+					<string>endjs</string>
+					<string>namespace</string>
+					<string>paginate</string>
+					<string>redirect</string>
+					<string>requireGuest</string>
+					<string>requireLogin</string>
+					<string>requirePermission</string>
+					<string>switch</string>
+					<string>endswitch</string>
+					<string>nav</string>
+					<string>endnav</string>
+					<string>ifchildren</string>
+					<string>endifchildren</string>
+				</strings>
+			</scope>
+		</collection>
+		
+		<!-- Values -->
+		<collection name="values">
+			<scope name="twig.string.double-quoted">
+				<starts-with>
+					<expression>&quot;</expression>
+					<capture number="0" name="twig.string.double-quoted.delimiter" />
+				</starts-with>
+				<ends-with>
+					<expression>&quot;|(?:(?&lt;!\\)$)</expression>
+					<capture number="0" name="twig.string.double-quoted.delimiter" />
+				</ends-with>
+				<subscopes>
+					<scope name="twig.string.double-quoted.escape">
+						<expression>\\(?:\\|&quot;|n|r|t|b|f)</expression>
+					</scope>
+				</subscopes>
+			</scope>
+			<scope name="twig.string.single-quoted">
+				<starts-with>
+					<expression>&apos;</expression>
+					<capture number="0" name="twig.string.single-quoted.delimiter" />
+				</starts-with>
+				<ends-with>
+					<expression>&apos;|(?:(?&lt;!\\)$)</expression>
+					<capture number="0" name="twig.string.single-quoted.delimiter" />
+				</ends-with>
+				<subscopes>
+					<scope name="twig.string.single-quoted.escape">
+						<expression>\\(?:\\|&apos;|n|r|t|b|f)</expression>
+					</scope>
+				</subscopes>
+			</scope>
+			<scope name="twig.value.null">
+				<strings>
+					<string>null</string>
+				</strings>
+			</scope>
+			<scope name="twig.value.boolean">
+				<strings>
+					<string>true</string>
+					<string>false</string>
+				</strings>
+			</scope>
+			<scope name="twig.value.number">
+				<expression>\b\-?(?:\d+(?:\.\d*)?|(?:\.\d+))\b</expression>
+			</scope>
+		</collection>
+		
+		<!-- Identifiers -->
+		<collection name="identifiers">
+			<!-- Properties in {} -->
+			<scope name="twig.identifier">
+				<expression>\b([a-zA-Z_][A-Za-zÀ-ÖØ-öø-ÿ0-9_]*)(\s*\:\s*)</expression>
+				<capture number="1" name="twig.identifier.property" />
+			</scope>
+			<!-- Object.properties -->
+			<scope name="twig.identifier">
+				<expression>(\s*\.\s*)([a-zA-Z_][A-Za-zÀ-ÖØ-öø-ÿ0-9_]*)(?!\()\b</expression>
+				<capture number="2" name="twig.identifier.property" />
+			</scope>
+			<!-- Methods -->
+			<scope name="twig.identifier">
+				<expression>(\s*\.\s*)([a-zA-Z_][A-Za-zÀ-ÖØ-öø-ÿ0-9_]*)(?=\()\b</expression>
+				<capture number="2" name="twig.identifier.method" />
+			</scope>
+			<!-- Filters -->
+			<scope name="twig.identifier">
+				<expression>(\s*\|\s*)([a-zA-Z_][A-Za-zÀ-ÖØ-öø-ÿ0-9_]*)\b</expression>
+				<capture number="2" name="twig.identifier.method" />
+			</scope>
+			<!-- Functions -->
+			<scope name="twig.identifier.function">
+				<expression>\b(?&lt;!\.)([a-zA-Z_][A-Za-zÀ-ÖØ-öø-ÿ0-9_]*)(?=\()\b</expression>
+			</scope>
+			<!-- Tests -->
+			<scope name="twig.identifier.function" spell-check="false">
+				<strings prefix="\b" suffix="\b" word-boundary="false">
+					<string>constant</string>
+					<string>divisible by</string>
+					<string>divisibleby</string>
+					<string>same as</string>
+					<string>sameas</string>
+				</strings>
+			</scope>
+			<!-- Regular Identifiers -->
+			<scope name="twig.identifier">
+				<expression>\b[a-zA-Z_][A-Za-zÀ-ÖØ-öø-ÿ0-9_]*\b</expression>
+			</scope>
+		</collection>
+		
+		<!-- Syntax -->
+		<collection name="syntax">
+			<scope name="twig.bracket">
+				<expression>[\(\[\{\)\]\}]</expression>
+			</scope>
+			<scope name="twig.operator">
+				<expression>(\+|\-|\*|\/|\%|\/\/|\*\*|\=|\~|\&amp;|\^|\=\=|\!\=|&lt;|&gt;|&gt;\=|&lt;\=|\.\.|\?|\?\:|\?\?|\:)</expression>
+			</scope>
+			<scope name="twig.comma">
+				<expression>,</expression>
+			</scope>
+		</collection>
+	</collections>
 </syntax>
