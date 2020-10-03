@@ -120,11 +120,19 @@
 					<string>requireLogin</string>
 					<string>requirePermission</string>
 					<string>switch</string>
+					<string>case</string>
 					<string>endswitch</string>
 					<string>nav</string>
 					<string>endnav</string>
 					<string>ifchildren</string>
 					<string>endifchildren</string>
+					<string>globally</string>
+					<string>using</string>
+					<string>key</string>
+					<string>unless</string>
+					<string>until</string>
+					<string>missing</string>
+					<string>of</string>
 				</strings>
 			</scope>
 		</collection>
@@ -211,6 +219,8 @@
 					<string>divisibleby</string>
 					<string>same as</string>
 					<string>sameas</string>
+					<string>instance of</string>
+					<string>instanceof</string>
 				</strings>
 			</scope>
 			<!-- Regular Identifiers -->
