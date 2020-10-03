@@ -2,7 +2,7 @@
 
 This extension for Nova, [a text editor from Panic](https://nova.app/), adds syntax highlighting for Twig, [a popular templating language](https://twig.symfony.com/). It supports all relevant language features from Twig 3.0+ and even some custom tags/filters from [Craft CMS](https://craftcms.com/) 3.0+.
 
-This extension also includes completions for basic Twig keywords, statements and filters.
+This extension also includes completions for Twig and Craft CMS 3.0+.
 
 ## Installation
 
@@ -18,9 +18,8 @@ Clone this repository and open the folder with Nova. In Nova, go to “Settings 
 
 I’d like to add more features to this extension in the future:
 
-- [ ] Add completions for Craft CMS
 - [ ] Add support for nested syntax highlighting inside `{% css %}` and `{% js %}`
 - [ ] Add support for matching Twig brackets (not possible at the moment?)
-- [ ] Add completions for Symfony
+- [ ] Improve completions
 
 If you have some tips or want to help with development, feel free to let me know!
