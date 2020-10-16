@@ -646,273 +646,273 @@
 	<set name="twig.functions" symbol="function">
 		<completion string="attribute">
 			<behavior>
-				<append>($[])</append>
+				<append>($[]) </append>
 			</behavior>
 		</completion>
 		<completion string="constant">
 			<behavior>
-				<append>($[string constant])</append>
+				<append>($[string constant]) </append>
 			</behavior>
 		</completion>
 		<completion string="country_timezones">
 			<behavior>
-				<append>($[string locale])</append>
+				<append>($[string locale]) </append>
 			</behavior>
 		</completion>
 		<completion string="cycle">
 			<behavior>
-				<append>($[array values], $[int position])</append>
+				<append>($[array values], $[int position]) </append>
 			</behavior>
 		</completion>
 		<completion string="date">
 			<behavior>
-				<append>($[string date], $[string timezone])</append>
+				<append>($[string date], $[string timezone]) </append>
 			</behavior>
 		</completion>
 		<completion string="dump">
 			<behavior>
-				<append>($[])</append>
+				<append>($[]) </append>
 			</behavior>
 		</completion>
 		<completion string="html_classes">
 			<behavior>
-				<append>($[])</append>
+				<append>($[]) </append>
 			</behavior>
 		</completion>
 		<completion string="max">
 			<behavior>
-				<append>($[array values])</append>
+				<append>($[array values]) </append>
 			</behavior>
 		</completion>
 		<completion string="min">
 			<behavior>
-				<append>($[array values])</append>
+				<append>($[array values]) </append>
 			</behavior>
 		</completion>
 		<completion string="parent">
 			<behavior>
-				<append>()</append>
+				<append>() </append>
 			</behavior>
 		</completion>
 		<completion string="random">
 			<behavior>
-				<append>($[])</append>
+				<append>($[]) </append>
 			</behavior>
 		</completion>
 		<completion string="range">
 			<behavior>
-				<append>($[int low], $[int high], $[int step])</append>
+				<append>($[int low], $[int high], $[int step]) </append>
 			</behavior>
 		</completion>
 		<completion string="source">
 			<behavior>
-				<append>($[string file])</append>
+				<append>($[string file]) </append>
 			</behavior>
 		</completion>
 		<completion string="source">
 			<behavior>
-				<append>($[string file], ignore_missing=$[bool ignore_missing])</append>
+				<append>($[string file], ignore_missing=$[bool ignore_missing]) </append>
 			</behavior>
 		</completion>
 		<completion string="template_from_string">
 			<behavior>
-				<append>($[string template], $[string name])</append>
+				<append>($[string template], $[string name]) </append>
 			</behavior>
 		</completion>
 		<!-- Craft CMS -->
 		<completion string="actionInput">
 			<behavior>
-				<append>($[string action])</append>
+				<append>($[string action]) </append>
 			</behavior>
 		</completion>
 		<completion string="actionInput">
 			<behavior>
-				<append>($[string action], $[object attributes])</append>
+				<append>($[string action], $[object attributes]) </append>
 			</behavior>
 		</completion>
 		<completion string="actionUrl">
 			<behavior>
-				<append>($[string path], $[object params], $[string scheme])</append>
+				<append>($[string path], $[object params], $[string scheme]) </append>
 			</behavior>
 		</completion>
 		<completion string="alias">
 			<behavior>
-				<append>($[string alias])</append>
+				<append>($[string alias]) </append>
 			</behavior>
 		</completion>
 		<completion string="attr">
 			<behavior>
-				<append>($[object attributes])</append>
+				<append>($[object attributes]) </append>
 			</behavior>
 		</completion>
 		<completion string="beginBody">
 			<behavior>
-				<append>()</append>
+				<append>() </append>
 			</behavior>
 		</completion>
 		<completion string="ceil">
 			<behavior>
-				<append>($[number])</append>
+				<append>($[number]) </append>
 			</behavior>
 		</completion>
 		<completion string="className">
 			<behavior>
-				<append>($[object])</append>
+				<append>($[object]) </append>
 			</behavior>
 		</completion>
 		<completion string="clone">
 			<behavior>
-				<append>($[object])</append>
+				<append>($[object]) </append>
 			</behavior>
 		</completion>
 		<completion string="combine">
 			<behavior>
-				<append>($[aray a], $[array b])</append>
+				<append>($[aray a], $[array b]) </append>
 			</behavior>
 		</completion>
 		<completion string="configure">
 			<behavior>
-				<append>($[object], $[object attributes])</append>
+				<append>($[object], $[object attributes]) </append>
 			</behavior>
 		</completion>
 		<completion string="constant">
 			<behavior>
-				<append>($[string constant])</append>
+				<append>($[string constant]) </append>
 			</behavior>
 		</completion>
 		<completion string="create">
 			<behavior>
-				<append>($[mixed config])</append>
+				<append>($[mixed config]) </append>
 			</behavior>
 		</completion>
 		<completion string="cpUrl">
 			<behavior>
-				<append>($[string path], $[object params], $[string scheme])</append>
+				<append>($[string path], $[object params], $[string scheme]) </append>
 			</behavior>
 		</completion>
 		<completion string="csrfInput">
 			<behavior>
-				<append>()</append>
+				<append>() </append>
 			</behavior>
 		</completion>
 		<completion string="csrfInput">
 			<behavior>
-				<append>($[object options])</append>
+				<append>($[object options]) </append>
 			</behavior>
 		</completion>
 		<completion string="endBody">
 			<behavior>
-				<append>()</append>
+				<append>() </append>
 			</behavior>
 		</completion>
 		<completion string="expression">
 			<behavior>
-				<append>($[string expression], $[object params])</append>
+				<append>($[string expression], $[object params]) </append>
 			</behavior>
 		</completion>
 		<completion string="floor">
 			<behavior>
-				<append>($[number])</append>
+				<append>($[number]) </append>
 			</behavior>
 		</completion>
 		<completion string="getenv">
 			<behavior>
-				<append>($[string environment_variable])</append>
+				<append>($[string environment_variable]) </append>
 			</behavior>
 		</completion>
 		<completion string="gql">
 			<behavior>
-				<append>($[string query])</append>
+				<append>($[string query]) </append>
 			</behavior>
 		</completion>
 		<completion string="parseEnv">
 			<behavior>
-				<append>($[string variable])</append>
+				<append>($[string variable]) </append>
 			</behavior>
 		</completion>
 		<completion string="head">
 			<behavior>
-				<append>()</append>
+				<append>() </append>
 			</behavior>
 		</completion>
 		<completion string="hiddenInput">
 			<behavior>
-				<append>($[string name], $[string id])</append>
+				<append>($[string name], $[string id]) </append>
 			</behavior>
 		</completion>
 		<completion string="hiddenInput">
 			<behavior>
-				<append>($[string name], $[string id], $[object options])</append>
+				<append>($[string name], $[string id], $[object options]) </append>
 			</behavior>
 		</completion>
 		<completion string="input">
 			<behavior>
-				<append>($[string name], $[string id])</append>
+				<append>($[string name], $[string id]) </append>
 			</behavior>
 		</completion>
 		<completion string="input">
 			<behavior>
-				<append>($[string name], $[string id], $[object options])</append>
+				<append>($[string name], $[string id], $[object options]) </append>
 			</behavior>
 		</completion>
 		<completion string="plugin">
 			<behavior>
-				<append>($[string name])</append>
+				<append>($[string name]) </append>
 			</behavior>
 		</completion>
 		<completion string="raw">
 			<behavior>
-				<append>($[string content])</append>
+				<append>($[string content]) </append>
 			</behavior>
 		</completion>
 		<completion string="redirectInput">
 			<behavior>
-				<append>($[string url])</append>
+				<append>($[string url]) </append>
 			</behavior>
 		</completion>
 		<completion string="redirectInput">
 			<behavior>
-				<append>($[string url], $[object options])</append>
+				<append>($[string url], $[object options]) </append>
 			</behavior>
 		</completion>
 		<completion string="seq">
 			<behavior>
-				<append>($[string name])</append>
+				<append>($[string name]) </append>
 			</behavior>
 		</completion>
 		<completion string="seq">
 			<behavior>
-				<append>($[string name], next=false)</append>
+				<append>($[string name], next=false) </append>
 			</behavior>
 		</completion>
 		<completion string="shuffle">
 			<behavior>
-				<append>($[array data])</append>
+				<append>($[array data]) </append>
 			</behavior>
 		</completion>
 		<completion string="siteUrl">
 			<behavior>
-				<append>($[string path], $[object params], $[string scheme], $[string siteId])</append>
+				<append>($[string path], $[object params], $[string scheme], $[string siteId]) </append>
 			</behavior>
 		</completion>
 		<completion string="svg">
 			<behavior>
-				<append>($[mixed content])</append>
+				<append>($[mixed content]) </append>
 			</behavior>
 		</completion>
 		<completion string="svg">
 			<behavior>
-				<append>($[mixed content], sanitize=false, namespace=false)</append>
+				<append>($[mixed content], sanitize=false, namespace=false) </append>
 			</behavior>
 		</completion>
 		<completion string="tag">
 			<behavior>
-				<append>($[string name], $[object options])</append>
+				<append>($[string name], $[object options]) </append>
 			</behavior>
 		</completion>
 		<completion string="url">
 			<behavior>
-				<append>($[string path], $[object params], $[string scheme], $[bool mustShowScriptName])</append>
+				<append>($[string path], $[object params], $[string scheme], $[bool mustShowScriptName]) </append>
 			</behavior>
 		</completion>
 	</set>
