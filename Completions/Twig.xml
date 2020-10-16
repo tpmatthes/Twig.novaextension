@@ -294,16 +294,16 @@
 		</completion>
 		<completion string="set">
 			<behavior suffix="\}">
-				<append> $[variable] %}$[]{% endset %</append>
+				<append> $[variable] %}$[…]{% endset %</append>
 			</behavior>
 			<behavior suffix="%\}">
-				<append> $[variable] %}$[]{% endset </append>
+				<append> $[variable] %}$[…]{% endset </append>
 			</behavior>
 			<behavior suffix="(\s*%\})">
-				<append> $[variable] %}$[]{% endset</append>
+				<append> $[variable] %}$[…]{% endset</append>
 			</behavior>
 			<behavior>
-				<append> $[variable] %}$[]{% endset %}</append>
+				<append> $[variable] %}$[…]{% endset %}</append>
 			</behavior>
 		</completion>
 		<completion string="set">
