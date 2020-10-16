@@ -1,3 +1,11 @@
+## Version 1.2
+
+- Auto insert %} after tags in completions
+- Auto insert {% endif %}, {% endfor %} etc. in tag completions
+- Auto insert space after function calls in completions
+- Improve context for completions
+- Remove matching {} from Twig-HTML syntax
+
 ## Version 1.1
 
 - Completions for Craft CMS 3.0+
