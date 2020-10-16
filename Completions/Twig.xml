@@ -1,24 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <completions>
-	<!-- Anything after {% -->
+	<!-- Tags directly after "{% " -->
 	<provider>
 		<syntax>twig-base</syntax>
 		<selector>*:not(string,comment)</selector>
-		<expression>(?&lt;=\%\s)([a-zA-Z]*)</expression>
+		<expression>(?&lt;=\{%\s)([a-zA-Z]*)</expression>
 		<set>twig.tags</set>
 	</provider>
 	
-	<!-- Anything after space -->
-	<provider>
-		<syntax>twig-base</syntax>
-		<selector>*:not(string,comment)</selector>
-		<expression>(?&lt;=\s)([a-zA-Z]*)</expression>
-		<set>twig.functions</set>
-		<set>twig.keywords</set>
-		<set>twig.globals</set>
-	</provider>
-	
-	<!-- Tests after is -->
+	<!-- Tests after "is" -->
 	<provider>
 		<syntax>twig-base</syntax>
 		<selector>*:not(string,comment)</selector>
@@ -26,7 +16,7 @@
 		<set>twig.tests</set>
 	</provider>
 
-	<!-- Filters after | -->
+	<!-- Filters after "|" -->
 	<provider>
 		<syntax>twig-base</syntax>
 		<selector>*:not(string,comment)</selector>
@@ -34,12 +24,22 @@
 		<set>twig.filters</set>
 	</provider>
 	
-	<!-- Filters after apply -->
+	<!-- Filters after "apply" -->
 	<provider>
 		<syntax>twig-base</syntax>
 		<selector>*:not(string,comment)</selector>
 		<expression>(?&lt;=apply\s)([a-zA-Z]*)</expression>
 		<set>twig.filters</set>
+	</provider>
+	
+	<!-- Anything else after space, but not behind "is", "apply" or directly behind "{%" -->
+	<provider>
+		<syntax>twig-base</syntax>
+		<selector>*:not(string, comment)</selector>
+		<expression>(?&lt;!is\s|apply\s|\{%\s|\S)([a-zA-Z]*)</expression>
+		<set>twig.functions</set>
+		<set>twig.keywords</set>
+		<set>twig.globals</set>
 	</provider>
 
 	<!-- Tags -->
