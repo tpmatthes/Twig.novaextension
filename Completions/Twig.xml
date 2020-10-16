@@ -44,24 +44,78 @@
 
 	<!-- Tags -->
 	<set name="twig.tags">
-		<completion string="apply" />
+		<!-- Auto complete %} at the end -->
+		<behavior suffix="\}">
+			<append> %</append>
+		</behavior>
+		<behavior suffix="%\}">
+			<append> </append>
+		</behavior>
+		<behavior suffix="(\s*%\})">
+			<append></append>
+		</behavior>
+		<behavior>
+			<append> %}</append>
+		</behavior>
+		<!-- Regular Twig -->
+		<completion string="apply">
+			<behavior suffix="\}">
+				<append> $[filter] %</append>
+			</behavior>
+			<behavior suffix="%\}">
+				<append> $[filter] </append>
+			</behavior>
+			<behavior suffix="(\s*%\})">
+				<append> $[filter]</append>
+			</behavior>
+			<behavior>
+				<append> $[filter] %}</append>
+			</behavior>
+		</completion>
 		<completion string="autoescape" />
 		<completion string="block">
-			<behavior>
+			<behavior suffix="\}">
+				<append> $[string name] %</append>
+			</behavior>
+			<behavior suffix="%\}">
+				<append> $[string name] </append>
+			</behavior>
+			<behavior suffix="(\s*%\})">
 				<append> $[string name]</append>
+			</behavior>
+			<behavior>
+				<append> $[string name] %}</append>
 			</behavior>
 		</completion>
 		<completion string="deprecated">
-			<behavior>
+			<behavior suffix="\}">
+				<append> '$[string message]' %</append>
+			</behavior>
+			<behavior suffix="%\}">
+				<append> '$[string message]' </append>
+			</behavior>
+			<behavior suffix="(\s*%\})">
 				<append> '$[string message]'</append>
+			</behavior>
+			<behavior>
+				<append> '$[string message]' %}</append>
 			</behavior>
 		</completion>
 		<completion string="do" />
 		<completion string="else" />
 		<completion string="elseif" />
 		<completion string="embed">
-			<behavior>
+			<behavior suffix="\}">
+				<append> '$[string file]' %</append>
+			</behavior>
+			<behavior suffix="%\}">
+				<append> '$[string file]' </append>
+			</behavior>
+			<behavior suffix="(\s*%\})">
 				<append> '$[string file]'</append>
+			</behavior>
+			<behavior>
+				<append> '$[string file]' %}</append>
 			</behavior>
 		</completion>
 		<completion string="endif" />
@@ -73,160 +127,512 @@
 		<completion string="endsandbox" />
 		<completion string="endverbatim" />
 		<completion string="extends">
-			<behavior>
+			<behavior suffix="\}">
+				<append> '$[string file]' %</append>
+			</behavior>
+			<behavior suffix="%\}">
+				<append> '$[string file]' </append>
+			</behavior>
+			<behavior suffix="(\s*%\})">
 				<append> '$[string file]'</append>
+			</behavior>
+			<behavior>
+				<append> '$[string file]' %}</append>
 			</behavior>
 		</completion>
 		<completion string="flush" />
-		<completion string="for" />
 		<completion string="for">
+			<behavior suffix="\}">
+				<append> $[a] in $[b] %}$[…]{% endfor %</append>
+			</behavior>
+			<behavior suffix="%\}">
+				<append> $[a] in $[b] %}$[…]{% endfor </append>
+			</behavior>
+			<behavior suffix="(\s*%\})">
+				<append> $[a] in $[b] %}$[…]{% endfor</append>
+			</behavior>
 			<behavior>
-				<append> $[a] in $[b]</append>
+				<append> $[a] in $[b] %}$[…]{% endfor %}</append>
 			</behavior>
 		</completion>
 		<completion string="from">
-			<behavior>
+			<behavior suffix="\}">
+				<append> '$[string file]' import $[variable] %</append>
+			</behavior>
+			<behavior suffix="%\}">
+				<append> '$[string file]' import $[variable] </append>
+			</behavior>
+			<behavior suffix="(\s*%\})">
 				<append> '$[string file]' import $[variable]</append>
+			</behavior>
+			<behavior>
+				<append> '$[string file]' import $[variable] %}</append>
 			</behavior>
 		</completion>
 		<completion string="if">
+			<behavior suffix="\}">
+				<append> $[condition] %}$[…]{% endif %</append>
+			</behavior>
+			<behavior suffix="%\}">
+				<append> $[condition] %}$[…]{% endif </append>
+			</behavior>
+			<behavior suffix="(\s*%\})">
+				<append> $[condition] %}$[…]{% endif</append>
+			</behavior>
 			<behavior>
-				<append> $[condition]</append>
+				<append> $[condition] %}$[…]{% endif %}</append>
 			</behavior>
 		</completion>
 		<completion string="import">
-			<behavior>
+			<behavior suffix="\}">
+				<append> '$[string file]' as $[variable] %</append>
+			</behavior>
+			<behavior suffix="%\}">
+				<append> '$[string file]' as $[variable] </append>
+			</behavior>
+			<behavior suffix="(\s*%\})">
 				<append> '$[string file]' as $[variable]</append>
 			</behavior>
-		</completion>
-		<completion string="include">
 			<behavior>
-				<append> '$[string file]'</append>
+				<append> '$[string file]' as $[variable] %}</append>
 			</behavior>
 		</completion>
 		<completion string="include">
+			<behavior suffix="\}">
+				<append> '$[string file]' %</append>
+			</behavior>
+			<behavior suffix="%\}">
+				<append> '$[string file]' </append>
+			</behavior>
+			<behavior suffix="(\s*%\})">
+				<append> '$[string file]'</append>
+			</behavior>
 			<behavior>
+				<append> '$[string file]' %}</append>
+			</behavior>
+		</completion>
+		<completion string="include">
+			<behavior suffix="\}">
+				<append> '$[string file]' with {$[data]} %</append>
+			</behavior>
+			<behavior suffix="%\}">
+				<append> '$[string file]' with {$[data]} </append>
+			</behavior>
+			<behavior suffix="(\s*%\})">
 				<append> '$[string file]' with {$[data]}</append>
+			</behavior>
+			<behavior>
+				<append> '$[string file]' with {$[data]} %}</append>
 			</behavior>
 		</completion>
 		<completion string="macro">
+			<behavior suffix="\}">
+				<append> $[name]($[arguments]) %}$[…]{% endmacro %</append>
+			</behavior>
+			<behavior suffix="%\}">
+				<append> $[name]($[arguments]) %}$[…]{% endmacro </append>
+			</behavior>
+			<behavior suffix="(\s*%\})">
+				<append> $[name]($[arguments]) %}$[…]{% endmacro</append>
+			</behavior>
 			<behavior>
-				<append> $[name]($[arguments])</append>
+				<append> $[name]($[arguments]) %}$[…]{% endmacro %}</append>
 			</behavior>
 		</completion>
-		<completion string="sandbox" />
-		<completion string="set">
+		<completion string="sandbox">
+			<behavior suffix="\}">
+				<append> %}$[…]{% endsandbox %</append>
+			</behavior>
+			<behavior suffix="%\}">
+				<append> %}$[…]{% endsandbox </append>
+			</behavior>
+			<behavior suffix="(\s*%\})">
+				<append> %}$[…]{% endsandbox</append>
+			</behavior>
 			<behavior>
+				<append> %}$[…]{% endsandbox %}</append>
+			</behavior>
+		</completion>
+		<completion string="set">
+			<behavior suffix="\}">
+				<append> $[variable] %}$[]{% endset %</append>
+			</behavior>
+			<behavior suffix="%\}">
+				<append> $[variable] %}$[]{% endset </append>
+			</behavior>
+			<behavior suffix="(\s*%\})">
+				<append> $[variable] %}$[]{% endset</append>
+			</behavior>
+			<behavior>
+				<append> $[variable] %}$[]{% endset %}</append>
+			</behavior>
+		</completion>
+		<completion string="set">
+			<behavior suffix="\}">
+				<append> $[variable] = $[value] %</append>
+			</behavior>
+			<behavior suffix="%\}">
+				<append> $[variable] = $[value] </append>
+			</behavior>
+			<behavior suffix="(\s*%\})">
 				<append> $[variable] = $[value]</append>
 			</behavior>
+			<behavior>
+				<append> $[variable] = $[value] %}</append>
+			</behavior>
 		</completion>
 		<completion string="use">
-			<behavior>
+			<behavior suffix="\}">
+				<append> '$[string file]' %</append>
+			</behavior>
+			<behavior suffix="%\}">
+				<append> '$[string file]' </append>
+			</behavior>
+			<behavior suffix="(\s*%\})">
 				<append> '$[string file]'</append>
 			</behavior>
+			<behavior>
+				<append> '$[string file]' %}</append>
+			</behavior>
 		</completion>
 		<completion string="use">
-			<behavior>
+			<behavior suffix="\}">
+				<append> '$[string file]' with $[name] as $[variable] %</append>
+			</behavior>
+			<behavior suffix="%\}">
+				<append> '$[string file]' with $[name] as $[variable] </append>
+			</behavior>
+			<behavior suffix="(\s*%\})">
 				<append> '$[string file]' with $[name] as $[variable]</append>
 			</behavior>
+			<behavior>
+				<append> '$[string file]' with $[name] as $[variable] %}</append>
+			</behavior>
 		</completion>
-		<completion string="verbatim" />
+		<completion string="verbatim">
+			<behavior suffix="\}">
+				<append> %}$[…]{% endverbatim %</append>
+			</behavior>
+			<behavior suffix="%\}">
+				<append> %}$[…]{% endverbatim </append>
+			</behavior>
+			<behavior suffix="(\s*%\})">
+				<append> %}$[…]{% endverbatim</append>
+			</behavior>
+			<behavior>
+				<append> %}$[…]{% endverbatim %}</append>
+			</behavior>
+		</completion>
 		<completion string="with" />
 		<!-- Craft CMS -->
-		<completion string="cache" />
 		<completion string="cache">
+			<behavior suffix="\}">
+				<append> %}$[…]{% endcache %</append>
+			</behavior>
+			<behavior suffix="%\}">
+				<append> %}$[…]{% endcache </append>
+			</behavior>
+			<behavior suffix="(\s*%\})">
+				<append> %}$[…]{% endcache</append>
+			</behavior>
 			<behavior>
-				<append> globally</append>
+				<append> %}$[…]{% endcache %}</append>
 			</behavior>
 		</completion>
 		<completion string="cache">
+			<behavior suffix="\}">
+				<append> globally %}$[…]{% endcache %</append>
+			</behavior>
+			<behavior suffix="%\}">
+				<append> globally %}$[…]{% endcache </append>
+			</behavior>
+			<behavior suffix="(\s*%\})">
+				<append> globally %}$[…]{% endcache</append>
+			</behavior>
 			<behavior>
-				<append> using key $[string key]</append>
+				<append> globally %}$[…]{% endcache %}</append>
 			</behavior>
 		</completion>
 		<completion string="cache">
+			<behavior suffix="\}">
+				<append> using key $[string key] %}$[…]{% endcache %</append>
+			</behavior>
+			<behavior suffix="%\}">
+				<append> using key $[string key] %}$[…]{% endcache </append>
+			</behavior>
+			<behavior suffix="(\s*%\})">
+				<append> using key $[string key] %}$[…]{% endcache</append>
+			</behavior>
 			<behavior>
-				<append> for $[duration]</append>
+				<append> using key $[string key] %}$[…]{% endcache %}</append>
 			</behavior>
 		</completion>
 		<completion string="cache">
+			<behavior suffix="\}">
+				<append> for $[duration] %}$[…]{% endcache %</append>
+			</behavior>
+			<behavior suffix="%\}">
+				<append> for $[duration] %}$[…]{% endcache </append>
+			</behavior>
+			<behavior suffix="(\s*%\})">
+				<append> for $[duration] %}$[…]{% endcache</append>
+			</behavior>
 			<behavior>
-				<append> if $[condition]</append>
+				<append> for $[duration] %}$[…]{% endcache %}</append>
 			</behavior>
 		</completion>
 		<completion string="cache">
+			<behavior suffix="\}">
+				<append> if $[condition] %}$[…]{% endcache %</append>
+			</behavior>
+			<behavior suffix="%\}">
+				<append> if $[condition] %}$[…]{% endcache </append>
+			</behavior>
+			<behavior suffix="(\s*%\})">
+				<append> if $[condition] %}$[…]{% endcache</append>
+			</behavior>
 			<behavior>
-				<append> unless $[condition]</append>
+				<append> if $[condition] %}$[…]{% endcache %}</append>
 			</behavior>
 		</completion>
-		<completion string="css" />
+		<completion string="cache">
+			<behavior suffix="\}">
+				<append> unless $[condition] %}$[…]{% endcache %</append>
+			</behavior>
+			<behavior suffix="%\}">
+				<append> unless $[condition] %}$[…]{% endcache </append>
+			</behavior>
+			<behavior suffix="(\s*%\})">
+				<append> unless $[condition] %}$[…]{% endcache</append>
+			</behavior>
+			<behavior>
+				<append> unless $[condition] %}$[…]{% endcache %}</append>
+			</behavior>
+		</completion>
 		<completion string="css">
+			<behavior suffix="\}">
+				<append> %}$[…]{% endcss %</append>
+			</behavior>
+			<behavior suffix="%\}">
+				<append> %}$[…]{% endcss </append>
+			</behavior>
+			<behavior suffix="(\s*%\})">
+				<append> %}$[…]{% endcss</append>
+			</behavior>
 			<behavior>
+				<append> %}$[…]{% endcss %}</append>
+			</behavior>
+		</completion>
+		<completion string="css">
+			<behavior suffix="\}">
+				<append> $[string filename] %</append>
+			</behavior>
+			<behavior suffix="%\}">
+				<append> $[string filename] </append>
+			</behavior>
+			<behavior suffix="(\s*%\})">
 				<append> $[string filename]</append>
+			</behavior>
+			<behavior>
+				<append> $[string filename] %}</append>
 			</behavior>
 		</completion>
 		<completion string="dd">
-			<behavior>
+			<behavior suffix="\}">
+				<append> $[variable] %</append>
+			</behavior>
+			<behavior suffix="%\}">
+				<append> $[variable] </append>
+			</behavior>
+			<behavior suffix="(\s*%\})">
 				<append> $[variable]</append>
+			</behavior>
+			<behavior>
+				<append> $[variable] %}</append>
 			</behavior>
 		</completion>
 		<completion string="exit">
-			<behavior>
+			<behavior suffix="\}">
+				<append> $[int status] %</append>
+			</behavior>
+			<behavior suffix="%\}">
+				<append> $[int status] </append>
+			</behavior>
+			<behavior suffix="(\s*%\})">
 				<append> $[int status]</append>
+			</behavior>
+			<behavior>
+				<append> $[int status] %}</append>
 			</behavior>
 		</completion>
 		<completion string="header">
-			<behavior>
+			<behavior suffix="\}">
+				<append> $[string header] %</append>
+			</behavior>
+			<behavior suffix="%\}">
+				<append> $[string header] </append>
+			</behavior>
+			<behavior suffix="(\s*%\})">
 				<append> $[string header]</append>
+			</behavior>
+			<behavior>
+				<append> $[string header] %}</append>
 			</behavior>
 		</completion>
 		<completion string="hook">
-			<behavior>
+			<behavior suffix="\}">
+				<append> $[string name] %</append>
+			</behavior>
+			<behavior suffix="%\}">
+				<append> $[string name] </append>
+			</behavior>
+			<behavior suffix="(\s*%\})">
 				<append> $[string name]</append>
 			</behavior>
-		</completion>
-		<completion string="html" />
-		<completion string="js" />
-		<completion string="js">
 			<behavior>
+				<append> $[string name] %}</append>
+			</behavior>
+		</completion>
+		<completion string="html">
+			<behavior suffix="\}">
+				<append> %}$[…]{% endhtml %</append>
+			</behavior>
+			<behavior suffix="%\}">
+				<append> %}$[…]{% endhtml </append>
+			</behavior>
+			<behavior suffix="(\s*%\})">
+				<append> %}$[…]{% endhtml</append>
+			</behavior>
+			<behavior>
+				<append> %}$[…]{% endhtml %}</append>
+			</behavior>
+		</completion>
+		<completion string="js">
+			<behavior suffix="\}">
+				<append> %}$[…]{% endjs %</append>
+			</behavior>
+			<behavior suffix="%\}">
+				<append> %}$[…]{% endjs </append>
+			</behavior>
+			<behavior suffix="(\s*%\})">
+				<append> %}$[…]{% endjs</append>
+			</behavior>
+			<behavior>
+				<append> %}$[…]{% endjs %}</append>
+			</behavior>
+		</completion>
+		<completion string="js">
+			<behavior suffix="\}">
+				<append> $[string filename] %</append>
+			</behavior>
+			<behavior suffix="%\}">
+				<append> $[string filename] </append>
+			</behavior>
+			<behavior suffix="(\s*%\})">
 				<append> $[string filename]</append>
+			</behavior>
+			<behavior>
+				<append> $[string filename] %}</append>
 			</behavior>
 		</completion>
 		<completion string="namespace">
-			<behavior>
+			<behavior suffix="\}">
+				<append> $[string namespace] %</append>
+			</behavior>
+			<behavior suffix="%\}">
+				<append> $[string namespace] </append>
+			</behavior>
+			<behavior suffix="(\s*%\})">
 				<append> $[string namespace]</append>
+			</behavior>
+			<behavior>
+				<append> $[string namespace] %}</append>
 			</behavior>
 		</completion>
 		<completion string="nav">
+			<behavior suffix="\}">
+				<append> $[a] in $[b] %}$[…]{% endnav %</append>
+			</behavior>
+			<behavior suffix="%\}">
+				<append> $[a] in $[b] %}$[…]{% endnav </append>
+			</behavior>
+			<behavior suffix="(\s*%\})">
+				<append> $[a] in $[b] %}$[…]{% endnav</append>
+			</behavior>
 			<behavior>
-				<append> $[a] in $[b]</append>
+				<append> $[a] in $[b] %}$[…]{% endnav %}</append>
 			</behavior>
 		</completion>
 		<completion string="paginate">
-			<behavior>
+			<behavior suffix="\}">
+				<append> $[query] as pageInfo, pageEntries %</append>
+			</behavior>
+			<behavior suffix="%\}">
+				<append> $[query] as pageInfo, pageEntries </append>
+			</behavior>
+			<behavior suffix="(\s*%\})">
 				<append> $[query] as pageInfo, pageEntries</append>
 			</behavior>
-		</completion>
-		<completion string="redirect">
 			<behavior>
-				<append> $[string url]</append>
+				<append> $[query] as pageInfo, pageEntries %}</append>
 			</behavior>
 		</completion>
 		<completion string="redirect">
+			<behavior suffix="\}">
+				<append> $[string url] %</append>
+			</behavior>
+			<behavior suffix="%\}">
+				<append> $[string url] </append>
+			</behavior>
+			<behavior suffix="(\s*%\})">
+				<append> $[string url]</append>
+			</behavior>
 			<behavior>
+				<append> $[string url] %}</append>
+			</behavior>
+		</completion>
+		<completion string="redirect">
+			<behavior suffix="\}">
+				<append> $[string url] $[int status] with notice $[string notice] %</append>
+			</behavior>
+			<behavior suffix="%\}">
+				<append> $[string url] $[int status] with notice $[string notice] </append>
+			</behavior>
+			<behavior suffix="(\s*%\})">
 				<append> $[string url] $[int status] with notice $[string notice]</append>
+			</behavior>
+			<behavior>
+				<append> $[string url] $[int status] with notice $[string notice] %}</append>
 			</behavior>
 		</completion>
 		<completion string="requireGuest" />
 		<completion string="requireLogin" />
 		<completion string="requirePermission">
-			<behavior>
+			<behavior suffix="\}">
+				<append> $[string permission] %</append>
+			</behavior>
+			<behavior suffix="%\}">
+				<append> $[string permission] </append>
+			</behavior>
+			<behavior suffix="(\s*%\})">
 				<append> $[string permission]</append>
+			</behavior>
+			<behavior>
+				<append> $[string permission] %}</append>
 			</behavior>
 		</completion>
 		<completion string="switch">
+			<behavior suffix="\}">
+				<append> $[variable] %}$[…]{% endswitch %</append>
+			</behavior>
+			<behavior suffix="%\}">
+				<append> $[variable] %}$[…]{% endswitch </append>
+			</behavior>
+			<behavior suffix="(\s*%\})">
+				<append> $[variable] %}$[…]{% endswitch</append>
+			</behavior>
 			<behavior>
-				<append> $[variable]</append>
+				<append> $[variable] %}$[…]{% endswitch %}</append>
 			</behavior>
 		</completion>
 		<completion string="case" />
