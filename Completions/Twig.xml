@@ -60,31 +60,44 @@
 		<!-- Regular Twig -->
 		<completion string="apply">
 			<behavior suffix="\}">
-				<append> $[filter] %</append>
+				<append> $[filter] %}$[…]{% endapply %</append>
 			</behavior>
 			<behavior suffix="%\}">
-				<append> $[filter] </append>
+				<append> $[filter] %}$[…]{% endapply </append>
 			</behavior>
 			<behavior suffix="(\s*%\})">
-				<append> $[filter]</append>
+				<append> $[filter] %}$[…]{% endapply</append>
 			</behavior>
 			<behavior>
-				<append> $[filter] %}</append>
+				<append> $[filter] %}$[…]{% endapply %}</append>
 			</behavior>
 		</completion>
-		<completion string="autoescape" />
-		<completion string="block">
+		<completion string="autoescape">
 			<behavior suffix="\}">
-				<append> $[string name] %</append>
+				<append> %}$[…]{% endapply %</append>
 			</behavior>
 			<behavior suffix="%\}">
-				<append> $[string name] </append>
+				<append> %}$[…]{% endapply </append>
 			</behavior>
 			<behavior suffix="(\s*%\})">
-				<append> $[string name]</append>
+				<append> %}$[…]{% endapply</append>
 			</behavior>
 			<behavior>
-				<append> $[string name] %}</append>
+				<append> %}$[…]{% endapply %}</append>
+			</behavior>
+		</completion>
+		<completion string="block">
+			<behavior suffix="\}">
+				<append> $[string name] %}$[…]{% endblock %</append>
+			</behavior>
+			<behavior suffix="%\}">
+				<append> $[string name] %}$[…]{% endblock </append>
+			</behavior>
+			<behavior suffix="(\s*%\})">
+				<append> $[string name] %}$[…]{% endblock</append>
+			</behavior>
+			<behavior>
+				<append> $[string name] %}$[…]{% endblock %}</append>
 			</behavior>
 		</completion>
 		<completion string="deprecated">
@@ -101,9 +114,35 @@
 				<append> '$[string message]' %}</append>
 			</behavior>
 		</completion>
-		<completion string="do" />
+		<completion string="do">
+			<behavior suffix="\}">
+				<append> $[expression] %</append>
+			</behavior>
+			<behavior suffix="%\}">
+				<append> $[expression] </append>
+			</behavior>
+			<behavior suffix="(\s*%\})">
+				<append> $[expression]</append>
+			</behavior>
+			<behavior>
+				<append> $[expression] %}</append>
+			</behavior>
+		</completion>
 		<completion string="else" />
-		<completion string="elseif" />
+		<completion string="elseif">
+			<behavior suffix="\}">
+				<append> $[condition] %</append>
+			</behavior>
+			<behavior suffix="%\}">
+				<append> $[condition] </append>
+			</behavior>
+			<behavior suffix="(\s*%\})">
+				<append> $[condition]</append>
+			</behavior>
+			<behavior>
+				<append> $[condition] %}</append>
+			</behavior>
+		</completion>
 		<completion string="embed">
 			<behavior suffix="\}">
 				<append> '$[string file]' %</append>
