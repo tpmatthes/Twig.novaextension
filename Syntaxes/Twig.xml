@@ -26,9 +26,9 @@
 	</comments>
 
 	<brackets>
-		<pair open="(" close=")" />
-		<pair open="[" close="]" />
 		<pair open="{" close="}" />
+		<pair open="[" close="]" />
+		<pair open="(" close=")" />
 	</brackets>
 
 	<surrounding-pairs>
