@@ -1,3 +1,9 @@
+## Version 1.3
+
+- Add basic tag completions for Twig-HTML (outside opening brackets)
+- Fix: correct end tag for autoescape completion
+- Fix: correct syntax highlighting for blocks and variables named like keywords
+
 ## Version 1.2
 
 - Auto insert %} after tags in completions
