@@ -74,16 +74,16 @@
 		</completion>
 		<completion string="autoescape">
 			<behavior suffix="\}">
-				<append> %}$[…]{% endapply %</append>
+				<append> %}$[…]{% endautoescape %</append>
 			</behavior>
 			<behavior suffix="%\}">
-				<append> %}$[…]{% endapply </append>
+				<append> %}$[…]{% endautoescape </append>
 			</behavior>
 			<behavior suffix="(\s*%\})">
-				<append> %}$[…]{% endapply</append>
+				<append> %}$[…]{% endautoescape</append>
 			</behavior>
 			<behavior>
-				<append> %}$[…]{% endapply %}</append>
+				<append> %}$[…]{% endautoescape %}</append>
 			</behavior>
 		</completion>
 		<completion string="block">
