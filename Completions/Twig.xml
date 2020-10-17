@@ -157,12 +157,12 @@
 				<append> '$[string file]' %}</append>
 			</behavior>
 		</completion>
-		<completion string="endif" />
-		<completion string="endfor" />
-		<completion string="endblock" />
 		<completion string="endapply" />
 		<completion string="endautoescape" />
+		<completion string="endblock" />
 		<completion string="endembed" />
+		<completion string="endfor" />
+		<completion string="endif" />
 		<completion string="endsandbox" />
 		<completion string="endverbatim" />
 		<completion string="extends">
@@ -447,6 +447,7 @@
 				<append> unless $[condition] %}$[…]{% endcache %}</append>
 			</behavior>
 		</completion>
+		<completion string="case" />
 		<completion string="css">
 			<behavior suffix="\}">
 				<append> %}$[…]{% endcss %</append>
@@ -489,6 +490,10 @@
 				<append> $[variable] %}</append>
 			</behavior>
 		</completion>
+		<completion string="endcache" />
+		<completion string="endcss" />
+		<completion string="endhtml" />
+		<completion string="endswitch" />
 		<completion string="exit">
 			<behavior suffix="\}">
 				<append> $[int status] %</append>
@@ -673,11 +678,6 @@
 				<append> $[variable] %}$[…]{% endswitch %}</append>
 			</behavior>
 		</completion>
-		<completion string="case" />
-		<completion string="endcache" />
-		<completion string="endhtml" />
-		<completion string="endcss" />
-		<completion string="endswitch" />
 	</set>
 	
 	<!-- Built-in Functions -->
