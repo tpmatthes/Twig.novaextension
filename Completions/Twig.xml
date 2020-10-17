@@ -44,7 +44,7 @@
 
 	<!-- Tags -->
 	<set name="twig.tags">
-		<!-- Auto complete %} at the end -->
+		<!-- Default: auto complete %} at the end -->
 		<behavior suffix="\}">
 			<append> %</append>
 		</behavior>
@@ -957,6 +957,7 @@
 	
 	<!-- Keywords -->
 	<set name="twig.keywords">
+		<!-- Regular Twig -->
 		<completion string="not" />
 		<completion string="as" />
 		<completion string="in" />
@@ -975,6 +976,7 @@
 	
 	<!-- Globals -->
 	<set name="twig.globals">
+		<!-- Regular Twig -->
 		<completion string="now" />
 		<!-- Craft CMS -->
 		<completion string="craft" />
@@ -992,6 +994,7 @@
 	
 	<!-- Tests -->
 	<set name="twig.tests">
+		<!-- Regular Twig -->
 		<completion string="defined" />
 		<completion string="constant">
 			<behavior>
