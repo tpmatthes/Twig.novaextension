@@ -362,7 +362,6 @@
 				<append> %}$[…]{% endverbatim %}</append>
 			</behavior>
 		</completion>
-		<completion string="with" />
 		<!-- Craft CMS -->
 		<completion string="cache">
 			<behavior suffix="\}">
