@@ -981,6 +981,7 @@
 		<completion string="currentSite" />
 		<completion string="currentUser" />
 		<completion string="devMode" />
+		<completion string="entry" />
 		<completion string="loginUrl" />
 		<completion string="logoutUrl" />
 		<completion string="siteName" />
