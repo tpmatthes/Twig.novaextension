@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<completions>
+	<!-- Basic completions outside {% -->
+	<provider>
+		<syntax>twig</syntax>
+		<selector>*:not(tag,comment)</selector>
+		<expression>([a-zA-Z]*)</expression>
+		<set>twig.basics</set>
+	</provider>
+	
+	<!-- Full tags for basic completions -->
+	<set name="twig.basics">
+		<!-- Default: auto complete {% … %} -->
+		<behavior>
+			<prepend>{% </prepend>
+			<append> %}</append>
+		</behavior>
+		<!-- Regular Twig -->
+		<completion string="apply">
+			<behavior>
+				<prepend>{% </prepend>
+				<append> $[filter] %}$[…]{% endapply %}</append>
+			</behavior>
+		</completion>
+		<completion string="autoescape">
+			<behavior>
+				<prepend>{% </prepend>
+				<append> %}$[…]{% endautoescape %}</append>
+			</behavior>
+		</completion>
+		<completion string="block">
+			<behavior>
+				<prepend>{% </prepend>
+				<append> $[string name] %}$[…]{% endblock %}</append>
+			</behavior>
+		</completion>
+		<completion string="deprecated">
+			<behavior>
+				<prepend>{% </prepend>
+				<append> '$[string message]' %}</append>
+			</behavior>
+		</completion>
+		<completion string="do">
+			<behavior>
+				<prepend>{% </prepend>
+				<append> $[expression] %}</append>
+			</behavior>
+		</completion>
+		<completion string="else" />
+		<completion string="elseif" />
+		<completion string="embed">
+			<behavior>
+				<prepend>{% </prepend>
+				<append> '$[string file]' %}</append>
+			</behavior>
+		</completion>
+		<completion string="endapply" />
+		<completion string="endautoescape" />
+		<completion string="endblock" />
+		<completion string="endembed" />
+		<completion string="endfor" />
+		<completion string="endif" />
+		<completion string="endsandbox" />
+		<completion string="endverbatim" />
+		<completion string="extends" />
+		<completion string="flush" />
+		<completion string="for">
+			<behavior>
+				<prepend>{% </prepend>
+				<append> $[a] in $[b] %}$[…]{% endfor %}</append>
+			</behavior>
+		</completion>
+		<completion string="from">
+			<behavior>
+				<prepend>{% </prepend>
+				<append> '$[string file]' import $[variable] %}</append>
+			</behavior>
+		</completion>
+		<completion string="if">
+			<behavior>
+				<prepend>{% </prepend>
+				<append> $[condition] %}$[…]{% endif %}</append>
+			</behavior>
+		</completion>
+		<completion string="import">
+			<behavior>
+				<prepend>{% </prepend>
+				<append> '$[string file]' as $[variable] %}</append>
+			</behavior>
+		</completion>
+		<completion string="include">
+			<behavior>
+				<prepend>{% </prepend>
+				<append> '$[string file]' %}</append>
+			</behavior>
+		</completion>
+		<completion string="include">
+			<behavior>
+				<prepend>{% </prepend>
+				<append> '$[string file]' with {$[data]} %}</append>
+			</behavior>
+		</completion>
+		<completion string="macro">
+			<behavior>
+				<prepend>{% </prepend>
+				<append> $[name]($[arguments]) %}$[…]{% endmacro %}</append>
+			</behavior>
+		</completion>
+		<completion string="sandbox">
+			<behavior>
+				<prepend>{% </prepend>
+				<append> %}$[…]{% endsandbox %}</append>
+			</behavior>
+		</completion>
+		<completion string="set">
+			<behavior>
+				<prepend>{% </prepend>
+				<append> $[variable] %}$[…]{% endset %}</append>
+			</behavior>
+		</completion>
+		<completion string="set">
+			<behavior>
+				<prepend>{% </prepend>
+				<append> $[variable] = $[value] %}</append>
+			</behavior>
+		</completion>
+		<completion string="use">
+			<behavior>
+				<prepend>{% </prepend>
+				<append> '$[string file]' %}</append>
+			</behavior>
+		</completion>
+		<completion string="use">
+			<behavior>
+				<prepend>{% </prepend>
+				<append> '$[string file]' with $[name] as $[variable] %}</append>
+			</behavior>
+		</completion>
+		<completion string="verbatim">
+			<behavior>
+				<prepend>{% </prepend>
+				<append> %}$[…]{% endverbatim %}</append>
+			</behavior>
+		</completion>
+		<!-- Craft CMS -->
+		<completion string="cache">
+			<behavior>
+				<prepend>{% </prepend>
+				<append> %}$[…]{% endcache %}</append>
+			</behavior>
+		</completion>
+		<completion string="cache">
+			<behavior>
+				<prepend>{% </prepend>
+				<append> globally %}$[…]{% endcache %}</append>
+			</behavior>
+		</completion>
+		<completion string="cache">
+			<behavior>
+				<prepend>{% </prepend>
+				<append> using key $[string key] %}$[…]{% endcache %}</append>
+			</behavior>
+		</completion>
+		<completion string="cache">
+			<behavior>
+				<prepend>{% </prepend>
+				<append> for $[duration] %}$[…]{% endcache %}</append>
+			</behavior>
+		</completion>
+		<completion string="cache">
+			<behavior>
+				<prepend>{% </prepend>
+				<append> if $[condition] %}$[…]{% endcache %}</append>
+			</behavior>
+		</completion>
+		<completion string="cache">
+			<behavior>
+				<prepend>{% </prepend>
+				<append> unless $[condition] %}$[…]{% endcache %}</append>
+			</behavior>
+		</completion>
+		<completion string="case">
+			<behavior>
+				<prepend>{% </prepend>
+				<append> %}</append>
+			</behavior>
+		</completion>
+		<completion string="css">
+			<behavior>
+				<prepend>{% </prepend>
+				<append> %}$[…]{% endcss %}</append>
+			</behavior>
+		</completion>
+		<completion string="css">
+			<behavior>
+				<prepend>{% </prepend>
+				<append> $[string filename] %}</append>
+			</behavior>
+		</completion>
+		<completion string="dd">
+			<behavior>
+				<prepend>{% </prepend>
+				<append> $[variable] %}</append>
+			</behavior>
+		</completion>
+		<completion string="endcss">
+			<behavior>
+				<prepend>{% </prepend>
+				<append> %}</append>
+			</behavior>
+		</completion>
+		<completion string="endhtml">
+			<behavior>
+				<prepend>{% </prepend>
+				<append> %}</append>
+			</behavior>
+		</completion>
+		<completion string="endswitch">
+			<behavior>
+				<prepend>{% </prepend>
+				<append> %}</append>
+			</behavior>
+		</completion>
+		<completion string="endcache">
+			<behavior>
+				<prepend>{% </prepend>
+				<append> %}</append>
+			</behavior>
+		</completion>
+		<completion string="exit">
+			<behavior>
+				<prepend>{% </prepend>
+				<append> $[int status] %}</append>
+			</behavior>
+		</completion>
+		<completion string="header">
+			<behavior>
+				<prepend>{% </prepend>
+				<append> $[string header] %}</append>
+			</behavior>
+		</completion>
+		<completion string="hook">
+			<behavior>
+				<prepend>{% </prepend>
+				<append> $[string name] %}</append>
+			</behavior>
+		</completion>
+		<completion string="html">
+			<behavior>
+				<prepend>{% </prepend>
+				<append> %}$[…]{% endhtml %}</append>
+			</behavior>
+		</completion>
+		<completion string="js">
+			<behavior>
+				<prepend>{% </prepend>
+				<append> %}$[…]{% endjs %}</append>
+			</behavior>
+		</completion>
+		<completion string="js">
+			<behavior>
+				<prepend>{% </prepend>
+				<append> $[string filename] %}</append>
+			</behavior>
+		</completion>
+		<completion string="namespace">
+			<behavior>
+				<prepend>{% </prepend>
+				<append> $[string namespace] %}</append>
+			</behavior>
+		</completion>
+		<completion string="nav">
+			<behavior>
+				<prepend>{% </prepend>
+				<append> $[a] in $[b] %}$[…]{% endnav %}</append>
+			</behavior>
+		</completion>
+		<completion string="paginate">
+			<behavior>
+				<prepend>{% </prepend>
+				<append> $[query] as pageInfo, pageEntries %}</append>
+			</behavior>
+		</completion>
+		<completion string="redirect">
+			<behavior>
+				<prepend>{% </prepend>
+				<append> $[string url] %}</append>
+			</behavior>
+		</completion>
+		<completion string="redirect">
+			<behavior>
+				<prepend>{% </prepend>
+				<append> $[string url] $[int status] with notice $[string notice] %}</append>
+			</behavior>
+		</completion>
+		<completion string="requireGuest">
+			<behavior>
+				<prepend>{% </prepend>
+				<append> %}</append>
+			</behavior>
+		</completion>
+		<completion string="requireLogin">
+			<behavior>
+				<prepend>{% </prepend>
+				<append> %}</append>
+			</behavior>
+		</completion>
+		<completion string="requirePermission">
+			<behavior>
+				<prepend>{% </prepend>
+				<append> $[string permission] %}</append>
+			</behavior>
+		</completion>
+		<completion string="switch">
+			<behavior>
+				<prepend>{% </prepend>
+				<append> $[variable] %}$[…]{% endswitch %}</append>
+			</behavior>
+		</completion>
+	</set>
+</completions>
