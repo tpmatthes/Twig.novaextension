@@ -179,12 +179,7 @@
 				<append> unless $[condition] %}$[…]{% endcache %}</append>
 			</behavior>
 		</completion>
-		<completion string="case">
-			<behavior>
-				<prepend>{% </prepend>
-				<append> %}</append>
-			</behavior>
-		</completion>
+		<completion string="case" />
 		<completion string="css">
 			<behavior>
 				<prepend>{% </prepend>
@@ -203,30 +198,10 @@
 				<append> $[variable] %}</append>
 			</behavior>
 		</completion>
-		<completion string="endcss">
-			<behavior>
-				<prepend>{% </prepend>
-				<append> %}</append>
-			</behavior>
-		</completion>
-		<completion string="endhtml">
-			<behavior>
-				<prepend>{% </prepend>
-				<append> %}</append>
-			</behavior>
-		</completion>
-		<completion string="endswitch">
-			<behavior>
-				<prepend>{% </prepend>
-				<append> %}</append>
-			</behavior>
-		</completion>
-		<completion string="endcache">
-			<behavior>
-				<prepend>{% </prepend>
-				<append> %}</append>
-			</behavior>
-		</completion>
+		<completion string="endcss" />
+		<completion string="endhtml" />
+		<completion string="endswitch" />
+		<completion string="endcache" />
 		<completion string="exit">
 			<behavior>
 				<prepend>{% </prepend>
@@ -293,18 +268,8 @@
 				<append> $[string url] $[int status] with notice $[string notice] %}</append>
 			</behavior>
 		</completion>
-		<completion string="requireGuest">
-			<behavior>
-				<prepend>{% </prepend>
-				<append> %}</append>
-			</behavior>
-		</completion>
-		<completion string="requireLogin">
-			<behavior>
-				<prepend>{% </prepend>
-				<append> %}</append>
-			</behavior>
-		</completion>
+		<completion string="requireGuest" />
+		<completion string="requireLogin" />
 		<completion string="requirePermission">
 			<behavior>
 				<prepend>{% </prepend>
