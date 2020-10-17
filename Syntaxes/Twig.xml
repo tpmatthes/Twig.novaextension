@@ -52,7 +52,7 @@
 		<!-- Built-in Keywords -->
 		<collection name="keywords">
 			<scope name="twig.keyword" spell-check="false">
-				<strings prefix="\b" suffix="\b" word-boundary="false">
+				<strings prefix="(?&lt;!block|set)\s" suffix="\b" word-boundary="false">
 					<string>apply</string>
 					<string>endapply</string>
 					<string>autoescape</string>
