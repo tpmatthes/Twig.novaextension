@@ -46,6 +46,7 @@
 		<include syntax="self" collection="values" />
 		<include syntax="self" collection="identifiers" />
 		<include syntax="self" collection="syntax" />
+		<include syntax="self" collection="definitions" />
 	</scopes>
 	
 	<collections>
@@ -241,5 +242,52 @@
 				<expression>,</expression>
 			</scope>
 		</collection>
+		
+		<!-- Definitions -->
+		<collection name="definitions">
+			<scope name="twig.definition.variable">
+				<symbol type="variable" scope="global" />
+				<expression>(?&lt;=set)\s+([a-zA-Z_][A-Za-zÀ-ÖØ-öø-ÿ0-9_]*)\s*(\=)</expression>
+				<capture number="1" name="twig.identifier.name" />
+				<capture number="2" name="twig.operator" />
+			</scope>
+			<scope name="twig.definition.function">
+				<symbol type="function" scope="global">
+					<context behavior="subtree" foldable="false" />
+				</symbol>
+				<starts-with>
+					<expression>(?&lt;=macro)\s+([a-zA-Z_][A-Za-zÀ-ÖØ-öø-ÿ0-9_]*)</expression>
+					<capture number="1" name="twig.identifier.function.name" />
+				</starts-with>
+				<ends-with>
+					<expression>(?&lt;=\%\})</expression>
+				</ends-with>
+				<subscopes>
+					<include syntax="self" collection="arguments" />
+				</subscopes>
+			</scope>
+		</collection>
+		
+		<!-- Arguments (used in definitions) -->
+	  <collection name="arguments">
+			<scope name="twig.arguments">
+				 <starts-with>
+					  <expression>\(</expression>
+					  <capture number="0" name="twig.bracket" />
+				 </starts-with>
+				 <ends-with>
+					  <expression>\)</expression>
+					  <capture number="0" name="twig.bracket" />
+				 </ends-with>
+				 <subscopes>
+					  <scope name="twig.identifier.argument.name">
+							<symbol type="argument" />
+							<expression>(?&lt;!\=)\b[a-zA-Z_][A-Za-zÀ-ÖØ-öø-ÿ0-9_]*\b</expression>
+					  </scope>
+					  <include syntax="self" collection="values" />
+					  <include syntax="self" collection="syntax" />
+				 </subscopes>
+			</scope>
+	  </collection>
 	</collections>
 </syntax>
