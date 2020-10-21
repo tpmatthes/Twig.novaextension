@@ -1,3 +1,9 @@
+## Version 1.4
+
+- Add symbols for macro definitions
+- Add completions for variables and macros defined in the same file
+- Add completions for argument lists
+
 ## Version 1.3
 
 - Add basic tag completions for Twig-HTML (outside opening brackets)
