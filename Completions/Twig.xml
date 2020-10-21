@@ -37,11 +37,31 @@
 		<syntax>twig-base</syntax>
 		<selector>*:not(string, comment)</selector>
 		<expression>(?&lt;!is\s|apply\s|\{%\s|\S)([a-zA-Z]*)</expression>
+		<symbols type="variable" />
+		<symbols type="function">
+			<behavior>
+				<arguments prefix="(" suffix=")" separator=", " />
+			</behavior>
+		</symbols>
 		<set>twig.functions</set>
 		<set>twig.keywords</set>
 		<set>twig.globals</set>
 	</provider>
-
+	
+	<!-- After regular opening brackets -->
+	<provider>
+		<syntax>twig-base</syntax>
+		<selector>*:not(string, comment)</selector>
+		<expression>(?&lt;=\()([a-zA-Z]*)</expression>
+		<symbols type="variable" />
+		<symbols type="function">
+			<behavior>
+				<arguments prefix="(" suffix=")" separator=", " />
+			</behavior>
+		</symbols>
+		<set>twig.globals</set>
+	</provider>
+	
 	<!-- Tags -->
 	<set name="twig.tags">
 		<!-- Default: auto complete %} at the end -->
