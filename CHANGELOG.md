@@ -1,3 +1,7 @@
+## Version 1.4.1
+
+- Fix: Don’t show syntax highlighting inside comments
+
 ## Version 1.4
 
 - Add symbols for macro definitions
