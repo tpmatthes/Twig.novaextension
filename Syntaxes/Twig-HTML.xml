@@ -54,19 +54,21 @@
 	</surrounding-pairs>
 
 	<scopes spell-check="true" lookup="dictionary">
-		<scope name="twig.comment.block" spell-check="true">
-			<starts-with>
-				<expression>\{\#</expression>
-			</starts-with>
-			<ends-with>
-				<expression>\#\}</expression>
-			</ends-with>
-		</scope>
-
 		<include syntax="html" />
 	</scopes>
 
 	<template-scopes>
+		<scope name="twig.comment.block" spell-check="true">
+			<starts-with>
+				<expression>\{\#</expression>
+				<capture number="0" name="twig.comment.block.start" />
+			</starts-with>
+			<ends-with>
+				<expression>\#\}</expression>
+				<capture number="0" name="twig.comment.block.end" />
+			</ends-with>
+		</scope>
+	
 		<scope name="twig.tag.framework" spell-check="false" lookup="index">
 			<symbol type="tag-framework">
 				<context behavior="subtree" group-by-name="true" />
