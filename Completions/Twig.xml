@@ -36,7 +36,7 @@
 	<provider>
 		<syntax>twig-base</syntax>
 		<selector>*:not(string, comment)</selector>
-		<expression>(?&lt;!is\s|apply\s|\{%\s|\S)([a-zA-Z]*)</expression>
+		<expression>(?&lt;!is\s|apply\s|\{%\s|\S)([a-zA-Z]*)(?!%\})</expression>
 		<symbols type="variable" />
 		<symbols type="function">
 			<behavior>
