@@ -78,7 +78,7 @@
 			<append> %}</append>
 		</behavior>
 		<!-- Regular Twig -->
-		<completion string="apply">
+		<completion string="apply" priority="2">
 			<behavior suffix="\}">
 				<append> $[filter] %}$[…]{% endapply %</append>
 			</behavior>
@@ -92,7 +92,21 @@
 				<append> $[filter] %}$[…]{% endapply %}</append>
 			</behavior>
 		</completion>
-		<completion string="autoescape">
+		<completion string="apply" priority="1">
+			<behavior suffix="\}">
+				<append> $[filter] %</append>
+			</behavior>
+			<behavior suffix="%\}">
+				<append> $[filter] </append>
+			</behavior>
+			<behavior suffix="(\s*%\})">
+				<append> $[filter]</append>
+			</behavior>
+			<behavior>
+				<append> $[filter] %}</append>
+			</behavior>
+		</completion>
+		<completion string="autoescape" priority="2">
 			<behavior suffix="\}">
 				<append> %}$[…]{% endautoescape %</append>
 			</behavior>
@@ -106,7 +120,8 @@
 				<append> %}$[…]{% endautoescape %}</append>
 			</behavior>
 		</completion>
-		<completion string="block">
+		<completion string="autoescape" priority="1" />
+		<completion string="block" priority="2">
 			<behavior suffix="\}">
 				<append> $[string name] %}$[…]{% endblock %</append>
 			</behavior>
@@ -118,6 +133,20 @@
 			</behavior>
 			<behavior>
 				<append> $[string name] %}$[…]{% endblock %}</append>
+			</behavior>
+		</completion>
+		<completion string="block" priority="1">
+			<behavior suffix="\}">
+				<append> $[string name] %</append>
+			</behavior>
+			<behavior suffix="%\}">
+				<append> $[string name] </append>
+			</behavior>
+			<behavior suffix="(\s*%\})">
+				<append> $[string name]</append>
+			</behavior>
+			<behavior>
+				<append> $[string name] %}</append>
 			</behavior>
 		</completion>
 		<completion string="deprecated">
@@ -200,7 +229,7 @@
 			</behavior>
 		</completion>
 		<completion string="flush" />
-		<completion string="for">
+		<completion string="for" priority="2">
 			<behavior suffix="\}">
 				<append> $[a] in $[b] %}$[…]{% endfor %</append>
 			</behavior>
@@ -212,6 +241,20 @@
 			</behavior>
 			<behavior>
 				<append> $[a] in $[b] %}$[…]{% endfor %}</append>
+			</behavior>
+		</completion>
+		<completion string="for" priority="1">
+			<behavior suffix="\}">
+				<append> $[a] in $[b] %</append>
+			</behavior>
+			<behavior suffix="%\}">
+				<append> $[a] in $[b] </append>
+			</behavior>
+			<behavior suffix="(\s*%\})">
+				<append> $[a] in $[b]</append>
+			</behavior>
+			<behavior>
+				<append> $[a] in $[b] %}</append>
 			</behavior>
 		</completion>
 		<completion string="from">
@@ -228,7 +271,7 @@
 				<append> '$[string file]' import $[variable] %}</append>
 			</behavior>
 		</completion>
-		<completion string="if">
+		<completion string="if" priority="2">
 			<behavior suffix="\}">
 				<append> $[condition] %}$[…]{% endif %</append>
 			</behavior>
@@ -240,6 +283,20 @@
 			</behavior>
 			<behavior>
 				<append> $[condition] %}$[…]{% endif %}</append>
+			</behavior>
+		</completion>
+		<completion string="if" priority="1">
+			<behavior suffix="\}">
+				<append> $[condition] %</append>
+			</behavior>
+			<behavior suffix="%\}">
+				<append> $[condition] </append>
+			</behavior>
+			<behavior suffix="(\s*%\})">
+				<append> $[condition]</append>
+			</behavior>
+			<behavior>
+				<append> $[condition] %}</append>
 			</behavior>
 		</completion>
 		<completion string="import">
@@ -284,7 +341,7 @@
 				<append> '$[string file]' with {$[data]} %}</append>
 			</behavior>
 		</completion>
-		<completion string="macro">
+		<completion string="macro" priority="2">
 			<behavior suffix="\}">
 				<append> $[name]($[arguments]) %}$[…]{% endmacro %</append>
 			</behavior>
@@ -298,7 +355,21 @@
 				<append> $[name]($[arguments]) %}$[…]{% endmacro %}</append>
 			</behavior>
 		</completion>
-		<completion string="sandbox">
+		<completion string="macro" priority="1">
+			<behavior suffix="\}">
+				<append> $[name]($[arguments]) %</append>
+			</behavior>
+			<behavior suffix="%\}">
+				<append> $[name]($[arguments]) </append>
+			</behavior>
+			<behavior suffix="(\s*%\})">
+				<append> $[name]($[arguments])</append>
+			</behavior>
+			<behavior>
+				<append> $[name]($[arguments]) %}</append>
+			</behavior>
+		</completion>
+		<completion string="sandbox" priority="2">
 			<behavior suffix="\}">
 				<append> %}$[…]{% endsandbox %</append>
 			</behavior>
@@ -312,7 +383,8 @@
 				<append> %}$[…]{% endsandbox %}</append>
 			</behavior>
 		</completion>
-		<completion string="set">
+		<completion string="sandbox" priority="1" />
+		<completion string="set" priority="1">
 			<behavior suffix="\}">
 				<append> $[variable] %}$[…]{% endset %</append>
 			</behavior>
@@ -326,7 +398,7 @@
 				<append> $[variable] %}$[…]{% endset %}</append>
 			</behavior>
 		</completion>
-		<completion string="set">
+		<completion string="set" priority="2">
 			<behavior suffix="\}">
 				<append> $[variable] = $[value] %</append>
 			</behavior>
@@ -368,7 +440,7 @@
 				<append> '$[string file]' with $[name] as $[variable] %}</append>
 			</behavior>
 		</completion>
-		<completion string="verbatim">
+		<completion string="verbatim" priority="2">
 			<behavior suffix="\}">
 				<append> %}$[…]{% endverbatim %</append>
 			</behavior>
@@ -382,8 +454,9 @@
 				<append> %}$[…]{% endverbatim %}</append>
 			</behavior>
 		</completion>
+		<completion string="verbatim" priority="1" />
 		<!-- Craft CMS -->
-		<completion string="cache">
+		<completion string="cache" priority="2">
 			<behavior suffix="\}">
 				<append> %}$[…]{% endcache %</append>
 			</behavior>
@@ -397,7 +470,8 @@
 				<append> %}$[…]{% endcache %}</append>
 			</behavior>
 		</completion>
-		<completion string="cache">
+		<completion string="cache" priority="1" />
+		<completion string="cache" priority="1">
 			<behavior suffix="\}">
 				<append> globally %}$[…]{% endcache %</append>
 			</behavior>
@@ -411,7 +485,7 @@
 				<append> globally %}$[…]{% endcache %}</append>
 			</behavior>
 		</completion>
-		<completion string="cache">
+		<completion string="cache" priority="1">
 			<behavior suffix="\}">
 				<append> using key $[string key] %}$[…]{% endcache %</append>
 			</behavior>
@@ -425,7 +499,7 @@
 				<append> using key $[string key] %}$[…]{% endcache %}</append>
 			</behavior>
 		</completion>
-		<completion string="cache">
+		<completion string="cache" priority="1">
 			<behavior suffix="\}">
 				<append> for $[duration] %}$[…]{% endcache %</append>
 			</behavior>
@@ -439,7 +513,7 @@
 				<append> for $[duration] %}$[…]{% endcache %}</append>
 			</behavior>
 		</completion>
-		<completion string="cache">
+		<completion string="cache" priority="1">
 			<behavior suffix="\}">
 				<append> if $[condition] %}$[…]{% endcache %</append>
 			</behavior>
@@ -453,7 +527,7 @@
 				<append> if $[condition] %}$[…]{% endcache %}</append>
 			</behavior>
 		</completion>
-		<completion string="cache">
+		<completion string="cache" priority="1">
 			<behavior suffix="\}">
 				<append> unless $[condition] %}$[…]{% endcache %</append>
 			</behavior>
@@ -468,7 +542,7 @@
 			</behavior>
 		</completion>
 		<completion string="case" />
-		<completion string="css">
+		<completion string="css"  priority="1">
 			<behavior suffix="\}">
 				<append> %}$[…]{% endcss %</append>
 			</behavior>
@@ -482,7 +556,7 @@
 				<append> %}$[…]{% endcss %}</append>
 			</behavior>
 		</completion>
-		<completion string="css">
+		<completion string="css" priority="2">
 			<behavior suffix="\}">
 				<append> $[string filename] %</append>
 			</behavior>
@@ -556,7 +630,7 @@
 				<append> $[string name] %}</append>
 			</behavior>
 		</completion>
-		<completion string="html">
+		<completion string="html" priority="2">
 			<behavior suffix="\}">
 				<append> %}$[…]{% endhtml %</append>
 			</behavior>
@@ -570,7 +644,8 @@
 				<append> %}$[…]{% endhtml %}</append>
 			</behavior>
 		</completion>
-		<completion string="js">
+		<completion string="html" priority="1" />
+		<completion string="js" priority="1">
 			<behavior suffix="\}">
 				<append> %}$[…]{% endjs %</append>
 			</behavior>
@@ -584,7 +659,7 @@
 				<append> %}$[…]{% endjs %}</append>
 			</behavior>
 		</completion>
-		<completion string="js">
+		<completion string="js" priority="2">
 			<behavior suffix="\}">
 				<append> $[string filename] %</append>
 			</behavior>
@@ -612,7 +687,7 @@
 				<append> $[string namespace] %}</append>
 			</behavior>
 		</completion>
-		<completion string="nav">
+		<completion string="nav" priority="2">
 			<behavior suffix="\}">
 				<append> $[a] in $[b] %}$[…]{% endnav %</append>
 			</behavior>
@@ -624,6 +699,20 @@
 			</behavior>
 			<behavior>
 				<append> $[a] in $[b] %}$[…]{% endnav %}</append>
+			</behavior>
+		</completion>
+		<completion string="nav" priority="1">
+			<behavior suffix="\}">
+				<append> $[a] in $[b] %</append>
+			</behavior>
+			<behavior suffix="%\}">
+				<append> $[a] in $[b] </append>
+			</behavior>
+			<behavior suffix="(\s*%\})">
+				<append> $[a] in $[b]</append>
+			</behavior>
+			<behavior>
+				<append> $[a] in $[b] %}</append>
 			</behavior>
 		</completion>
 		<completion string="paginate">
@@ -684,7 +773,7 @@
 				<append> $[string permission] %}</append>
 			</behavior>
 		</completion>
-		<completion string="switch">
+		<completion string="switch" priority="2">
 			<behavior suffix="\}">
 				<append> $[variable] %}$[…]{% endswitch %</append>
 			</behavior>
@@ -696,6 +785,20 @@
 			</behavior>
 			<behavior>
 				<append> $[variable] %}$[…]{% endswitch %}</append>
+			</behavior>
+		</completion>
+		<completion string="switch" priority="1">
+			<behavior suffix="\}">
+				<append> $[variable] %</append>
+			</behavior>
+			<behavior suffix="%\}">
+				<append> $[variable] </append>
+			</behavior>
+			<behavior suffix="(\s*%\})">
+				<append> $[variable]</append>
+			</behavior>
+			<behavior>
+				<append> $[variable] %}</append>
 			</behavior>
 		</completion>
 	</set>
