@@ -1,3 +1,7 @@
+## Version 1.6
+
+- Add completions for Craft Element Queries
+
 ## Version 1.5
 
 - Add completions without closing tags
