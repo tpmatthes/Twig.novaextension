@@ -21,3 +21,11 @@
 		{{ 'No users have been found.'|translate }}
 	{% endfor %}
 {% endblock %}
+
+<ul>
+{% for entry in craft.entries().section('test').all() %}
+	<li>
+		{{ entry.title }}
+	</li>
+{% endfor %}
+</ul>
