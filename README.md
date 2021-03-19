@@ -2,7 +2,7 @@
 
 This extension for Nova, [a text editor from Panic](https://nova.app/), adds syntax highlighting for Twig, [a popular templating language](https://twig.symfony.com/). It supports all relevant language features from Twig 3.0+ and even some custom tags/filters from [Craft CMS](https://craftcms.com/) 3.0+.
 
-This extension also includes completions for Twig and Craft CMS 3.0+.
+This extension also includes a huge list of completions for Twig and Craft CMS 3.0+, including Element Queries.
 
 ## Installation
 
