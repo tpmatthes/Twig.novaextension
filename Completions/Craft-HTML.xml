@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<completions>
+	<!-- Basic completions outside {% -->
+	<provider>
+		<syntax>twig</syntax>
+		<selector>*:not(tag,comment)</selector>
+		<expression>([a-zA-Z]*)</expression>
+		<set>twig.craft-basics</set>
+	</provider>
+	
+	<!-- Full tags for basic completions -->
+	<set name="twig.craft-basics">
+		<!-- Default: auto complete {% … %} -->
+		<behavior>
+			<prepend>{% </prepend>
+			<append> %}</append>
+		</behavior>
+		<!-- /Default -->
+		<completion string="cache">
+			<behavior>
+				<prepend>{% </prepend>
+				<append> %}$[]{% endcache %}</append>
+			</behavior>
+		</completion>
+		<completion string="cache">
+			<behavior>
+				<prepend>{% </prepend>
+				<append> globally %}$[]{% endcache %}</append>
+			</behavior>
+		</completion>
+		<completion string="cache">
+			<behavior>
+				<prepend>{% </prepend>
+				<append> using key $[string key] %}$[]{% endcache %}</append>
+			</behavior>
+		</completion>
+		<completion string="cache">
+			<behavior>
+				<prepend>{% </prepend>
+				<append> for $[duration] %}$[]{% endcache %}</append>
+			</behavior>
+		</completion>
+		<completion string="cache">
+			<behavior>
+				<prepend>{% </prepend>
+				<append> if $[condition] %}$[]{% endcache %}</append>
+			</behavior>
+		</completion>
+		<completion string="cache">
+			<behavior>
+				<prepend>{% </prepend>
+				<append> unless $[condition] %}$[]{% endcache %}</append>
+			</behavior>
+		</completion>
+		<completion string="case" />
+		<completion string="css">
+			<behavior>
+				<prepend>{% </prepend>
+				<append> %}$[]{% endcss %}</append>
+			</behavior>
+		</completion>
+		<completion string="css">
+			<behavior>
+				<prepend>{% </prepend>
+				<append> $[string filename] %}</append>
+			</behavior>
+		</completion>
+		<completion string="dd">
+			<behavior>
+				<prepend>{% </prepend>
+				<append> $[variable] %}</append>
+			</behavior>
+		</completion>
+		<completion string="endcss" />
+		<completion string="endhtml" />
+		<completion string="endswitch" />
+		<completion string="endcache" />
+		<completion string="exit">
+			<behavior>
+				<prepend>{% </prepend>
+				<append> $[int status] %}</append>
+			</behavior>
+		</completion>
+		<completion string="header">
+			<behavior>
+				<prepend>{% </prepend>
+				<append> $[string header] %}</append>
+			</behavior>
+		</completion>
+		<completion string="hook">
+			<behavior>
+				<prepend>{% </prepend>
+				<append> $[string name] %}</append>
+			</behavior>
+		</completion>
+		<completion string="html">
+			<behavior>
+				<prepend>{% </prepend>
+				<append> %}$[]{% endhtml %}</append>
+			</behavior>
+		</completion>
+		<completion string="js">
+			<behavior>
+				<prepend>{% </prepend>
+				<append> %}$[]{% endjs %}</append>
+			</behavior>
+		</completion>
+		<completion string="js">
+			<behavior>
+				<prepend>{% </prepend>
+				<append> $[string filename] %}</append>
+			</behavior>
+		</completion>
+		<completion string="namespace">
+			<behavior>
+				<prepend>{% </prepend>
+				<append> $[string namespace] %}</append>
+			</behavior>
+		</completion>
+		<completion string="nav">
+			<behavior>
+				<prepend>{% </prepend>
+				<append> $[a] in $[b] %}$[]{% endnav %}</append>
+			</behavior>
+		</completion>
+		<completion string="paginate">
+			<behavior>
+				<prepend>{% </prepend>
+				<append> $[query] as pageInfo, pageEntries %}</append>
+			</behavior>
+		</completion>
+		<completion string="redirect">
+			<behavior>
+				<prepend>{% </prepend>
+				<append> $[string url] %}</append>
+			</behavior>
+		</completion>
+		<completion string="redirect">
+			<behavior>
+				<prepend>{% </prepend>
+				<append> $[string url] $[int status] with notice $[string notice] %}</append>
+			</behavior>
+		</completion>
+		<completion string="requireGuest" />
+		<completion string="requireLogin" />
+		<completion string="requirePermission">
+			<behavior>
+				<prepend>{% </prepend>
+				<append> $[string permission] %}</append>
+			</behavior>
+		</completion>
+		<completion string="switch">
+			<behavior>
+				<prepend>{% </prepend>
+				<append> $[variable] %}$[]{% endswitch %}</append>
+			</behavior>
+		</completion>
+	</set>
+</completions>
