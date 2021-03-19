@@ -93,102 +93,102 @@
 		<!-- /Default -->
 		<completion string="cache" priority="2">
 			<behavior suffix="\}">
-				<append> %}$[…]{% endcache %</append>
+				<append> %}$[]{% endcache %</append>
 			</behavior>
 			<behavior suffix="%\}">
-				<append> %}$[…]{% endcache </append>
+				<append> %}$[]{% endcache </append>
 			</behavior>
 			<behavior suffix="(\s*%\})">
-				<append> %}$[…]{% endcache</append>
+				<append> %}$[]{% endcache</append>
 			</behavior>
 			<behavior>
-				<append> %}$[…]{% endcache %}</append>
+				<append> %}$[]{% endcache %}</append>
 			</behavior>
 		</completion>
 		<completion string="cache" priority="1" />
 		<completion string="cache" priority="1">
 			<behavior suffix="\}">
-				<append> globally %}$[…]{% endcache %</append>
+				<append> globally %}$[]{% endcache %</append>
 			</behavior>
 			<behavior suffix="%\}">
-				<append> globally %}$[…]{% endcache </append>
+				<append> globally %}$[]{% endcache </append>
 			</behavior>
 			<behavior suffix="(\s*%\})">
-				<append> globally %}$[…]{% endcache</append>
+				<append> globally %}$[]{% endcache</append>
 			</behavior>
 			<behavior>
-				<append> globally %}$[…]{% endcache %}</append>
+				<append> globally %}$[]{% endcache %}</append>
 			</behavior>
 		</completion>
 		<completion string="cache" priority="1">
 			<behavior suffix="\}">
-				<append> using key $[string key] %}$[…]{% endcache %</append>
+				<append> using key $[string key] %}$[]{% endcache %</append>
 			</behavior>
 			<behavior suffix="%\}">
-				<append> using key $[string key] %}$[…]{% endcache </append>
+				<append> using key $[string key] %}$[]{% endcache </append>
 			</behavior>
 			<behavior suffix="(\s*%\})">
-				<append> using key $[string key] %}$[…]{% endcache</append>
+				<append> using key $[string key] %}$[]{% endcache</append>
 			</behavior>
 			<behavior>
-				<append> using key $[string key] %}$[…]{% endcache %}</append>
+				<append> using key $[string key] %}$[]{% endcache %}</append>
 			</behavior>
 		</completion>
 		<completion string="cache" priority="1">
 			<behavior suffix="\}">
-				<append> for $[duration] %}$[…]{% endcache %</append>
+				<append> for $[duration] %}$[]{% endcache %</append>
 			</behavior>
 			<behavior suffix="%\}">
-				<append> for $[duration] %}$[…]{% endcache </append>
+				<append> for $[duration] %}$[]{% endcache </append>
 			</behavior>
 			<behavior suffix="(\s*%\})">
-				<append> for $[duration] %}$[…]{% endcache</append>
+				<append> for $[duration] %}$[]{% endcache</append>
 			</behavior>
 			<behavior>
-				<append> for $[duration] %}$[…]{% endcache %}</append>
+				<append> for $[duration] %}$[]{% endcache %}</append>
 			</behavior>
 		</completion>
 		<completion string="cache" priority="1">
 			<behavior suffix="\}">
-				<append> if $[condition] %}$[…]{% endcache %</append>
+				<append> if $[condition] %}$[]{% endcache %</append>
 			</behavior>
 			<behavior suffix="%\}">
-				<append> if $[condition] %}$[…]{% endcache </append>
+				<append> if $[condition] %}$[]{% endcache </append>
 			</behavior>
 			<behavior suffix="(\s*%\})">
-				<append> if $[condition] %}$[…]{% endcache</append>
+				<append> if $[condition] %}$[]{% endcache</append>
 			</behavior>
 			<behavior>
-				<append> if $[condition] %}$[…]{% endcache %}</append>
+				<append> if $[condition] %}$[]{% endcache %}</append>
 			</behavior>
 		</completion>
 		<completion string="cache" priority="1">
 			<behavior suffix="\}">
-				<append> unless $[condition] %}$[…]{% endcache %</append>
+				<append> unless $[condition] %}$[]{% endcache %</append>
 			</behavior>
 			<behavior suffix="%\}">
-				<append> unless $[condition] %}$[…]{% endcache </append>
+				<append> unless $[condition] %}$[]{% endcache </append>
 			</behavior>
 			<behavior suffix="(\s*%\})">
-				<append> unless $[condition] %}$[…]{% endcache</append>
+				<append> unless $[condition] %}$[]{% endcache</append>
 			</behavior>
 			<behavior>
-				<append> unless $[condition] %}$[…]{% endcache %}</append>
+				<append> unless $[condition] %}$[]{% endcache %}</append>
 			</behavior>
 		</completion>
 		<completion string="case" />
 		<completion string="css"  priority="1">
 			<behavior suffix="\}">
-				<append> %}$[…]{% endcss %</append>
+				<append> %}$[]{% endcss %</append>
 			</behavior>
 			<behavior suffix="%\}">
-				<append> %}$[…]{% endcss </append>
+				<append> %}$[]{% endcss </append>
 			</behavior>
 			<behavior suffix="(\s*%\})">
-				<append> %}$[…]{% endcss</append>
+				<append> %}$[]{% endcss</append>
 			</behavior>
 			<behavior>
-				<append> %}$[…]{% endcss %}</append>
+				<append> %}$[]{% endcss %}</append>
 			</behavior>
 		</completion>
 		<completion string="css" priority="2">
@@ -267,31 +267,31 @@
 		</completion>
 		<completion string="html" priority="2">
 			<behavior suffix="\}">
-				<append> %}$[…]{% endhtml %</append>
+				<append> %}$[]{% endhtml %</append>
 			</behavior>
 			<behavior suffix="%\}">
-				<append> %}$[…]{% endhtml </append>
+				<append> %}$[]{% endhtml </append>
 			</behavior>
 			<behavior suffix="(\s*%\})">
-				<append> %}$[…]{% endhtml</append>
+				<append> %}$[]{% endhtml</append>
 			</behavior>
 			<behavior>
-				<append> %}$[…]{% endhtml %}</append>
+				<append> %}$[]{% endhtml %}</append>
 			</behavior>
 		</completion>
 		<completion string="html" priority="1" />
 		<completion string="js" priority="1">
 			<behavior suffix="\}">
-				<append> %}$[…]{% endjs %</append>
+				<append> %}$[]{% endjs %</append>
 			</behavior>
 			<behavior suffix="%\}">
-				<append> %}$[…]{% endjs </append>
+				<append> %}$[]{% endjs </append>
 			</behavior>
 			<behavior suffix="(\s*%\})">
-				<append> %}$[…]{% endjs</append>
+				<append> %}$[]{% endjs</append>
 			</behavior>
 			<behavior>
-				<append> %}$[…]{% endjs %}</append>
+				<append> %}$[]{% endjs %}</append>
 			</behavior>
 		</completion>
 		<completion string="js" priority="2">
@@ -324,16 +324,16 @@
 		</completion>
 		<completion string="nav" priority="2">
 			<behavior suffix="\}">
-				<append> $[a] in $[b] %}$[…]{% endnav %</append>
+				<append> $[a] in $[b] %}$[]{% endnav %</append>
 			</behavior>
 			<behavior suffix="%\}">
-				<append> $[a] in $[b] %}$[…]{% endnav </append>
+				<append> $[a] in $[b] %}$[]{% endnav </append>
 			</behavior>
 			<behavior suffix="(\s*%\})">
-				<append> $[a] in $[b] %}$[…]{% endnav</append>
+				<append> $[a] in $[b] %}$[]{% endnav</append>
 			</behavior>
 			<behavior>
-				<append> $[a] in $[b] %}$[…]{% endnav %}</append>
+				<append> $[a] in $[b] %}$[]{% endnav %}</append>
 			</behavior>
 		</completion>
 		<completion string="nav" priority="1">
@@ -410,16 +410,16 @@
 		</completion>
 		<completion string="switch" priority="2">
 			<behavior suffix="\}">
-				<append> $[variable] %}$[…]{% endswitch %</append>
+				<append> $[variable] %}$[]{% endswitch %</append>
 			</behavior>
 			<behavior suffix="%\}">
-				<append> $[variable] %}$[…]{% endswitch </append>
+				<append> $[variable] %}$[]{% endswitch </append>
 			</behavior>
 			<behavior suffix="(\s*%\})">
-				<append> $[variable] %}$[…]{% endswitch</append>
+				<append> $[variable] %}$[]{% endswitch</append>
 			</behavior>
 			<behavior>
-				<append> $[variable] %}$[…]{% endswitch %}</append>
+				<append> $[variable] %}$[]{% endswitch %}</append>
 			</behavior>
 		</completion>
 		<completion string="switch" priority="1">
