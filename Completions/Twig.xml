@@ -80,16 +80,16 @@
 		<!-- /Default -->
 		<completion string="apply" priority="2">
 			<behavior suffix="\}">
-				<append> $[filter] %}$[]{% endapply %</append>
+				<append> $[filter] %}$[…]{% endapply %</append>
 			</behavior>
 			<behavior suffix="%\}">
-				<append> $[filter] %}$[]{% endapply </append>
+				<append> $[filter] %}$[…]{% endapply </append>
 			</behavior>
 			<behavior suffix="(\s*%\})">
-				<append> $[filter] %}$[]{% endapply</append>
+				<append> $[filter] %}$[…]{% endapply</append>
 			</behavior>
 			<behavior>
-				<append> $[filter] %}$[]{% endapply %}</append>
+				<append> $[filter] %}$[…]{% endapply %}</append>
 			</behavior>
 		</completion>
 		<completion string="apply" priority="1">
@@ -108,31 +108,31 @@
 		</completion>
 		<completion string="autoescape" priority="2">
 			<behavior suffix="\}">
-				<append> %}$[]{% endautoescape %</append>
+				<append> %}$[…]{% endautoescape %</append>
 			</behavior>
 			<behavior suffix="%\}">
-				<append> %}$[]{% endautoescape </append>
+				<append> %}$[…]{% endautoescape </append>
 			</behavior>
 			<behavior suffix="(\s*%\})">
-				<append> %}$[]{% endautoescape</append>
+				<append> %}$[…]{% endautoescape</append>
 			</behavior>
 			<behavior>
-				<append> %}$[]{% endautoescape %}</append>
+				<append> %}$[…]{% endautoescape %}</append>
 			</behavior>
 		</completion>
 		<completion string="autoescape" priority="1" />
 		<completion string="block" priority="2">
 			<behavior suffix="\}">
-				<append> $[string name] %}$[]{% endblock %</append>
+				<append> $[string name] %}$[…]{% endblock %</append>
 			</behavior>
 			<behavior suffix="%\}">
-				<append> $[string name] %}$[]{% endblock </append>
+				<append> $[string name] %}$[…]{% endblock </append>
 			</behavior>
 			<behavior suffix="(\s*%\})">
-				<append> $[string name] %}$[]{% endblock</append>
+				<append> $[string name] %}$[…]{% endblock</append>
 			</behavior>
 			<behavior>
-				<append> $[string name] %}$[]{% endblock %}</append>
+				<append> $[string name] %}$[…]{% endblock %}</append>
 			</behavior>
 		</completion>
 		<completion string="block" priority="1">
@@ -231,16 +231,16 @@
 		<completion string="flush" />
 		<completion string="for" priority="2">
 			<behavior suffix="\}">
-				<append> $[a] in $[b] %}$[]{% endfor %</append>
+				<append> $[a] in $[b] %}$[…]{% endfor %</append>
 			</behavior>
 			<behavior suffix="%\}">
-				<append> $[a] in $[b] %}$[]{% endfor </append>
+				<append> $[a] in $[b] %}$[…]{% endfor </append>
 			</behavior>
 			<behavior suffix="(\s*%\})">
-				<append> $[a] in $[b] %}$[]{% endfor</append>
+				<append> $[a] in $[b] %}$[…]{% endfor</append>
 			</behavior>
 			<behavior>
-				<append> $[a] in $[b] %}$[]{% endfor %}</append>
+				<append> $[a] in $[b] %}$[…]{% endfor %}</append>
 			</behavior>
 		</completion>
 		<completion string="for" priority="1">
@@ -273,16 +273,16 @@
 		</completion>
 		<completion string="if" priority="2">
 			<behavior suffix="\}">
-				<append> $[condition] %}$[]{% endif %</append>
+				<append> $[condition] %}$[…]{% endif %</append>
 			</behavior>
 			<behavior suffix="%\}">
-				<append> $[condition] %}$[]{% endif </append>
+				<append> $[condition] %}$[…]{% endif </append>
 			</behavior>
 			<behavior suffix="(\s*%\})">
-				<append> $[condition] %}$[]{% endif</append>
+				<append> $[condition] %}$[…]{% endif</append>
 			</behavior>
 			<behavior>
-				<append> $[condition] %}$[]{% endif %}</append>
+				<append> $[condition] %}$[…]{% endif %}</append>
 			</behavior>
 		</completion>
 		<completion string="if" priority="1">
@@ -343,16 +343,16 @@
 		</completion>
 		<completion string="macro" priority="2">
 			<behavior suffix="\}">
-				<append> $[name]($[arguments]) %}$[]{% endmacro %</append>
+				<append> $[name]($[arguments]) %}$[…]{% endmacro %</append>
 			</behavior>
 			<behavior suffix="%\}">
-				<append> $[name]($[arguments]) %}$[]{% endmacro </append>
+				<append> $[name]($[arguments]) %}$[…]{% endmacro </append>
 			</behavior>
 			<behavior suffix="(\s*%\})">
-				<append> $[name]($[arguments]) %}$[]{% endmacro</append>
+				<append> $[name]($[arguments]) %}$[…]{% endmacro</append>
 			</behavior>
 			<behavior>
-				<append> $[name]($[arguments]) %}$[]{% endmacro %}</append>
+				<append> $[name]($[arguments]) %}$[…]{% endmacro %}</append>
 			</behavior>
 		</completion>
 		<completion string="macro" priority="1">
@@ -371,31 +371,31 @@
 		</completion>
 		<completion string="sandbox" priority="2">
 			<behavior suffix="\}">
-				<append> %}$[]{% endsandbox %</append>
+				<append> %}$[…]{% endsandbox %</append>
 			</behavior>
 			<behavior suffix="%\}">
-				<append> %}$[]{% endsandbox </append>
+				<append> %}$[…]{% endsandbox </append>
 			</behavior>
 			<behavior suffix="(\s*%\})">
-				<append> %}$[]{% endsandbox</append>
+				<append> %}$[…]{% endsandbox</append>
 			</behavior>
 			<behavior>
-				<append> %}$[]{% endsandbox %}</append>
+				<append> %}$[…]{% endsandbox %}</append>
 			</behavior>
 		</completion>
 		<completion string="sandbox" priority="1" />
 		<completion string="set" priority="1">
 			<behavior suffix="\}">
-				<append> $[variable] %}$[]{% endset %</append>
+				<append> $[variable] %}$[…]{% endset %</append>
 			</behavior>
 			<behavior suffix="%\}">
-				<append> $[variable] %}$[]{% endset </append>
+				<append> $[variable] %}$[…]{% endset </append>
 			</behavior>
 			<behavior suffix="(\s*%\})">
-				<append> $[variable] %}$[]{% endset</append>
+				<append> $[variable] %}$[…]{% endset</append>
 			</behavior>
 			<behavior>
-				<append> $[variable] %}$[]{% endset %}</append>
+				<append> $[variable] %}$[…]{% endset %}</append>
 			</behavior>
 		</completion>
 		<completion string="set" priority="2">
@@ -442,16 +442,16 @@
 		</completion>
 		<completion string="verbatim" priority="2">
 			<behavior suffix="\}">
-				<append> %}$[]{% endverbatim %</append>
+				<append> %}$[…]{% endverbatim %</append>
 			</behavior>
 			<behavior suffix="%\}">
-				<append> %}$[]{% endverbatim </append>
+				<append> %}$[…]{% endverbatim </append>
 			</behavior>
 			<behavior suffix="(\s*%\})">
-				<append> %}$[]{% endverbatim</append>
+				<append> %}$[…]{% endverbatim</append>
 			</behavior>
 			<behavior>
-				<append> %}$[]{% endverbatim %}</append>
+				<append> %}$[…]{% endverbatim %}</append>
 			</behavior>
 		</completion>
 		<completion string="verbatim" priority="1" />
@@ -461,7 +461,7 @@
 	<set name="twig.functions" symbol="function">
 		<completion string="attribute">
 			<behavior>
-				<append>($[]) </append>
+				<append>($[…]) </append>
 			</behavior>
 		</completion>
 		<completion string="constant">
@@ -486,12 +486,12 @@
 		</completion>
 		<completion string="dump">
 			<behavior>
-				<append>($[]) </append>
+				<append>($[…]) </append>
 			</behavior>
 		</completion>
 		<completion string="html_classes">
 			<behavior>
-				<append>($[]) </append>
+				<append>($[…]) </append>
 			</behavior>
 		</completion>
 		<completion string="max">
@@ -511,7 +511,7 @@
 		</completion>
 		<completion string="random">
 			<behavior>
-				<append>($[]) </append>
+				<append>($[…]) </append>
 			</behavior>
 		</completion>
 		<completion string="range">
@@ -658,7 +658,7 @@
 		<completion string="first" />
 		<completion string="format" symbol="function">
 			<behavior>
-				<append>($[])</append>
+				<append>($[…])</append>
 			</behavior>
 		</completion>
 		<completion string="format_currency" symbol="function">

@@ -19,19 +19,19 @@
 		<completion string="apply">
 			<behavior>
 				<prepend>{% </prepend>
-				<append> $[filter] %}$[]{% endapply %}</append>
+				<append> $[filter] %}$[…]{% endapply %}</append>
 			</behavior>
 		</completion>
 		<completion string="autoescape">
 			<behavior>
 				<prepend>{% </prepend>
-				<append> %}$[]{% endautoescape %}</append>
+				<append> %}$[…]{% endautoescape %}</append>
 			</behavior>
 		</completion>
 		<completion string="block">
 			<behavior>
 				<prepend>{% </prepend>
-				<append> $[string name] %}$[]{% endblock %}</append>
+				<append> $[string name] %}$[…]{% endblock %}</append>
 			</behavior>
 		</completion>
 		<completion string="deprecated">
@@ -67,7 +67,7 @@
 		<completion string="for">
 			<behavior>
 				<prepend>{% </prepend>
-				<append> $[a] in $[b] %}$[]{% endfor %}</append>
+				<append> $[a] in $[b] %}$[…]{% endfor %}</append>
 			</behavior>
 		</completion>
 		<completion string="from">
@@ -79,7 +79,7 @@
 		<completion string="if">
 			<behavior>
 				<prepend>{% </prepend>
-				<append> $[condition] %}$[]{% endif %}</append>
+				<append> $[condition] %}$[…]{% endif %}</append>
 			</behavior>
 		</completion>
 		<completion string="import">
@@ -103,19 +103,19 @@
 		<completion string="macro">
 			<behavior>
 				<prepend>{% </prepend>
-				<append> $[name]($[arguments]) %}$[]{% endmacro %}</append>
+				<append> $[name]($[arguments]) %}$[…]{% endmacro %}</append>
 			</behavior>
 		</completion>
 		<completion string="sandbox">
 			<behavior>
 				<prepend>{% </prepend>
-				<append> %}$[]{% endsandbox %}</append>
+				<append> %}$[…]{% endsandbox %}</append>
 			</behavior>
 		</completion>
 		<completion string="set">
 			<behavior>
 				<prepend>{% </prepend>
-				<append> $[variable] %}$[]{% endset %}</append>
+				<append> $[variable] %}$[…]{% endset %}</append>
 			</behavior>
 		</completion>
 		<completion string="set">
@@ -139,7 +139,7 @@
 		<completion string="verbatim">
 			<behavior>
 				<prepend>{% </prepend>
-				<append> %}$[]{% endverbatim %}</append>
+				<append> %}$[…]{% endverbatim %}</append>
 			</behavior>
 		</completion>
 	</set>
