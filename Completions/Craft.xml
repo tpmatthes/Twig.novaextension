@@ -899,7 +899,7 @@
 		<completion string="clearCachedResult" />
 		<completion string="dateCreated" priority="2">
 			<behavior>
-				<append>($[string date])</append>
+				<append>($[mixed date])</append>
 			</behavior>
 		</completion>
 		<completion string="dateCreated" priority="1">
@@ -909,7 +909,7 @@
 		</completion>
 		<completion string="dateModified" priority="2">
 			<behavior>
-				<append>($[string date])</append>
+				<append>($[mixed date])</append>
 			</behavior>
 		</completion>
 		<completion string="dateModified" priority="1">
@@ -919,7 +919,7 @@
 		</completion>
 		<completion string="dateUpdated" priority="2">
 			<behavior>
-				<append>($[string date])</append>
+				<append>($[mixed date])</append>
 			</behavior>
 		</completion>
 		<completion string="dateUpdated" priority="1">
@@ -929,23 +929,23 @@
 		</completion>
 		<completion string="filename">
 			<behavior>
-				<append>($[string filename])</append>
+				<append>($[mixed filename])</append>
 			</behavior>
 		</completion>
 		<completion string="fixedOrder" />
 		<completion string="folderId">
 			<behavior>
-				<append>($[int id])</append>
+				<append>($[mixed id])</append>
 			</behavior>
 		</completion>
 		<completion string="height">
 			<behavior>
-				<append>($[int height])</append>
+				<append>($[mixed height])</append>
 			</behavior>
 		</completion>
 		<completion string="id">
 			<behavior>
-				<append>($[int id])</append>
+				<append>($[mixed id])</append>
 			</behavior>
 		</completion>
 		<completion string="ignorePlaceholders" />
@@ -953,7 +953,7 @@
 		<completion string="includeSubfolders" />
 		<completion string="kind">
 			<behavior>
-				<append>($[string file_kind])</append>
+				<append>($[mixed kind])</append>
 			</behavior>
 		</completion>
 		<completion string="limit">
@@ -988,22 +988,22 @@
 		</completion>
 		<completion string="site">
 			<behavior>
-				<append>($[string site])</append>
+				<append>($[mixed site])</append>
 			</behavior>
 		</completion>
 		<completion string="siteId">
 			<behavior>
-				<append>($[int id])</append>
+				<append>($[mixed id])</append>
 			</behavior>
 		</completion>
 		<completion string="size">
 			<behavior>
-				<append>($[int size])</append>
+				<append>($[mixed size])</append>
 			</behavior>
 		</completion>
 		<completion string="title">
 			<behavior>
-				<append>($[string title])</append>
+				<append>($[mixed title])</append>
 			</behavior>
 		</completion>
 		<completion string="trashed" />
@@ -1015,22 +1015,22 @@
 		<completion string="unique" />
 		<completion string="uploader">
 			<behavior>
-				<append>($[int id])</append>
+				<append>($[mixed user])</append>
 			</behavior>
 		</completion>
 		<completion string="volume">
 			<behavior>
-				<append>($[string volume])</append>
+				<append>($[mixed volume])</append>
 			</behavior>
 		</completion>
 		<completion string="volumeId">
 			<behavior>
-				<append>($[int id])</append>
+				<append>($[mixed id])</append>
 			</behavior>
 		</completion>
 		<completion string="width">
 			<behavior>
-				<append>($[width])</append>
+				<append>($[mixed width])</append>
 			</behavior>
 		</completion>
 		<completion string="with">
@@ -1051,7 +1051,7 @@
 		</completion>
 		<completion string="ancestorOf">
 			<behavior>
-				<append>($[int id])</append>
+				<append>($[mixed element])</append>
 			</behavior>
 		</completion>
 		<completion string="descendantDist">
@@ -1061,59 +1061,59 @@
 		</completion>
 		<completion string="descendantOf">
 			<behavior>
-				<append>($[int id])</append>
+				<append>($[mixed element])</append>
 			</behavior>
 		</completion>
 		<completion string="group">
 			<behavior>
-				<append>($[string group])</append>
+				<append>($[mixed group])</append>
 			</behavior>
 		</completion>
 		<completion string="groupId">
 			<behavior>
-				<append>($[int id])</append>
+				<append>($[mixed id])</append>
 			</behavior>
 		</completion>
 		<completion string="hasDescendants" />
 		<completion string="id">
 			<behavior>
-				<append>($[int id])</append>
+				<append>($[mixed id])</append>
 			</behavior>
 		</completion>
 		<completion string="leaves" />
 		<completion string="level">
 			<behavior>
-				<append>($[int level])</append>
+				<append>($[mixed level])</append>
 			</behavior>
 		</completion>
 		<completion string="nextSiblingOf">
 			<behavior>
-				<append>($[int id])</append>
+				<append>($[mixed element])</append>
 			</behavior>
 		</completion>
 		<completion string="positionedAfter">
 			<behavior>
-				<append>($[int id])</append>
+				<append>($[mixed element])</append>
 			</behavior>
 		</completion>
 		<completion string="positionedBefore">
 			<behavior>
-				<append>($[int id])</append>
+				<append>($[mixed element])</append>
 			</behavior>
 		</completion>
 		<completion string="prevSiblingOf">
 			<behavior>
-				<append>($[int id])</append>
+				<append>($[mixed element])</append>
 			</behavior>
 		</completion>
 		<completion string="siblingOf">
 			<behavior>
-				<append>($[int id])</append>
+				<append>($[mixed element])</append>
 			</behavior>
 		</completion>
 		<completion string="slug">
 			<behavior>
-				<append>($[string slug])</append>
+				<append>($[mixed slug])</append>
 			</behavior>
 		</completion>
 		<completion string="status">
@@ -1124,38 +1124,38 @@
 		<completion string="unique" />
 		<completion string="uri">
 			<behavior>
-				<append>($[string uri])</append>
+				<append>($[mixed uri])</append>
 			</behavior>
 		</completion>
 		<!-- Entries -->
 		<completion string="after">
 			<behavior>
-				<append>($[string date])</append>
+				<append>($[mixed date])</append>
 			</behavior>
 		</completion>
 		<completion string="authorGroup">
 			<behavior>
-				<append>($[string group])</append>
+				<append>($[mixed group])</append>
 			</behavior>
 		</completion>
 		<completion string="authorGroupId">
 			<behavior>
-				<append>($[int id])</append>
+				<append>($[mixed id])</append>
 			</behavior>
 		</completion>
 		<completion string="authorId">
 			<behavior>
-				<append>($[int id])</append>
+				<append>($[mixed id])</append>
 			</behavior>
 		</completion>
 		<completion string="before">
 			<behavior>
-				<append>($[string date])</append>
+				<append>($[mixed date])</append>
 			</behavior>
 		</completion>
 		<completion string="draftCreator">
 			<behavior>
-				<append>($[int id])</append>
+				<append>($[mixed user])</append>
 			</behavior>
 		</completion>
 		<completion string="draftId">
@@ -1165,13 +1165,13 @@
 		</completion>
 		<completion string="draftOf">
 			<behavior>
-				<append>($[int id])</append>
+				<append>($[mixed element])</append>
 			</behavior>
 		</completion>
 		<completion string="drafts" />
 		<completion string="expiryDate" priority="2">
 			<behavior>
-				<append>($[string date])</append>
+				<append>($[mixed date])</append>
 			</behavior>
 		</completion>
 		<completion string="expiryDate" priority="1">
@@ -1181,7 +1181,7 @@
 		</completion>
 		<completion string="postDate" priority="2">
 			<behavior>
-				<append>($[string date])</append>
+				<append>($[mixed date])</append>
 			</behavior>
 		</completion>
 		<completion string="postDate" priority="1">
@@ -1191,7 +1191,7 @@
 		</completion>
 		<completion string="revisionCreator">
 			<behavior>
-				<append>($[int id])</append>
+				<append>($[mixed user])</append>
 			</behavior>
 		</completion>
 		<completion string="revisionId">
@@ -1201,34 +1201,34 @@
 		</completion>
 		<completion string="revisionOf">
 			<behavior>
-				<append>($[int id])</append>
+				<append>($[mixed element])</append>
 			</behavior>
 		</completion>
 		<completion string="revisions" />
 		<completion string="section">
 			<behavior>
-				<append>($[string section])</append>
+				<append>($[mixed section])</append>
 			</behavior>
 		</completion>
 		<completion string="sectionId">
 			<behavior>
-				<append>($[int id])</append>
+				<append>($[mixed id])</append>
 			</behavior>
 		</completion>
 		<completion string="type">
 			<behavior>
-				<append>($[string type])</append>
+				<append>($[mixed type])</append>
 			</behavior>
 		</completion>
 		<completion string="typeId">
 			<behavior>
-				<append>($[int id])</append>
+				<append>($[mixed id])</append>
 			</behavior>
 		</completion>
 		<!-- Global Sets -->
 		<completion string="handle">
 			<behavior>
-				<append>($[string handle])</append>
+				<append>($[mixed handle])</append>
 			</behavior>
 		</completion>
 		<!-- Matrix Blocks -->
@@ -1244,22 +1244,22 @@
 		</completion>
 		<completion string="field">
 			<behavior>
-				<append>($[string field])</append>
+				<append>($[mixed field])</append>
 			</behavior>
 		</completion>
 		<completion string="fieldId">
 			<behavior>
-				<append>($[int id])</append>
+				<append>($[mixed id])</append>
 			</behavior>
 		</completion>
 		<completion string="owner">
 			<behavior>
-				<append>($[element])</append>
+				<append>($[mixed element])</append>
 			</behavior>
 		</completion>
 		<completion string="ownerId">
 			<behavior>
-				<append>($[int id])</append>
+				<append>($[mixed id])</append>
 			</behavior>
 		</completion>
 		<!-- Users -->
@@ -1282,7 +1282,7 @@
 		<completion string="hasPhoto" />
 		<completion string="lastLoginDate" priority="2">
 			<behavior>
-				<append>($[string date])</append>
+				<append>($[mixed date])</append>
 			</behavior>
 		</completion>
 		<completion string="lastLoginDate" priority="1">
