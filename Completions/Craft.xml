@@ -50,21 +50,21 @@
 		<set>twig.craft-globals</set>
 	</provider>
 
-	<!-- Methods after "craft." -->
+	<!-- Methods/Properties after "craft." -->
 	<provider>
 		<syntax>twig-base</syntax>
 		<selector>*:not(string,comment)</selector>
 		<expression>(?&lt;=craft\.)([a-zA-Z]*)</expression>
 		<set>twig.craft-element-queries</set>
-		<set>twig.craft-properties</set>
+		<set>twig.craft-global-properties</set>
 	</provider>
 	
-	<!-- Common Services after "craft.app." -->
+	<!-- Properties after "craft.app." -->
 	<provider>
 		<syntax>twig-base</syntax>
 		<selector>*:not(string,comment)</selector>
 		<expression>(?&lt;=craft\.app\.)([a-zA-Z]*)</expression>
-		<set>twig.craft-common-services</set>
+		<set>twig.craft-app-properties</set>
 	</provider>
 	
 	<!-- Properties after "entry." -->
@@ -885,8 +885,8 @@
 		<completion string="app" priority="3" />
 	</set>
 	
-	<!-- Common Services -->
-	<set name="twig.craft-common-services">
+	<!-- Craft.App.Properties -->
+	<set name="twig.craft-app-properties" symbol="property">
 		<completion string="request" priority="3" />
 		<completion string="session" priority="3" />
 		<completion string="user" priority="3" />
