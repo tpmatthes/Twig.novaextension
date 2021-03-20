@@ -1,6 +1,6 @@
 ## Version 1.6
 
-- Add completions for Craft Element Queries
+- Add completions for Craft Element Queries and common properties
 
 ## Version 1.5
 
