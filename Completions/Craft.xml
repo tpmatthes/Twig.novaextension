@@ -638,7 +638,7 @@
 	</set>
 	
 	<!-- Globals -->
-	<set name="twig.craft-globals">
+	<set name="twig.craft-globals" symbol="constant">
 		<completion string="craft" />
 		<completion string="currentSite" />
 		<completion string="currentUser" />
@@ -664,56 +664,56 @@
 	</set>
 	
 	<!-- Filters -->
-	<set name="twig.craft-filters">
-		<completion string="append" symbol="function">
+	<set name="twig.craft-filters" symbol="function">
+		<completion string="append">
 			<behavior>
 				<append>($[string html])</append>
 			</behavior>
 		</completion>
-		<completion string="append" symbol="function">
+		<completion string="append">
 			<behavior>
 				<append>($[string html], 'keep')</append>
 			</behavior>
 		</completion>
-		<completion string="append" symbol="function">
+		<completion string="append">
 			<behavior>
 				<append>($[string html], 'replace')</append>
 			</behavior>
 		</completion>
 		<completion string="ascii" />
-		<completion string="ascii" symbol="function">
+		<completion string="ascii">
 			<behavior>
 				<append>($[string locale])</append>
 			</behavior>
 		</completion>
 		<completion string="atom" />
-		<completion string="attr" symbol="function">
+		<completion string="attr">
 			<behavior>
 				<append>($[object attributes])</append>
 			</behavior>
 		</completion>
 		<completion string="camel" />
-		<completion string="contains" symbol="function">
+		<completion string="contains">
 			<behavior>
 				<append>($[string key], $[mixed value])</append>
 			</behavior>
 		</completion>
-		<completion string="currency" symbol="function">
+		<completion string="currency">
 			<behavior>
 				<append>($[string currency])</append>
 			</behavior>
 		</completion>
-		<completion string="currency" symbol="function">
+		<completion string="currency">
 			<behavior>
 				<append>($[string currency], stripZeros=true)</append>
 			</behavior>
 		</completion>
-		<completion string="diff" symbol="function">
+		<completion string="diff">
 			<behavior>
 				<append>($[array array])</append>
 			</behavior>
 		</completion>
-		<completion string="duration" symbol="function">
+		<completion string="duration">
 			<behavior>
 				<append>($[boolean showSeconds])</append>
 			</behavior>
@@ -722,24 +722,24 @@
 		<completion string="explodeClass" />
 		<completion string="explodeStyle" />
 		<completion string="filesize" />
-		<completion string="group" symbol="function">
+		<completion string="group">
 			<behavior>
 				<append>($[arguments] => $[function])</append>
 			</behavior>
 		</completion>
 		<completion string="hash" />
 		<completion string="id" />
-		<completion string="index" symbol="function">
+		<completion string="index">
 			<behavior>
 				<append>($[string key])</append>
 			</behavior>
 		</completion>
-		<completion string="indexOf" symbol="function">
+		<completion string="indexOf">
 			<behavior>
 				<append>($[string value])</append>
 			</behavior>
 		</completion>
-		<completion string="intersect" symbol="function">
+		<completion string="intersect">
 			<behavior>
 				<append>($[array array])</append>
 			</behavior>
@@ -749,44 +749,44 @@
 		<completion string="lcfirst" />
 		<completion string="literal" />
 		<completion string="markdown" />
-		<completion string="markdown" symbol="function">
+		<completion string="markdown">
 			<behavior>
 				<append>($[string flavor], $[bool inlineOnly])</append>
 			</behavior>
 		</completion>
 		<completion string="md" />
-		<completion string="md" symbol="function">
+		<completion string="md">
 			<behavior>
 				<append>($[string flavor], $[bool inlineOnly])</append>
 			</behavior>
 		</completion>
-		<completion string="multisort" symbol="function">
+		<completion string="multisort">
 			<behavior>
 				<append>($[mixed properties], sortFlag=$[const sortFlag])</append>
 			</behavior>
 		</completion>
-		<completion string="multisort" symbol="function">
+		<completion string="multisort">
 			<behavior>
 				<append>($[arguments] => $[function])</append>
 			</behavior>
 		</completion>
-		<completion string="namespace" symbol="function">
+		<completion string="namespace">
 			<behavior>
 				<append>($[string namespace])</append>
 			</behavior>
 		</completion>
-		<completion string="namespaceInputId" symbol="function">
+		<completion string="namespaceInputId">
 			<behavior>
 				<append>($[string namespace])</append>
 			</behavior>
 		</completion>
-		<completion string="namespaceInputName" symbol="function">
+		<completion string="namespaceInputName">
 			<behavior>
 				<append>($[string namespace])</append>
 			</behavior>
 		</completion>
 		<completion string="number" />
-		<completion string="number" symbol="function">
+		<completion string="number">
 			<behavior>
 				<append>(false)</append>
 			</behavior>
@@ -794,63 +794,63 @@
 		<completion string="parseRefs" />
 		<completion string="pascal" />
 		<completion string="percentage" />
-		<completion string="prepend" symbol="function">
+		<completion string="prepend">
 			<behavior>
 				<append>($[string html])</append>
 			</behavior>
 		</completion>
-		<completion string="prepend" symbol="function">
+		<completion string="prepend">
 			<behavior>
 				<append>($[string html], 'keep')</append>
 			</behavior>
 		</completion>
-		<completion string="prepend" symbol="function">
+		<completion string="prepend">
 			<behavior>
 				<append>($[string html], 'replace')</append>
 			</behavior>
 		</completion>
 		<completion string="purify" />
-		<completion string="purify" symbol="function">
+		<completion string="purify">
 			<behavior>
 				<append>($[string config])</append>
 			</behavior>
 		</completion>
-		<completion string="push" symbol="function">
+		<completion string="push">
 			<behavior>
 				<append>($[items])</append>
 			</behavior>
 		</completion>
 		<completion string="rss" />
-		<completion string="time" symbol="function">
+		<completion string="time">
 			<behavior>
 				<append>($[string format], timezone=$[string timezone])</append>
 			</behavior>
 		</completion>
-		<completion string="time" symbol="function">
+		<completion string="time">
 			<behavior>
 				<append>($[string format], locale=$[string locale])</append>
 			</behavior>
 		</completion>
 		<completion string="timestamp" />
-		<completion string="truncate" symbol="function">
+		<completion string="truncate">
 			<behavior>
 				<append>($[int chars], $[string append])</append>
 			</behavior>
 		</completion>
 		<completion string="ucfirst" />
 		<completion string="unique" />
-		<completion string="unshift" symbol="function">
+		<completion string="unshift">
 			<behavior>
 				<append>($[items])</append>
 			</behavior>
 		</completion>
 		<completion string="values" />
-		<completion string="without" symbol="function">
+		<completion string="without">
 			<behavior>
 				<append>($[elements])</append>
 			</behavior>
 		</completion>
-		<completion string="withoutKey" symbol="function">
+		<completion string="withoutKey">
 			<behavior>
 				<append>($[string key])</append>
 			</behavior>
@@ -858,7 +858,7 @@
 	</set>
 	
 	<!-- Element Queries: Start -->
-	<set name="twig.craft-element-queries" symbol="function">
+	<set name="twig.craft-element-queries" symbol="method">
 		<behavior>
 			<append>()</append>
 		</behavior>
@@ -872,7 +872,7 @@
 	</set>
 	
 	<!-- Craft.Properties -->
-	<set name="twig.craft-properties">
+	<set name="twig.craft-global-properties" symbol="property">
 		<completion string="app" priority="3" />
 	</set>
 	
