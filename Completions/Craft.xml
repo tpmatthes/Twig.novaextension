@@ -81,6 +81,7 @@
 		<selector>*:not(string,comment)</selector>
 		<expression>(?&lt;=\.)([a-zA-Z]*)</expression>
 		<set>twig.craft-element-query-methods</set>
+		<set>twig.craft-methods</set>
 	</provider>
 	
 	<!-- Tags -->
@@ -1329,5 +1330,17 @@
 		<completion string="exists" priority="1" />
 		<completion string="count" priority="1" />
 		<completion string="ids" /><!-- .id(...) has priority -->
+	</set>
+	
+	<!-- General Methods -->
+	<set name="twig.craft-methods" symbol="method">
+		<behavior>
+			<append>()</append>
+		</behavior>
+		<completion string="getUrl">
+			<behavior>
+				<append>($[mixed transform])</append>
+			</behavior>
+		</completion>
 	</set>
 </completions>
