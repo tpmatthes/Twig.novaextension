@@ -67,6 +67,14 @@
 		<set>twig.craft-common-services</set>
 	</provider>
 	
+	<!-- Properties after "entry." -->
+	<provider>
+		<syntax>twig-base</syntax>
+		<selector>*:not(string,comment)</selector>
+		<expression>(?&lt;=entry\.)([a-zA-Z]*)</expression>
+		<set>twig.craft-entry-properties</set>
+	</provider>
+	
 	<!-- Methods after "." -->
 	<provider>
 		<syntax>twig-base</syntax>
@@ -887,8 +895,23 @@
 		<completion string="sites" priority="3" />
 	</set>
 	
-	<!-- Element Queries: Methods -->
-	<set name="twig.craft-element-query-methods" symbol="function">
+	<!-- Entry.Properties -->
+	<set name="twig.craft-entry-properties" symbol="property">
+		<completion string="author" priority="3" />
+		<completion string="cpEditUrl" priority="3" />
+		<completion string="expiryDate" priority="3" />
+		<completion string="isDeletable" priority="3" />
+		<completion string="isEditable" priority="3" />
+		<completion string="postDate" priority="3" />
+		<completion string="section" priority="3" />
+		<completion string="status" priority="3" />
+		<completion string="title" priority="3" />
+		<completion string="type" priority="3" />
+		<completion string="url" priority="3" />
+	</set>
+	
+	<!-- Element Query Methods -->
+	<set name="twig.craft-element-query-methods" symbol="method">
 		<!-- Standard: Add () after function -->
 		<behavior>
 			<append>()</append>
