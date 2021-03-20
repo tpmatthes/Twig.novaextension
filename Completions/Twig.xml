@@ -537,7 +537,7 @@
 	</set>
 	
 	<!-- Keywords -->
-	<set name="twig.keywords">
+	<set name="twig.keywords" symbol="keyword">
 		<completion string="not" />
 		<completion string="as" />
 		<completion string="in" />
@@ -555,12 +555,12 @@
 	</set>
 	
 	<!-- Globals -->
-	<set name="twig.globals">
+	<set name="twig.globals" symbol="constant">
 		<completion string="now" />
 	</set>
 	
 	<!-- Tests -->
-	<set name="twig.tests">
+	<set name="twig.tests" symbol="keyword">
 		<completion string="defined" />
 		<completion string="constant">
 			<behavior>
@@ -585,128 +585,128 @@
 	</set>
 
 	<!-- Filters -->
-	<set name="twig.filters">
+	<set name="twig.filters" symbol="function">
 		<completion string="abs" />
-		<completion string="batch" symbol="function">
+		<completion string="batch">
 			<behavior>
 				<append>($[int size], $[string fill], $[bool preserve_keys])</append>
 			</behavior>
 		</completion>
 		<completion string="capitalize" />
-		<completion string="column" symbol="function">
+		<completion string="column">
 			<behavior>
 				<append>($[string name])</append>
 			</behavior>
 		</completion>
-		<completion string="convert_encoding" symbol="function">
+		<completion string="convert_encoding">
 			<behavior>
 				<append>($[string to], $[string from])</append>
 			</behavior>
 		</completion>
-		<completion string="country_name" symbol="function">
+		<completion string="country_name">
 			<behavior>
 				<append>($[string locale])</append>
 			</behavior>
 		</completion>
-		<completion string="currency_name" symbol="function">
+		<completion string="currency_name">
 			<behavior>
 				<append>($[string locale])</append>
 			</behavior>
 		</completion>
-		<completion string="currency_symbol" symbol="function">
+		<completion string="currency_symbol">
 			<behavior>
 				<append>($[string locale])</append>
 			</behavior>
 		</completion>
-		<completion string="data_uri" symbol="function">
+		<completion string="data_uri">
 			<behavior>
 				<append>($[string mime], $[array parameters])</append>
 			</behavior>
 		</completion>
-		<completion string="date" symbol="function">
+		<completion string="date">
 			<behavior>
 				<append>($[string format], $[string timezone])</append>
 			</behavior>
 		</completion>
-		<completion string="date_modify" symbol="function">
+		<completion string="date_modify">
 			<behavior>
 				<append>($[string modifier])</append>
 			</behavior>
 		</completion>
-		<completion string="default" symbol="function">
+		<completion string="default">
 			<behavior>
 				<append>($[mixed default])</append>
 			</behavior>
 		</completion>
 		<completion string="escape" />
-		<completion string="escape" symbol="function">
+		<completion string="escape">
 			<behavior>
 				<append>($[string strategy], $[string charset])</append>
 			</behavior>
 		</completion>
 		<completion string="e" />
-		<completion string="e" symbol="function">
+		<completion string="e">
 			<behavior>
 				<append>($[string strategy], $[string charset])</append>
 			</behavior>
 		</completion>
-		<completion string="filter" symbol="function">
+		<completion string="filter">
 			<behavior>
 				<append>($[arguments] => $[function])</append>
 			</behavior>
 		</completion>
 		<completion string="first" />
-		<completion string="format" symbol="function">
+		<completion string="format">
 			<behavior>
 				<append>($[…])</append>
 			</behavior>
 		</completion>
-		<completion string="format_currency" symbol="function">
+		<completion string="format_currency">
 			<behavior>
 				<append>($[string currency], $[object attributes], $[string locale])</append>
 			</behavior>
 		</completion>
-		<completion string="format_date" symbol="function">
+		<completion string="format_date">
 			<behavior>
 				<append>($[string dateFormat], locale=$[string locale])</append>
 			</behavior>
 		</completion>
-		<completion string="format_date" symbol="function">
+		<completion string="format_date">
 			<behavior>
 				<append>(pattern=$[string pattern])</append>
 			</behavior>
 		</completion>
-		<completion string="format_datetime" symbol="function">
+		<completion string="format_datetime">
 			<behavior>
 				<append>($[string dateFormat], $[string timeFormat], locale=$[string locale])</append>
 			</behavior>
 		</completion>
-		<completion string="format_datetime" symbol="function">
+		<completion string="format_datetime">
 			<behavior>
 				<append>(pattern=$[string pattern])</append>
 			</behavior>
 		</completion>
-		<completion string="format_number" symbol="function">
+		<completion string="format_number">
 			<behavior>
 				<append>($[object attrs])</append>
 			</behavior>
 		</completion>
-		<completion string="format_number" symbol="function">
+		<completion string="format_number">
 			<behavior>
 				<append>(style=$[string style])</append>
 			</behavior>
 		</completion>
-		<completion string="format_number" symbol="function">
+		<completion string="format_number">
 			<behavior>
 				<append>(locale=$[string locale])</append>
 			</behavior>
 		</completion>
-		<completion string="format_time" symbol="function">
+		<completion string="format_time">
 			<behavior>
 				<append>($[string timeFormat], locale=$[string locale])</append>
 			</behavior>
 		</completion>
-		<completion string="format_time" symbol="function">
+		<completion string="format_time">
 			<behavior>
 				<append>(pattern=$[string pattern])</append>
 			</behavior>
@@ -714,111 +714,111 @@
 		<completion string="html_to_markdown" />
 		<completion string="inky_to_html" />
 		<completion string="inline_css" />
-		<completion string="inline_css" symbol="function">
+		<completion string="inline_css">
 			<behavior>
 				<append>(source($[string source]))</append>
 			</behavior>
 		</completion>
-		<completion string="join" symbol="function">
+		<completion string="join">
 			<behavior>
 				<append>($[string glue], $[string end])</append>
 			</behavior>
 		</completion>
 		<completion string="json_encode" />
-		<completion string="json_encode" symbol="function">
+		<completion string="json_encode">
 			<behavior>
 				<append>(constant($[string options]))</append>
 			</behavior>
 		</completion>
 		<completion string="keys" />
-		<completion string="language_name" symbol="function">
+		<completion string="language_name">
 			<behavior>
 				<append>($[string locale])</append>
 			</behavior>
 		</completion>
 		<completion string="last" />
 		<completion string="length" />
-		<completion string="locale_name" symbol="function">
+		<completion string="locale_name">
 			<behavior>
 				<append>($[string locale])</append>
 			</behavior>
 		</completion>
 		<completion string="lower" />
-		<completion string="map" symbol="function">
+		<completion string="map">
 			<behavior>
 				<append>($[arguments] => $[function])</append>
 			</behavior>
 		</completion>
 		<completion string="markdown_to_html" />
-		<completion string="merge" symbol="function">
+		<completion string="merge">
 			<behavior>
 				<append>($[array data])</append>
 			</behavior>
 		</completion>
 		<completion string="nl2br" />
-		<completion string="number_format" symbol="function">
+		<completion string="number_format">
 			<behavior>
 				<append>($[int decimals], $[string decimal_point], $[string thousand_sep])</append>
 			</behavior>
 		</completion>
 		<completion string="raw" />
-		<completion string="reduce" symbol="function">
+		<completion string="reduce">
 			<behavior>
 				<append>($[arguments] => $[function])</append>
 			</behavior>
 		</completion>
-		<completion string="replace" symbol="function">
+		<completion string="replace">
 			<behavior>
 				<append>($[object from])</append>
 			</behavior>
 		</completion>
 		<completion string="reverse" />
-		<completion string="reverse" symbol="function">
+		<completion string="reverse">
 			<behavior>
 				<append>($[bool preserve_keys])</append>
 			</behavior>
 		</completion>
 		<completion string="round" />
-		<completion string="round" symbol="function">
+		<completion string="round">
 			<behavior>
 				<append>($[int precision], $[string method])</append>
 			</behavior>
 		</completion>
-		<completion string="slice" symbol="function">
+		<completion string="slice">
 			<behavior>
 				<append>($[int start], $[int length], $[bool preserve_keys])</append>
 			</behavior>
 		</completion>
-		<completion string="sort" symbol="function">
+		<completion string="sort">
 			<behavior>
 				<append>($[arguments] => $[function])</append>
 			</behavior>
 		</completion>
 		<completion string="spaceless" />
-		<completion string="split" symbol="function">
+		<completion string="split">
 			<behavior>
 				<append>($[string delimiter], $[int limit])</append>
 			</behavior>
 		</completion>
 		<completion string="striptags" />
-		<completion string="striptags" symbol="function">
+		<completion string="striptags">
 			<behavior>
 				<append>($[string allowable_tags])</append>
 			</behavior>
 		</completion>
-		<completion string="timezone_name" symbol="function">
+		<completion string="timezone_name">
 			<behavior>
 				<append>($[string locale])</append>
 			</behavior>
 		</completion>
 		<completion string="title" />
 		<completion string="trim" />
-		<completion string="trim" symbol="function">
+		<completion string="trim">
 			<behavior>
 				<append>($[string character_mask], $[string side)</append>
 			</behavior>
 		</completion>
-		<completion string="trim" symbol="function">
+		<completion string="trim">
 			<behavior>
 				<append>(side=$[string side)</append>
 			</behavior>
