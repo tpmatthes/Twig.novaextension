@@ -1,0 +1,94 @@
+<!-- <?xml version="1.0" encoding="UTF-8"?> -->
+<syntax name="twig-markdown">
+	<meta>
+		<name>Twig-Markdown</name>
+		<type>markup</type>
+		<parent>markdown</parent>
+	</meta>
+	
+	<comments>
+		<multiline>
+			<starts-with>
+				<expression>&lt;!--</expression>
+			</starts-with>
+			<ends-with>
+				<expression>--&gt;</expression>
+			</ends-with>
+		</multiline>
+	</comments>
+	
+	<brackets>
+		<pair open="{" close="}" />
+		<pair open="[" close="]" />
+		<pair open="(" close=")" />
+	</brackets>
+	 
+	<surrounding-pairs>
+		<pair open="{" close="}" />
+		<pair open="[" close="]" />
+		<pair open="(" close=")" />
+		<pair open="&apos;" close="&apos;" />
+		<pair open="&quot;" close="&quot;" />
+		<pair open="`" close="`" />
+		<pair open="*" close="*" />
+		<pair open="_" close="_" />
+		<pair open="~" close="~" />
+		<pair open="“" close="”" />
+		<pair open="‘" close="’" />
+	</surrounding-pairs>
+	
+	<scopes spell-check="true" lookup="dictionary">
+		<include syntax="markdown" collection="*" />
+	</scopes>
+
+	<template-scopes>
+		<scope name="twig.comment.block" spell-check="true">
+			<starts-with>
+				<expression>\{\#</expression>
+				<capture number="0" name="twig.comment.block.start" />
+			</starts-with>
+			<ends-with>
+				<expression>\#\}</expression>
+				<capture number="0" name="twig.comment.block.end" />
+			</ends-with>
+		</scope>
+	
+		<scope name="twig.tag.framework" spell-check="false" lookup="index">
+			<symbol type="tag-framework">
+				<context behavior="subtree" group-by-name="true" />
+			</symbol>
+			<starts-with>
+				<expression>\{\{</expression>
+				<capture number="0" name="twig.tag.framework.variable.start" />
+			</starts-with>
+			<ends-with>
+				<expression>\}\}</expression>
+				<capture number="0" name="twig.tag.framework.variable.end" />
+			</ends-with>
+			<subsyntax name="twig-base" noncontiguous="true" export-symbols="true">
+				<cut-off>
+					<expression>(?=\}\})</expression>
+				</cut-off>
+			</subsyntax>
+		</scope>
+
+		<scope name="twig.tag.framework" spell-check="false" lookup="index">
+			<symbol type="tag-framework">
+				<context behavior="subtree" group-by-name="true" />
+			</symbol>
+			<starts-with>
+				<expression>\{\%</expression>
+				<capture number="0" name="twig.tag.framework.expression.start" />
+			</starts-with>
+			<ends-with>
+				<expression>\%\}</expression>
+				<capture number="0" name="twig.tag.framework.expression.end" />
+			</ends-with>
+			<subsyntax name="twig-base" noncontiguous="true" export-symbols="true">
+				<cut-off>
+					<expression>(?=\%\})</expression>
+				</cut-off>
+			</subsyntax>
+		</scope>
+	</template-scopes>
+</syntax>

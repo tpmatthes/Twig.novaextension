@@ -1,3 +1,7 @@
+## Version 1.7
+
+- Add optional `Twig-Markdown` syntax definition: Map “.md” to “Twig-Markdown” in settings to activate syntax highlighting for Twig inside Markdown files (Grav CMS).
+
 ## Version 1.6
 
 - Add completions for Craft Element Queries and common properties
