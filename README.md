@@ -10,7 +10,7 @@ In Nova, go to “Extension > Extensions Library”, search for “Twig” and i
 
 Manual way: Download this repository, extract the .zip file and open the folder with Nova.
 
-If you use Twig inside Markdown files (e.g. Grav CMS): Map “.md” to “Twig-Markdown” in settings to activate syntax highlighting for Twig inside all Markdown files.
+If you use Twig inside Markdown files (e.g. Grav CMS): Map “.md” to “Twig-Markdown” in settings to activate syntax highlighting for Twig inside regular Markdown files.
 
 ## Development
 
