@@ -4,11 +4,12 @@ Map “.md” to “Twig-Markdown” in settings to activate syntax highlighting
 
 ```css
 html {
-	font-size: 1rem;
+  font-size: 1rem;
 }
 ```
 
 {% set test = 'This should be highlighted!' %}
+{{ test }}
 
 ```twig
 {% set test = 'Hello Grav CMS!' %}
