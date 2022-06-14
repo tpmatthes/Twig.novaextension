@@ -1,3 +1,7 @@
+## Version 1.8
+
+- Add support for nested syntax highlighting inside `{% css %}` and `{% js %}` (Craft CMS)
+
 ## Version 1.7
 
 - Add optional `Twig-Markdown` syntax definition: Map “.md” to “Twig-Markdown” in settings to activate syntax highlighting for Twig inside Markdown files (Grav CMS).
