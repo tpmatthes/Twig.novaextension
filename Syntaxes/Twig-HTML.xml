@@ -54,6 +54,24 @@
 	</surrounding-pairs>
 
 	<scopes spell-check="true" lookup="dictionary">
+		<scope name="twig.block.code.language" spell-check="false">
+			<starts-with>
+				<expression>(\{\%)\s*(css|js)\s*(\%\})</expression>
+				<capture number="1" name="twig.tag.framework.expression.start" />
+				<capture number="2" name="twig.keyword" />
+				<capture number="3" name="twig.tag.framework.expression.end" />
+			</starts-with>
+			<ends-with>
+				<expression>(\{\%)\s*(endcss|endjs)\s*(\%\})</expression>
+				<capture number="1" name="twig.tag.framework.expression.start" />
+				<capture number="2" name="twig.keyword" />
+				<capture number="3" name="twig.tag.framework.expression.end" />
+			</ends-with>
+			<subsyntax capture="2">
+				<alias key="js" value="javascript" />
+			</subsyntax>
+		</scope>
+		
 		<include syntax="html" />
 	</scopes>
 
@@ -93,7 +111,7 @@
 				<context behavior="subtree" group-by-name="true" />
 			</symbol>
 			<starts-with>
-				<expression>\{\%</expression>
+				<expression>\{\%(?!\s*(css|endcss|js|endjs))</expression>
 				<capture number="0" name="twig.tag.framework.expression.start" />
 			</starts-with>
 			<ends-with>
