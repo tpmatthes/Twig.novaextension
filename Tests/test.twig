@@ -39,3 +39,11 @@
 {% js %}
 	window.addEventListener('load', () => console.log('Hello World'));
 {% endjs %}
+
+{% js at head %}
+	console.log('Hello World');
+{% endjs %}
+
+{% js "/assets/js/script.js" with {
+	defer: true
+} %}
