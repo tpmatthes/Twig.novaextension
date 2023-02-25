@@ -3,7 +3,7 @@
   "name": "Twig",
   "organization": "tpmatthes",
   "description": "Syntax Highlighting and Completions for Twig (and Craft CMS) Template Files (.twig)",
-  "version": "1.8",
+  "version": "1.8.1",
   "license": "MIT",
   "bugs": "https://github.com/tpmatthes/Twig.novaextension/issues",
   "repository": "https://github.com/tpmatthes/Twig.novaextension",

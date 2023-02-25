@@ -1,3 +1,7 @@
+## Version 1.8.1
+
+- Add support for modifiers (e.g. `at head`) on fenced code blocks (`{% css %}` and `{% js %}`)
+
 ## Version 1.8
 
 - Add support for nested syntax highlighting inside `{% css %}` and `{% js %}` (Craft CMS)
