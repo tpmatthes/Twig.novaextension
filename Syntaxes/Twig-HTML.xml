@@ -56,10 +56,12 @@
 	<scopes spell-check="true" lookup="dictionary">
 		<scope name="twig.block.code.language" spell-check="false">
 			<starts-with>
-				<expression>(\{\%)\s*(css|js)\s*(\%\})</expression>
+				<expression>(\{\%)\s*(css|js)\s*(at|on)?\s*(head|beginBody|endBody|load|ready)?\s*(\%\})</expression>
 				<capture number="1" name="twig.tag.framework.expression.start" />
 				<capture number="2" name="twig.keyword" />
-				<capture number="3" name="twig.tag.framework.expression.end" />
+				<capture number="3" name="twig.keyword" />
+				<capture number="4" name="twig.keyword" />
+				<capture number="5" name="twig.tag.framework.expression.end" />
 			</starts-with>
 			<ends-with>
 				<expression>(\{\%)\s*(endcss|endjs)\s*(\%\})</expression>
@@ -111,7 +113,7 @@
 				<context behavior="subtree" group-by-name="true" />
 			</symbol>
 			<starts-with>
-				<expression>\{\%(?!\s*(css|endcss|js|endjs))</expression>
+				<expression>\{\%(?!\s*(css|endcss|js|endjs)\s*(at|on)?\s*(head|beginBody|endBody|load|ready)?\s*\%\})</expression>
 				<capture number="0" name="twig.tag.framework.expression.start" />
 			</starts-with>
 			<ends-with>
