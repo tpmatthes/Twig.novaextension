@@ -32,13 +32,14 @@
 	</brackets>
 
 	<surrounding-pairs>
-		<pair open="&lt;" close="&gt;" />
 		<pair open="{" close="}" />
 		<pair open="[" close="]" />
 		<pair open="(" close=")" />
 		<pair open="&apos;" close="&apos;" />
 		<pair open="&quot;" close="&quot;" />
 		<pair open="`" close="`" />
+		<pair open="“" close="”" />
+		<pair open="‘" close="’" />
 	</surrounding-pairs>
 
 	<scopes>
