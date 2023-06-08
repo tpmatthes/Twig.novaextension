@@ -1,0 +1,1598 @@
+<!--
+Nova 10 introduced a new system for syntax definitions (Tree-sitter) and Panic migrated all built-in languages.
+
+The Twig language plugin is still regex-based and includes the built-in syntax definition for HTML. 
+
+Because of backwards compatibility, syntax highlighting for HTML tags in Twig files still works. However, the built-in completions for HTML won’t show up until the Twig language plugin is migrated to Tree-sitter.
+
+That’s why this plugin includes a full copy of the built-in completions for HTML from Nova 9.6 (see below).
+-->
+
+<?xml version="1.0" encoding="UTF-8"?>
+<completions>
+	 <!-- Tag -->
+	 <provider name="tags">
+		  <syntax>html</syntax>
+		  <selector>html.tag-bracket</selector>
+		  <expression>(?&lt;=\&lt;)</expression>
+		  
+		  <set>html.tags</set>
+		  <set>html.tags.void</set>
+	 </provider>
+	 <provider name="tags">
+		  <syntax>html</syntax>
+		  <syntax>markdown</syntax>
+		  <selector>html.tag.open, html.tag.name</selector>
+		  <expression>(?&lt;=\&lt;)[a-zA-Z0-9_-]+</expression>
+		  
+		  <set>html.tags</set>
+		  <set>html.tags.void</set>
+	 </provider>
+	 
+	 <!-- Attribute -->
+	 <provider name="attributes.generic">
+		  <syntax>html</syntax>
+		  <syntax>markdown</syntax>
+		  <selector>html.tag.open, html.tag.open html.tag.attribute:not(value)</selector>
+		  <expression>(?&lt;=\s)[a-zA-Z0-9-_]*$</expression>
+		  
+		  <set>html.attributes</set>
+		  <set>html.attributes.aria</set>
+	 </provider>
+	 
+	 <!-- Tag-specific Attribute -->
+	 <provider name="attributes.tag">
+		  <syntax>html</syntax>
+		  <syntax>markdown</syntax>
+		  <selector>html.tag.open:has-child(html.tag.name:capture(tag))</selector>
+		  <expression>(?&lt;=\s)[a-zA-Z0-9-_]*$</expression>
+		  
+		  <set>html.attributes.${tag}</set>
+	 </provider>
+	 <provider name="attributes.tag">
+		  <syntax>html</syntax>
+		  <selector>html.tag.open:has-child(html.tag.name:capture(tag)) html.tag.attribute:not(value)</selector>
+		  <expression>(?&lt;=\s)[a-zA-Z0-9-_]*$</expression>
+		  
+		  <set>html.attributes.${tag}</set>
+	 </provider>
+	 
+	 <!-- Tag-specific Attribute Value -->
+	 <provider name="attributes.tag.values">
+		  <syntax>html</syntax>
+		  <syntax>markdown</syntax>
+		  <selector>html.tag.open:has-child(html.tag.name:capture(tag)) html.tag.attribute:has-child(html.tag.attribute.name:capture(attribute)) html.tag.attribute.value</selector>
+		  <expression>(?&lt;=(=&quot;|=\s&quot;|=&apos;|=\s&apos;|\s))[a-zA-Z0-9-_]*</expression>
+		  
+		  <set>html.attribute.values.${attribute}</set>
+		  <set>html.attribute.values.${tag}.${attribute}</set>
+	 </provider>
+	 
+	 <!-- Class Attribute Values -->
+	 <provider name="attributes.class.values">
+		  <syntax>html</syntax>
+		  <syntax>markdown</syntax>
+		  <selector>html.tag.attribute.class html.tag.attribute.value</selector>
+		  <expression>(?&lt;=(=&quot;|=\s&quot;|=&apos;|=\s&apos;|\s))[a-zA-Z0-9-_]*</expression>
+		  
+		  <symbols type="style-class" syntax="css" />
+		  <symbols type="style-class" syntax="scss" />
+		  <symbols type="style-class" syntax="sass" />
+	 </provider>
+	 
+	 <!-- ID Attribute Values -->
+	 <provider name="attributes.id.values">
+		  <syntax>html</syntax>
+		  <syntax>markdown</syntax>
+		  <selector>html.tag.attribute.id html.tag.attribute.value,
+				html.tag.attribute.aria-id html.tag.attribute.value</selector>
+		  <expression>(?&lt;=(=&quot;|=\s&quot;|=&apos;|=\s&apos;|\s))[a-zA-Z0-9-_]*</expression>
+		  
+		  <symbols type="style-id" syntax="css" />
+		  <symbols type="style-id" syntax="scss" />
+		  <symbols type="style-id" syntax="sass" />
+	 </provider>
+	 
+	 <!-- Entity -->
+	 <provider name="entities">
+		  <syntax>html</syntax>
+		  <syntax>markdown</syntax>
+		  <selector>html.entity</selector>
+		  <expression>&amp;[a-zA-Z0-9]*;?</expression>
+		  
+		  <set>html.entities</set>
+	 </provider>
+	 
+	 <set name="html.tags" symbol="tag">
+		  <behavior variables="true" suffix="(?!&gt;)">
+				<append>&gt;$[]&lt;/${completion}&gt;</append>
+		  </behavior>
+		  <completion string="a" />
+		  <completion string="abbr" />
+		  <completion string="acronym" deprecated="true" />
+		  <completion string="address" />
+		  <completion string="applet" deprecated="true" />
+		  <completion string="article" />
+		  <completion string="aside" />
+		  <completion string="audio" />
+		  <completion string="b" />
+		  <completion string="basefont" deprecated="true" />
+		  <completion string="bdi" />
+		  <completion string="bdo" />
+		  <completion string="button" />
+		  <completion string="bgsound" deprecated="true" />
+		  <completion string="big" deprecated="true" />
+		  <completion string="blink" deprecated="true" />
+		  <completion string="blockquote" />
+		  <completion string="body" />
+		  <completion string="button" />
+		  <completion string="canvas" />
+		  <completion string="caption" />
+		  <completion string="center" deprecated="true" />
+		  <completion string="cite" />
+		  <completion string="code" />
+		  <completion string="colgroup" />
+		  <completion string="content" deprecated="true" />
+		  <completion string="data" />
+		  <completion string="datalist" />
+		  <completion string="dd" />
+		  <completion string="del" />
+		  <completion string="details" />
+		  <completion string="dfn" />
+		  <completion string="dialog" />
+		  <completion string="dir" deprecated="true" />
+		  <completion string="div" />
+		  <completion string="dl" />
+		  <completion string="dt" />
+		  <completion string="element" deprecated="true" />
+		  <completion string="em" />
+		  <completion string="fieldset" />
+		  <completion string="figcaption" />
+		  <completion string="figure" />
+		  <completion string="font" deprecated="true" />
+		  <completion string="footer" />
+		  <completion string="form" />
+		  <completion string="frame" deprecated="true" />
+		  <completion string="frameset" deprecated="true" />
+		  <completion string="h1" />
+		  <completion string="h2" />
+		  <completion string="h3" />
+		  <completion string="h4" />
+		  <completion string="h5" />
+		  <completion string="h6" />
+		  <completion string="head" />
+		  <completion string="header" />
+		  <completion string="hgroup" />
+		  <completion string="html" />
+		  <completion string="i" />
+		  <completion string="iframe" />
+		  <completion string="image" deprecated="true" />
+		  <completion string="ins" />
+		  <completion string="isindex" deprecated="true" />
+		  <completion string="kbd" />
+		  <completion string="label" />
+		  <completion string="legend" />
+		  <completion string="li" />
+		  <completion string="listing" deprecated="true" />
+		  <completion string="main" />
+		  <completion string="map" />
+		  <completion string="mark" />
+		  <completion string="marquee" deprecated="true" />
+		  <completion string="menuitem" deprecated="true" />
+		  <completion string="meter" />
+		  <completion string="multicol" deprecated="true" />
+		  <completion string="nav" />
+		  <completion string="nextid" deprecated="true" />
+		  <completion string="nobr" deprecated="true" />
+		  <completion string="noembed" deprecated="true" />
+		  <completion string="noframes" deprecated="true" />
+		  <completion string="noscript" />
+		  <completion string="object" />
+		  <completion string="ol" />
+		  <completion string="optgroup" />
+		  <completion string="option" />
+		  <completion string="output" />
+		  <completion string="p" />
+		  <completion string="picture" />
+		  <completion string="plaintext" deprecated="true" />
+		  <completion string="pre" />
+		  <completion string="progress" />
+		  <completion string="q" />
+		  <completion string="rb" />
+		  <completion string="rp" />
+		  <completion string="rt" />
+		  <completion string="rtc" />
+		  <completion string="ruby" />
+		  <completion string="s" />
+		  <completion string="samp" />
+		  <completion string="script" />
+		  <completion string="section" />
+		  <completion string="select" />
+		  <completion string="shadow" deprecated="true" />
+		  <completion string="slot" />
+		  <completion string="small" />
+		  <completion string="spacer" deprecated="true" />
+		  <completion string="span" />
+		  <completion string="strike" deprecated="true" />
+		  <completion string="strong" />
+		  <completion string="style" />
+		  <completion string="sub" />
+		  <completion string="summary" />
+		  <completion string="sup" />
+		  <completion string="table" />
+		  <completion string="tbody" />
+		  <completion string="td" />
+		  <completion string="template" />
+		  <completion string="textarea" />
+		  <completion string="tfoot" />
+		  <completion string="th" />
+		  <completion string="thead" />
+		  <completion string="time" />
+		  <completion string="title" />
+		  <completion string="tr" />
+		  <completion string="tt" deprecated="true" />
+		  <completion string="u" />
+		  <completion string="ul" />
+		  <completion string="var" />
+		  <completion string="video" />
+		  <completion string="xmp" deprecated="true" />
+	 </set>
+	 
+	 <set name="html.tags.void" symbol="tag">
+		  <behavior complete-on-confirm="true">
+				<append> $[] /&gt;</append>
+		  </behavior>
+		  <completion string="embed" />
+		  <completion string="keygen" deprecated="true" />
+		  <completion string="param" />
+		  <completion string="source" />
+		  <completion string="wbr" />
+		  <completion string="area" />
+		  <completion string="hr" />
+		  <completion string="col" />
+		  <completion string="command" deprecated="true" />
+		  <completion string="br" />
+		  <completion string="img" />
+		  <completion string="input" />
+		  <completion string="base" />
+		  <completion string="track" />
+		  <completion string="link" />
+		  <completion string="meta" />
+	 </set>
+	 
+	 <!-- Attributes common across all tags -->
+	 <set name="html.attributes" symbol="property">
+		  <behavior complete-on-confirm="true">
+				<append>="$[]"</append>
+		  </behavior>
+		  <completion string="accesskey" />
+		  <completion string="autocapitalize" />
+		  <completion string="autocomplete" />
+		  <completion string="class" />
+		  <completion string="contenteditable" />
+		  <completion string="contextmenu" deprecated="true" />
+		  <completion string="data_attributes" />
+		  <completion string="dir" />
+		  <completion string="draggable" />
+		  <completion string="dropzone" />
+		  <completion string="exportparts" />
+		  <completion string="hidden">
+				<behavior />
+		  </completion>
+		  <completion string="id" />
+		  <completion string="inputmode" />
+		  <completion string="is" />
+		  <completion string="itemid" />
+		  <completion string="itemprop" />
+		  <completion string="itemref" />
+		  <completion string="itemscope" />
+		  <completion string="itemtype" />
+		  <completion string="lang" />
+		  <completion string="part" />
+		  <completion string="slot" />
+		  <completion string="spellcheck" />
+		  <completion string="style" />
+		  <completion string="tabindex" />
+		  <completion string="title" />
+		  <completion string="translate" />
+	 </set>
+	 
+	 <set name="html.attributes.aria" symbol="property">
+		  <behavior complete-on-confirm="true">
+				<append>="$[]"</append>
+		  </behavior>
+		  <completion string="role" />
+		  <completion string="aria-activedescendant" />
+		  <completion string="aria-atomic" />
+		  <completion string="aria-busy" />
+		  <completion string="aria-controls" />
+		  <completion string="aria-describedby" />
+		  <completion string="aria-dropeffect" />
+		  <completion string="aria-expanded" />
+		  <completion string="aria-flowto" />
+		  <completion string="aria-grabbed" />
+		  <completion string="aria-haspopup" />
+		  <completion string="aria-hidden" />
+		  <completion string="aria-label" />
+		  <completion string="aria-labelledby" />
+		  <completion string="aria-level" />
+		  <completion string="aria-live" />
+		  <completion string="aria-orientation" />
+		  <completion string="aria-owns" />
+		  <completion string="aria-posinset" />
+		  <completion string="aria-pressed" />
+		  <completion string="aria-relevant" />
+		  <completion string="aria-setsize" />
+		  <completion string="aria-sort" />
+	 </set>
+	 
+	 <set name="html.attributes.a" symbol="property">
+		  <behavior complete-on-confirm="true">
+				<append>="$[]"</append>
+		  </behavior>
+		  <completion string="charset" deprecated="true" />
+		  <completion string="coords" deprecated="true" />
+		  <completion string="download" />
+		  <completion string="href" />
+		  <completion string="hreflang" />
+		  <completion string="name" deprecated="true" />
+		  <completion string="ping" />
+		  <completion string="referrerpolicy" />
+		  <completion string="rel" />
+		  <completion string="rev" deprecated="true" />
+		  <completion string="shape" deprecated="true" />
+		  <completion string="target" />
+		  <completion string="type" />
+	 </set>
+	 
+	 <set name="html.attributes.applet" symbol="property">
+		  <behavior complete-on-confirm="true">
+				<append>="$[]"</append>
+		  </behavior>
+		  <completion string="align" deprecated="true" />
+		  <completion string="alt" deprecated="true" />
+		  <completion string="archive" deprecated="true" />
+		  <completion string="code" deprecated="true" />
+		  <completion string="codebase" deprecated="true" />
+		  <completion string="datafld" deprecated="true" />
+		  <completion string="datasrc" deprecated="true" />
+		  <completion string="height" deprecated="true" />
+		  <completion string="hspace" deprecated="true" />
+		  <completion string="mayscript" deprecated="true" />
+		  <completion string="name" deprecated="true" />
+		  <completion string="object" deprecated="true" />
+		  <completion string="src" deprecated="true" />
+		  <completion string="vspace" deprecated="true" />
+		  <completion string="width" deprecated="true" />
+	 </set>
+	 
+	 <set name="html.attributes.area" symbol="property">
+		  <behavior complete-on-confirm="true">
+				<append>="$[]"</append>
+		  </behavior>
+		  <completion string="accesskey" deprecated="true" />
+		  <completion string="alt" />
+		  <completion string="coords" />
+		  <completion string="download" />
+		  <completion string="href" />
+		  <completion string="hreflang" />
+		  <completion string="media" />
+		  <completion string="name" deprecated="true" />
+		  <completion string="nohref" deprecated="true" />
+		  <completion string="referrerpolicy" />
+		  <completion string="rel" />
+		  <completion string="shape" />
+		  <completion string="tabindex" deprecated="true" />
+		  <completion string="target" />
+		  <completion string="type" deprecated="true" />
+	 </set>
+	 
+	 <set name="html.attributes.audio" symbol="property">
+		  <behavior complete-on-confirm="true">
+				<append>="$[]"</append>
+		  </behavior>
+		  <completion string="autoplay" />
+		  <completion string="buffered" />
+		  <completion string="controls" />
+		  <completion string="loop" />
+		  <completion string="mozcurrentsampleoffset" />
+		  <completion string="muted" />
+		  <completion string="played" />
+		  <completion string="preload" />
+		  <completion string="src" />
+		  <completion string="volume" />
+	 </set>
+	 
+	 <set name="html.attributes.base" symbol="property">
+		  <behavior complete-on-confirm="true">
+				<append>="$[]"</append>
+		  </behavior>
+		  <completion string="href" />
+		  <completion string="target" />
+	 </set>
+	 
+	 <set name="html.attributes.blockquote" symbol="property">
+		  <behavior complete-on-confirm="true">
+				<append>="$[]"</append>
+		  </behavior>
+		  <completion string="cite" />
+	 </set>
+	 
+	 <set name="html.attributes.body" symbol="property">
+		  <behavior complete-on-confirm="true">
+				<append>="$[]"</append>
+		  </behavior>
+		  <completion string="alink" deprecated="true" />
+		  <completion string="background" deprecated="true" />
+		  <completion string="bgcolor" deprecated="true" />
+		  <completion string="bottommargin" deprecated="true" />
+		  <completion string="leftmargin" deprecated="true" />
+		  <completion string="link" deprecated="true" />
+		  <completion string="onafterprint" />
+		  <completion string="onbeforeprint" />
+		  <completion string="onbeforeunload" />
+		  <completion string="onblur" />
+		  <completion string="onerror" />
+		  <completion string="onfocus" />
+		  <completion string="onhashchange" />
+		  <completion string="onlanguagechange" />
+		  <completion string="onload" />
+		  <completion string="onmessage" />
+		  <completion string="onoffline" />
+		  <completion string="ononline" />
+		  <completion string="onpopstate" />
+		  <completion string="onredo" />
+		  <completion string="onresize" />
+		  <completion string="onstorage" />
+		  <completion string="onundo" />
+		  <completion string="onunload" />
+		  <completion string="rightmargin" deprecated="true" />
+		  <completion string="text" deprecated="true" />
+		  <completion string="topmargin" deprecated="true" />
+		  <completion string="vlink" deprecated="true" />
+	 </set>
+	 
+	 <set name="html.attributes.br" symbol="property">
+		  <behavior complete-on-confirm="true">
+				<append>="$[]"</append>
+		  </behavior>
+		  <completion string="clear" deprecated="true" />
+	 </set>
+	 
+	 <set name="html.attributes.button" symbol="property">
+		  <behavior complete-on-confirm="true">
+				<append>="$[]"</append>
+		  </behavior>
+		  <completion string="autocomplete" />
+		  <completion string="autofocus">
+				<behavior />
+		  </completion>
+		  <completion string="disabled">
+				<behavior />
+		  </completion>
+		  <completion string="form" />
+		  <completion string="formaction" />
+		  <completion string="formenctype" />
+		  <completion string="formmethod" />
+		  <completion string="formnovalidate" />
+		  <completion string="formtarget" />
+		  <completion string="name" />
+		  <completion string="type" />
+		  <completion string="value" />
+	 </set>
+	 
+	 <set name="html.attributes.canvas" symbol="property">
+		  <behavior complete-on-confirm="true">
+				<append>="$[]"</append>
+		  </behavior>
+		  <completion string="height" />
+		  <completion string="moz-opaque" />
+		  <completion string="width" />
+	 </set>
+	 
+	 <set name="html.attributes.caption" symbol="property">
+		  <behavior complete-on-confirm="true">
+				<append>="$[]"</append>
+		  </behavior>
+		  <completion string="align" deprecated="true" />
+	 </set>
+	 
+	 <set name="html.attributes.col" symbol="property">
+		  <behavior complete-on-confirm="true">
+				<append>="$[]"</append>
+		  </behavior>
+		  <completion string="align" deprecated="true" />
+		  <completion string="bgcolor" deprecated="true" />
+		  <completion string="char" deprecated="true" />
+		  <completion string="charoff" deprecated="true" />
+		  <completion string="span" />
+		  <completion string="valign" deprecated="true" />
+		  <completion string="width" deprecated="true" />
+	 </set>
+	 
+	 <set name="html.attributes.colgroup" symbol="property">
+		  <behavior complete-on-confirm="true">
+				<append>="$[]"</append>
+		  </behavior>
+		  <completion string="align" deprecated="true" />
+		  <completion string="bgcolor" deprecated="true" />
+		  <completion string="char" deprecated="true" />
+		  <completion string="charoff" deprecated="true" />
+		  <completion string="span" />
+		  <completion string="valign" deprecated="true" />
+		  <completion string="width" deprecated="true" />
+	 </set>
+	 
+	 <set name="html.attributes.command" symbol="property">
+		  <behavior complete-on-confirm="true">
+				<append>="$[]"</append>
+		  </behavior>
+		  <completion string="checked" deprecated="true" />
+		  <completion string="disabled" deprecated="true" />
+		  <completion string="icon" deprecated="true" />
+		  <completion string="label" deprecated="true" />
+		  <completion string="radiogroup" deprecated="true" />
+		  <completion string="type" deprecated="true" />
+	 </set>
+	 
+	 <set name="html.attributes.dd" symbol="property">
+		  <behavior complete-on-confirm="true">
+				<append>="$[]"</append>
+		  </behavior>
+		  <completion string="nowrap" deprecated="true" />
+	 </set>
+	 
+	 <set name="html.attributes.del" symbol="property">
+		  <behavior complete-on-confirm="true">
+				<append>="$[]"</append>
+		  </behavior>
+		  <completion string="cite" />
+		  <completion string="datetime" />
+	 </set>
+	 
+	 <set name="html.attributes.details" symbol="property">
+		  <behavior complete-on-confirm="true">
+				<append>="$[]"</append>
+		  </behavior>
+		  <completion string="open" />
+	 </set>
+	 
+	 <set name="html.attributes.dialog" symbol="property">
+		  <behavior complete-on-confirm="true">
+				<append>="$[]"</append>
+		  </behavior>
+		  <completion string="open" />
+	 </set>
+	 
+	 <set name="html.attributes.dir" symbol="property">
+		  <behavior complete-on-confirm="true">
+				<append>="$[]"</append>
+		  </behavior>
+		  <completion string="compact" deprecated="true" />
+	 </set>
+	 
+	 <set name="html.attributes.div" symbol="property">
+		  <behavior complete-on-confirm="true">
+				<append>="$[]"</append>
+		  </behavior>
+		  <completion string="align" deprecated="true" />
+	 </set>
+	 
+	 <set name="html.attributes.embed" symbol="property">
+		  <behavior complete-on-confirm="true">
+				<append>="$[]"</append>
+		  </behavior>
+		  <completion string="height" />
+		  <completion string="src" />
+		  <completion string="type" />
+		  <completion string="width" />
+	 </set>
+	 
+	 <set name="html.attributes.fieldset" symbol="property">
+		  <behavior complete-on-confirm="true">
+				<append>="$[]"</append>
+		  </behavior>
+		  <completion string="disabled">
+				<behavior />
+		  </completion>
+		  <completion string="form" />
+		  <completion string="name" />
+	 </set>
+	 
+	 <set name="html.attributes.font" symbol="property">
+		  <behavior complete-on-confirm="true">
+				<append>="$[]"</append>
+		  </behavior>
+		  <completion string="color" deprecated="true" />
+		  <completion string="face" deprecated="true" />
+		  <completion string="size" deprecated="true" />
+	 </set>
+	 
+	 <set name="html.attributes.form" symbol="property">
+		  <behavior complete-on-confirm="true">
+				<append>="$[]"</append>
+		  </behavior>
+		  <completion string="accept" deprecated="true" />
+		  <completion string="accept-charset" />
+		  <completion string="action" />
+		  <completion string="autocapitalize" />
+		  <completion string="autocomplete" />
+		  <completion string="enctype" />
+		  <completion string="method" />
+		  <completion string="name" />
+		  <completion string="novalidate" />
+		  <completion string="target" />
+	 </set>
+	 
+	 <set name="html.attributes.frame" symbol="property">
+		  <behavior complete-on-confirm="true">
+				<append>="$[]"</append>
+		  </behavior>
+		  <completion string="frameborder" deprecated="true" />
+		  <completion string="marginheight" deprecated="true" />
+		  <completion string="marginwidth" deprecated="true" />
+		  <completion string="name" deprecated="true" />
+		  <completion string="noresize" deprecated="true" />
+		  <completion string="scrolling" deprecated="true" />
+		  <completion string="src" deprecated="true" />
+	 </set>
+	 
+	 <set name="html.attributes.frameset" symbol="property">
+		  <behavior complete-on-confirm="true">
+				<append>="$[]"</append>
+		  </behavior>
+		  <completion string="cols" deprecated="true" />
+		  <completion string="rows" deprecated="true" />
+	 </set>
+	 
+	 <set name="html.attributes.head" symbol="property">
+		  <behavior complete-on-confirm="true">
+				<append>="$[]"</append>
+		  </behavior>
+		  <completion string="profile" deprecated="true" />
+	 </set>
+	 
+	 <set name="html.attributes.hr" symbol="property">
+		  <behavior complete-on-confirm="true">
+				<append>="$[]"</append>
+		  </behavior>
+		  <completion string="align" deprecated="true" />
+		  <completion string="color" deprecated="true" />
+		  <completion string="noshade" deprecated="true" />
+		  <completion string="size" deprecated="true" />
+		  <completion string="width" deprecated="true" />
+	 </set>
+	 
+	 <set name="html.attributes.html" symbol="property">
+		  <behavior complete-on-confirm="true">
+				<append>="$[]"</append>
+		  </behavior>
+		  <completion string="manifest" deprecated="true" />
+		  <completion string="version" deprecated="true" />
+		  <completion string="xmlns" />
+	 </set>
+	 
+	 <set name="html.attributes.iframe" symbol="property">
+		  <behavior complete-on-confirm="true">
+				<append>="$[]"</append>
+		  </behavior>
+		  <completion string="align" deprecated="true" />
+		  <completion string="allow" />
+		  <completion string="allowfullscreen" />
+		  <completion string="allowpaymentrequest" />
+		  <completion string="external_protocol_urls_blocked" deprecated="true" />
+		  <completion string="frameborder" deprecated="true" />
+		  <completion string="height" />
+		  <completion string="loading" />
+		  <completion string="longdesc" deprecated="true" />
+		  <completion string="marginheight" deprecated="true" />
+		  <completion string="marginwidth" deprecated="true" />
+		  <completion string="mozbrowser" />
+		  <completion string="name" />
+		  <completion string="referrerpolicy" />
+		  <completion string="sandbox" />
+		  <completion string="sandbox-allow-modals" />
+		  <completion string="sandbox-allow-popups" />
+		  <completion string="sandbox-allow-popups-to-escape-sandbox" />
+		  <completion string="sandbox-allow-presentation" />
+		  <completion string="sandbox-allow-storage-access-by-user-activation" />
+		  <completion string="sandbox-allow-top-navigation-by-user-activation" />
+		  <completion string="scrolling" deprecated="true" />
+		  <completion string="src" />
+		  <completion string="srcdoc" />
+		  <completion string="width" />
+	 </set>
+	 
+	 <set name="html.attributes.img" symbol="property">
+		  <behavior complete-on-confirm="true">
+				<append>="$[]"</append>
+		  </behavior>
+		  <completion string="align" deprecated="true" />
+		  <completion string="alt" />
+		  <completion string="border" deprecated="true" />
+		  <completion string="crossorigin" />
+		  <completion string="decoding" />
+		  <completion string="height" />
+		  <completion string="hspace" deprecated="true" />
+		  <completion string="intrinsicsize" />
+		  <completion string="ismap" />
+		  <completion string="loading" />
+		  <completion string="longdesc" />
+		  <completion string="name" deprecated="true" />
+		  <completion string="onerror" deprecated="true" />
+		  <completion string="referrerpolicy" />
+		  <completion string="sizes" />
+		  <completion string="src" />
+		  <completion string="srcset" />
+		  <completion string="usemap" />
+		  <completion string="vspace" deprecated="true" />
+		  <completion string="width" />
+	 </set>
+	 
+	 <set name="html.attributes.input" symbol="property">
+		  <behavior complete-on-confirm="true">
+				<append>="$[]"</append>
+		  </behavior>
+		  <completion string="accept" />
+		  <completion string="alt" />
+		  <completion string="autocomplete" />
+		  <completion string="autofocus">
+				<behavior />
+		  </completion>
+		  <completion string="capture" />
+		  <completion string="checked" />
+		  <completion string="dirname" />
+		  <completion string="disabled">
+				<behavior />
+		  </completion>
+		  <completion string="form" />
+		  <completion string="formaction" />
+		  <completion string="formenctype" />
+		  <completion string="formmethod" />
+		  <completion string="formnovalidate" />
+		  <completion string="formtarget" />
+		  <completion string="height" />
+		  <completion string="list" />
+		  <completion string="max" />
+		  <completion string="maxlength" />
+		  <completion string="min" />
+		  <completion string="minlength" />
+		  <completion string="multiple" />
+		  <completion string="name" />
+		  <completion string="pattern" />
+		  <completion string="placeholder" />
+		  <completion string="readonly" />
+		  <completion string="required">
+				<behavior />
+		  </completion>
+		  <completion string="size" />
+		  <completion string="src" />
+		  <completion string="step" />
+		  <completion string="type" />
+		  <completion string="value" />
+		  <completion string="width" />
+	 </set>
+	 
+	 <set name="html.attributes.ins" symbol="property">
+		  <behavior complete-on-confirm="true">
+				<append>="$[]"</append>
+		  </behavior>
+		  <completion string="cite" />
+		  <completion string="datetime" />
+	 </set>
+	 
+	 <set name="html.attributes.isindex" symbol="property">
+		  <behavior complete-on-confirm="true">
+				<append>="$[]"</append>
+		  </behavior>
+		  <completion string="action" deprecated="true" />
+		  <completion string="prompt" deprecated="true" />
+	 </set>
+	 
+	 <set name="html.attributes.label" symbol="property">
+		  <behavior complete-on-confirm="true">
+				<append>="$[]"</append>
+		  </behavior>
+		  <completion string="for" />
+		  <completion string="form" deprecated="true" />
+	 </set>
+	 
+	 <set name="html.attributes.li" symbol="property">
+		  <behavior complete-on-confirm="true">
+				<append>="$[]"</append>
+		  </behavior>
+		  <completion string="type" deprecated="true" />
+		  <completion string="value" />
+	 </set>
+	 
+	 <set name="html.attributes.link" symbol="property">
+		  <behavior complete-on-confirm="true">
+				<append>="$[]"</append>
+		  </behavior>
+		  <completion string="charset" deprecated="true" />
+		  <completion string="crossorigin" />
+		  <completion string="disabled" deprecated="true" />
+		  <completion string="href" />
+		  <completion string="hreflang" />
+		  <completion string="integrity" />
+		  <completion string="media" />
+		  <completion string="methods" deprecated="true" />
+		  <completion string="prefetch" />
+		  <completion string="referrerpolicy" />
+		  <completion string="rel" />
+		  <completion string="rev" />
+		  <completion string="sizes" />
+		  <completion string="target" deprecated="true" />
+		  <completion string="title" />
+		  <completion string="type" />
+	 </set>
+	 
+	 <set name="html.attributes.map" symbol="property">
+		  <behavior complete-on-confirm="true">
+				<append>="$[]"</append>
+		  </behavior>
+		  <completion string="name" />
+	 </set>
+	 
+	 <set name="html.attributes.marquee" symbol="property">
+		  <behavior complete-on-confirm="true">
+				<append>="$[]"</append>
+		  </behavior>
+		  <completion string="behavior" deprecated="true" />
+		  <completion string="bgcolor" deprecated="true" />
+		  <completion string="direction" deprecated="true" />
+		  <completion string="height" deprecated="true" />
+		  <completion string="hspace" deprecated="true" />
+		  <completion string="loop" deprecated="true" />
+		  <completion string="scrollamount" deprecated="true" />
+		  <completion string="scrolldelay" deprecated="true" />
+		  <completion string="truespeed" deprecated="true" />
+		  <completion string="vspace" deprecated="true" />
+		  <completion string="width" deprecated="true" />
+	 </set>
+	 
+	 <set name="html.attributes.menuitem" symbol="property">
+		  <behavior complete-on-confirm="true">
+				<append>="$[]"</append>
+		  </behavior>
+		  <completion string="checked" deprecated="true" />
+		  <completion string="command" deprecated="true" />
+		  <completion string="default" deprecated="true" />
+		  <completion string="disabled" deprecated="true" />
+		  <completion string="icon" deprecated="true" />
+		  <completion string="radiogroup" deprecated="true" />
+		  <completion string="type" deprecated="true" />
+	 </set>
+	 
+	 <set name="html.attributes.meta" symbol="property">
+		  <behavior complete-on-confirm="true">
+				<append>="$[]"</append>
+		  </behavior>
+		  <completion string="charset" />
+		  <completion string="content" />
+		  <completion string="http-equiv" />
+		  <completion string="name" />
+	 </set>
+	 
+	 <set name="html.attributes.meter" symbol="property">
+		  <behavior complete-on-confirm="true">
+				<append>="$[]"</append>
+		  </behavior>
+		  <completion string="form" />
+		  <completion string="high" />
+		  <completion string="low" />
+		  <completion string="max" />
+		  <completion string="min" />
+		  <completion string="optimum" />
+		  <completion string="value" />
+	 </set>
+	 
+	 <set name="html.attributes.object" symbol="property">
+		  <behavior complete-on-confirm="true">
+				<append>="$[]"</append>
+		  </behavior>
+		  <completion string="archive" deprecated="true" />
+		  <completion string="border" deprecated="true" />
+		  <completion string="classid" deprecated="true" />
+		  <completion string="codebase" deprecated="true" />
+		  <completion string="codetype" deprecated="true" />
+		  <completion string="data" />
+		  <completion string="declare" deprecated="true" />
+		  <completion string="form" />
+		  <completion string="height" />
+		  <completion string="name" />
+		  <completion string="standby" deprecated="true" />
+		  <completion string="tabindex" deprecated="true" />
+		  <completion string="type" />
+		  <completion string="typemustmatch" />
+		  <completion string="usemap" />
+		  <completion string="width" />
+	 </set>
+	 
+	 <set name="html.attributes.ol" symbol="property">
+		  <behavior complete-on-confirm="true">
+				<append>="$[]"</append>
+		  </behavior>
+		  <completion string="compact" deprecated="true" />
+		  <completion string="reversed" />
+		  <completion string="start" />
+		  <completion string="type" />
+	 </set>
+	 
+	 <set name="html.attributes.optgroup" symbol="property">
+		  <behavior complete-on-confirm="true">
+				<append>="$[]"</append>
+		  </behavior>
+		  <completion string="disabled">
+				<behavior />
+		  </completion>
+		  <completion string="label" />
+	 </set>
+	 
+	 <set name="html.attributes.option" symbol="property">
+		  <behavior complete-on-confirm="true">
+				<append>="$[]"</append>
+		  </behavior>
+		  <completion string="disabled">
+				<behavior />
+		  </completion>
+		  <completion string="label" />
+		  <completion string="selected" />
+		  <completion string="value" />
+	 </set>
+	 
+	 <set name="html.attributes.output" symbol="property">
+		  <behavior complete-on-confirm="true">
+				<append>="$[]"</append>
+		  </behavior>
+		  <completion string="for" />
+	 </set>
+	 
+	 <set name="html.attributes.param" symbol="property">
+		  <behavior complete-on-confirm="true">
+				<append>="$[]"</append>
+		  </behavior>
+		  <completion string="name" />
+		  <completion string="type" deprecated="true" />
+		  <completion string="value" />
+		  <completion string="valuetype" deprecated="true" />
+	 </set>
+	 
+	 <set name="html.attributes.pre" symbol="property">
+		  <behavior complete-on-confirm="true">
+				<append>="$[]"</append>
+		  </behavior>
+		  <completion string="cols" deprecated="true" />
+		  <completion string="width" deprecated="true" />
+		  <completion string="wrap" deprecated="true" />
+	 </set>
+	 
+	 <set name="html.attributes.progress" symbol="property">
+		  <behavior complete-on-confirm="true">
+				<append>="$[]"</append>
+		  </behavior>
+		  <completion string="max" />
+		  <completion string="value" />
+	 </set>
+	 
+	 <set name="html.attributes.script" symbol="property">
+		  <behavior complete-on-confirm="true">
+				<append>="$[]"</append>
+		  </behavior>
+		  <completion string="async" />
+		  <completion string="crossorigin" />
+		  <completion string="defer" />
+		  <completion string="integrity" />
+		  <completion string="language" deprecated="true" />
+		  <completion string="nomodule" />
+		  <completion string="referrerPolicy" />
+		  <completion string="src" />
+		  <completion string="text" />
+		  <completion string="type" />
+	 </set>
+	 
+	 <set name="html.attributes.select" symbol="property">
+		  <behavior complete-on-confirm="true">
+				<append>="$[]"</append>
+		  </behavior>
+		  <completion string="autofocus">
+				<behavior />
+		  </completion>
+		  <completion string="disabled">
+				<behavior />
+		  </completion>
+		  <completion string="form" />
+		  <completion string="multiple" />
+		  <completion string="name" />
+		  <completion string="required">
+				<behavior />
+		  </completion>
+		  <completion string="size" />
+	 </set>
+	 
+	 <set name="html.attributes.slot" symbol="property">
+		  <behavior complete-on-confirm="true">
+				<append>="$[]"</append>
+		  </behavior>
+		  <completion string="name" />
+	 </set>
+	 
+	 <set name="html.attributes.source" symbol="property">
+		  <behavior complete-on-confirm="true">
+				<append>="$[]"</append>
+		  </behavior>
+		  <completion string="media" />
+		  <completion string="sizes" />
+		  <completion string="src" />
+		  <completion string="srcset" />
+		  <completion string="type" />
+	 </set>
+	 
+	 <set name="html.attributes.style" symbol="property">
+		  <behavior complete-on-confirm="true">
+				<append>="$[]"</append>
+		  </behavior>
+		  <completion string="media" />
+		  <completion string="scoped" deprecated="true" />
+		  <completion string="title" />
+		  <completion string="type" />
+	 </set>
+	 
+	 <set name="html.attributes.summary" symbol="property">
+		  <behavior complete-on-confirm="true">
+				<append>="$[]"</append>
+		  </behavior>
+		  <completion string="display_list_item" />
+	 </set>
+	 
+	 <set name="html.attributes.table" symbol="property">
+		  <behavior complete-on-confirm="true">
+				<append>="$[]"</append>
+		  </behavior>
+		  <completion string="align" deprecated="true" />
+		  <completion string="bgcolor" deprecated="true" />
+		  <completion string="border" deprecated="true" />
+		  <completion string="cellpadding" deprecated="true" />
+		  <completion string="cellspacing" deprecated="true" />
+		  <completion string="frame" deprecated="true" />
+		  <completion string="rules" deprecated="true" />
+		  <completion string="summary" deprecated="true" />
+		  <completion string="width" deprecated="true" />
+	 </set>
+	 
+	 <set name="html.attributes.tbody" symbol="property">
+		  <behavior complete-on-confirm="true">
+				<append>="$[]"</append>
+		  </behavior>
+		  <completion string="align" deprecated="true" />
+		  <completion string="bgcolor" deprecated="true" />
+		  <completion string="char" deprecated="true" />
+		  <completion string="charoff" deprecated="true" />
+		  <completion string="valign" deprecated="true" />
+	 </set>
+	 
+	 <set name="html.attributes.td" symbol="property">
+		  <behavior complete-on-confirm="true">
+				<append>="$[]"</append>
+		  </behavior>
+		  <completion string="abbr" deprecated="true" />
+		  <completion string="align" deprecated="true" />
+		  <completion string="axis" deprecated="true" />
+		  <completion string="bgcolor" deprecated="true" />
+		  <completion string="char" deprecated="true" />
+		  <completion string="charoff" deprecated="true" />
+		  <completion string="colspan" />
+		  <completion string="headers" />
+		  <completion string="rowspan" />
+		  <completion string="scope" deprecated="true" />
+		  <completion string="valign" deprecated="true" />
+		  <completion string="width" deprecated="true" />
+	 </set>
+	 
+	 <set name="html.attributes.textarea" symbol="property">
+		  <behavior complete-on-confirm="true">
+				<append>="$[]"</append>
+		  </behavior>
+		  <completion string="autocapitalize" />
+		  <completion string="autocomplete" />
+		  <completion string="autofocus">
+				<behavior />
+		  </completion>
+		  <completion string="cols" />
+		  <completion string="disabled">
+				<behavior />
+		  </completion>
+		  <completion string="form" />
+		  <completion string="maxlength" />
+		  <completion string="minlength" />
+		  <completion string="name" />
+		  <completion string="placeholder" />
+		  <completion string="readonly" />
+		  <completion string="required">
+				<behavior />
+		  </completion>
+		  <completion string="rows" />
+		  <completion string="spellcheck" />
+		  <completion string="wrap" />
+	 </set>
+	 
+	 <set name="html.attributes.tfoot" symbol="property">
+		  <behavior complete-on-confirm="true">
+				<append>="$[]"</append>
+		  </behavior>
+		  <completion string="align" deprecated="true" />
+		  <completion string="bgcolor" deprecated="true" />
+		  <completion string="char" deprecated="true" />
+		  <completion string="charoff" deprecated="true" />
+		  <completion string="valign" deprecated="true" />
+	 </set>
+	 
+	 <set name="html.attributes.th" symbol="property">
+		  <behavior complete-on-confirm="true">
+				<append>="$[]"</append>
+		  </behavior>
+		  <completion string="abbr" />
+		  <completion string="align" deprecated="true" />
+		  <completion string="axis" deprecated="true" />
+		  <completion string="bgcolor" deprecated="true" />
+		  <completion string="char" deprecated="true" />
+		  <completion string="charoff" deprecated="true" />
+		  <completion string="colspan" />
+		  <completion string="headers" />
+		  <completion string="rowspan" />
+		  <completion string="scope" />
+		  <completion string="valign" deprecated="true" />
+		  <completion string="width" deprecated="true" />
+	 </set>
+	 
+	 <set name="html.attributes.thead" symbol="property">
+		  <behavior complete-on-confirm="true">
+				<append>="$[]"</append>
+		  </behavior>
+		  <completion string="align" deprecated="true" />
+		  <completion string="bgcolor" deprecated="true" />
+		  <completion string="char" deprecated="true" />
+		  <completion string="charoff" deprecated="true" />
+		  <completion string="valign" deprecated="true" />
+	 </set>
+	 
+	 <set name="html.attributes.time" symbol="property">
+		  <behavior complete-on-confirm="true">
+				<append>="$[]"</append>
+		  </behavior>
+		  <completion string="datetime" />
+	 </set>
+	 
+	 <set name="html.attributes.tr" symbol="property">
+		  <behavior complete-on-confirm="true">
+				<append>="$[]"</append>
+		  </behavior>
+		  <completion string="align" deprecated="true" />
+		  <completion string="bgcolor" deprecated="true" />
+		  <completion string="char" deprecated="true" />
+		  <completion string="charoff" deprecated="true" />
+		  <completion string="valign" deprecated="true" />
+	 </set>
+	 
+	 <set name="html.attributes.track" symbol="property">
+		  <behavior complete-on-confirm="true">
+				<append>="$[]"</append>
+		  </behavior>
+		  <completion string="default" />
+		  <completion string="kind" />
+		  <completion string="label" />
+		  <completion string="src" />
+		  <completion string="srclang" />
+	 </set>
+	 
+	 <set name="html.attributes.ul" symbol="property">
+		  <behavior complete-on-confirm="true">
+				<append>="$[]"</append>
+		  </behavior>
+		  <completion string="compact" deprecated="true" />
+		  <completion string="type" deprecated="true" />
+	 </set>
+	 
+	 <set name="html.attributes.video" symbol="property">
+		  <behavior complete-on-confirm="true">
+				<append>="$[]"</append>
+		  </behavior>
+		  <completion string="autoplay" />
+		  <completion string="buffered" />
+		  <completion string="controls" />
+		  <completion string="crossorigin" />
+		  <completion string="height" />
+		  <completion string="intrinsicsize" />
+		  <completion string="loop" />
+		  <completion string="muted" />
+		  <completion string="played" />
+		  <completion string="poster" />
+		  <completion string="preload" />
+		  <completion string="src" />
+		  <completion string="width" />
+	 </set>
+	 
+	 <set name="html.attributes.events.window">
+		  <behavior symbol="property">
+				<append>="$[]"</append>
+		  </behavior>
+		  <completion string="onafterprint" />
+		  <completion string="onbeforeprint" />
+		  <completion string="onbeforeonload" />
+		  <completion string="onblur" />
+		  <completion string="onerror" />
+		  <completion string="onfocus" />
+		  <completion string="onhaschange" />
+		  <completion string="onload" />
+		  <completion string="onmessage" />
+		  <completion string="onoffline" />
+		  <completion string="ononline" />
+		  <completion string="onpagehide" />
+		  <completion string="onpageshow" />
+		  <completion string="onpopstate" />
+		  <completion string="onredo" />
+		  <completion string="onresize" />
+		  <completion string="onstorage" />
+		  <completion string="onundo" />
+		  <completion string="onunload" />
+	 </set>
+	 <set name="html.attributes.events.form">
+		  <behavior symbol="property">
+				<append>="$[]"</append>
+		  </behavior>
+		  <completion string="onblur" />
+		  <completion string="onchange" />
+		  <completion string="oncontextmenu" />
+		  <completion string="onfocus" />
+		  <completion string="onformchange" />
+		  <completion string="onforminput" />
+		  <completion string="oninput" />
+		  <completion string="oninvalid" />
+		  <completion string="onreset" />
+		  <completion string="onselect" />
+		  <completion string="onsubmit" />
+	 </set>
+	 <set name="html.attributes.events.keyboard">
+		  <behavior symbol="property">
+				<append>="$[]"</append>
+		  </behavior>
+		  <completion string="onkeydown" />
+		  <completion string="onkeypress" />
+		  <completion string="onkeyup" />
+	 </set>
+	 <set name="html.attributes.events.mouse">
+		  <behavior symbol="property">
+				<append>="$[]"</append>
+		  </behavior>
+		  <completion string="onclick" />
+		  <completion string="ondblclick" />
+		  <completion string="ondrag" />
+		  <completion string="ondragend" />
+		  <completion string="ondragenter" />
+		  <completion string="ondragleave" />
+		  <completion string="ondragover" />
+		  <completion string="ondragstart" />
+		  <completion string="ondrop" />
+		  <completion string="onmousedown" />
+		  <completion string="onmousemove" />
+		  <completion string="onmouseout" />
+		  <completion string="onmouseover" />
+		  <completion string="onmouseup" />
+		  <completion string="onmousewheel" />
+		  <completion string="onscroll" />
+	 </set>
+	 <set name="html.attributes.events.media">
+		  <behavior symbol="property">
+				<append>="$[]"</append>
+		  </behavior>
+		  <completion string="onabort" />
+		  <completion string="oncanplay" />
+		  <completion string="oncanplaythrough" />
+		  <completion string="ondurationchange" />
+		  <completion string="onemptied" />
+		  <completion string="onended" />
+		  <completion string="onerror" />
+		  <completion string="onloadeddata" />
+		  <completion string="onloadedmetadata" />
+		  <completion string="onloadstart" />
+		  <completion string="onpause" />
+		  <completion string="onplay" />
+		  <completion string="onplaying" />
+		  <completion string="onprogress" />
+		  <completion string="onratechange" />
+		  <completion string="onreadystatechange" />
+		  <completion string="onseeked" />
+		  <completion string="onseeking" />
+		  <completion string="onstalled" />
+		  <completion string="onsuspend" />
+		  <completion string="ontimeupdate" />
+		  <completion string="onvolumechange" />
+		  <completion string="onwaiting" />
+	 </set>
+	 
+	 <!-- Attribute Values -->
+	 <set name="html.attribute.values.align">
+		  <completion string="left" deprecated="true" />
+		  <completion string="center" deprecated="true" />
+		  <completion string="right" deprecated="true" />
+		  <completion string="justify" deprecated="true" />
+		  <completion string="char" deprecated="true" />
+	 </set>
+	 
+	 <set name="html.attribute.values.autocapitalize">
+		  <completion string="off" />
+		  <completion string="none" />
+		  <completion string="on" />
+		  <completion string="sentences" />
+		  <completion string="words" />
+		  <completion string="characters" />
+	 </set>
+	 
+	 <set name="html.attribute.values.autocomplete">
+		  <completion string="off" />
+		  <completion string="on" />
+		  <completion string="name" />
+		  <completion string="honorific-prefix" />
+		  <completion string="given-name" />
+		  <completion string="additional-name" />
+		  <completion string="family-name" />
+		  <completion string="honorific-suffix" />
+		  <completion string="email" />
+		  <completion string="username" />
+		  <completion string="new-password" />
+		  <completion string="current-password" />
+		  <completion string="organization-title" />
+		  <completion string="organization" />
+		  <completion string="street-address" />
+		  <completion string="address-line1" />
+		  <completion string="address-line2" />
+		  <completion string="address-line3" />
+		  <completion string="address-level1" />
+		  <completion string="address-level2" />
+		  <completion string="address-level3" />
+		  <completion string="address-level4" />
+		  <completion string="country" />
+		  <completion string="country-name" />
+		  <completion string="postal-code" />
+		  <completion string="cc-name" />
+		  <completion string="cc-given-name" />
+		  <completion string="cc-additional-name" />
+		  <completion string="cc-family-name" />
+		  <completion string="cc-number" />
+		  <completion string="cc-exp" />
+		  <completion string="cc-exp-month" />
+		  <completion string="cc-exp-year" />
+		  <completion string="cc-csc" />
+		  <completion string="cc-type" />
+		  <completion string="transaction-currency" />
+		  <completion string="transaction-amount" />
+		  <completion string="language" />
+		  <completion string="bday" />
+		  <completion string="bday-day" />
+		  <completion string="bday-month" />
+		  <completion string="bday-year" />
+		  <completion string="sex" />
+		  <completion string="tel" />
+		  <completion string="tel-country-code" />
+		  <completion string="tel-national" />
+		  <completion string="tel-area-code" />
+		  <completion string="tel-local" />
+		  <completion string="tel-extension" />
+		  <completion string="impp" />
+		  <completion string="url" />
+		  <completion string="photo" />
+	 </set>
+	 
+	 <set name="html.attribute.values.contenteditable">
+		  <completion string="true" />
+		  <completion string="false" />
+	 </set>
+	 
+	 <set name="html.attribute.values.crossorigin">
+		  <completion string="anonymous" />
+		  <completion string="use-credentials" />
+	 </set>
+	 
+	 <set name="html.attribute.values.dir">
+		  <completion string="ltr" />
+		  <completion string="rtl" />
+		  <completion string="auto" />
+	 </set>
+	 
+	 <set name="html.attribute.values.draggable">
+		  <completion string="true" />
+		  <completion string="false" />
+	 </set>
+	 
+	 <set name="html.attribute.values.dropzone">
+		  <completion string="copy" />
+		  <completion string="move" />
+		  <completion string="link" />
+	 </set>
+	 
+	 <set name="html.attribute.values.inputmode">
+		  <completion string="none" />
+		  <completion string="text" />
+		  <completion string="decimal" />
+		  <completion string="numeric" />
+		  <completion string="tel" />
+		  <completion string="search" />
+		  <completion string="email" />
+		  <completion string="url" />
+	 </set>
+	 
+	 <set name="html.attribute.values.loading">
+		  <completion string="lazy" />
+		  <completion string="eager" />
+	 </set>
+	 
+	 <set name="html.attribute.values.role">
+		  <!-- ARIA Roles https://w3c.github.io/using-aria/#aria-roles -->
+		  <completion string="alert" />
+		  <completion string="alertdialog" />
+		  <completion string="application" />
+		  <completion string="directory" />
+		  <completion string="document" />
+		  <completion string="feed" />
+		  <completion string="grid" />
+		  <completion string="gridcell" />
+		  <completion string="group" />
+		  <completion string="log" />
+		  <completion string="marquee" />
+		  <completion string="menu" />
+		  <completion string="menubar" />
+		  <completion string="menuitemcheckbox" />
+		  <completion string="menuitemradio" />
+		  <completion string="none" />
+		  <completion string="presentation" />
+		  <completion string="scrollbar" />
+		  <completion string="search" />
+		  <completion string="status" />
+		  <completion string="switch" />
+		  <completion string="tab" />
+		  <completion string="tablist" />
+		  <completion string="tabpanel" />
+		  <completion string="timer" />
+		  <completion string="toolbar" />
+		  <completion string="tooltip" />
+		  <completion string="tree" />
+		  <completion string="treegrid" />
+		  <completion string="treeitem" />
+	 </set>
+	 
+	 <set name="html.attribute.values.spellcheck">
+		  <completion string="true" />
+		  <completion string="false" />
+	 </set>
+	 
+	 <set name="html.attribute.values.input.type">
+		  <completion string="button" />
+		  <completion string="checkbox" />
+		  <completion string="color" />
+		  <completion string="date" />
+		  <completion string="datetime" deprecated="true" />
+		  <completion string="datetime-local" />
+		  <completion string="email" />
+		  <completion string="file" />
+		  <completion string="hidden" />
+		  <completion string="image" />
+		  <completion string="month" />
+		  <completion string="number" />
+		  <completion string="password" />
+		  <completion string="radio" />
+		  <completion string="range" />
+		  <completion string="reset" deprecated="true" />
+		  <completion string="search" />
+		  <completion string="submit" />
+		  <completion string="tel" />
+		  <completion string="text" />
+		  <completion string="time" />
+		  <completion string="url" />
+		  <completion string="week" />
+	 </set>
+	 
+	 <!-- Entities -->
+	 <set name="html.entities">
+		  <string>&amp;quot;</string>
+		  <string>&amp;apos;</string>
+		  <string>&amp;amp;</string>
+		  <string>&amp;lt;</string>
+		  <string>&amp;gt;</string>
+		  <string>&amp;nbsp;</string>
+		  <string>&amp;iexcl;</string>
+		  <string>&amp;cent;</string>
+		  <string>&amp;pound;</string>
+		  <string>&amp;curren;</string>
+		  <string>&amp;yen;</string>
+		  <string>&amp;brvbar;</string>
+		  <string>&amp;sect;</string>
+		  <string>&amp;uml;</string>
+		  <string>&amp;copy;</string>
+		  <string>&amp;ordf;</string>
+		  <string>&amp;laquo;</string>
+		  <string>&amp;not;</string>
+		  <string>&amp;shy;</string>
+		  <string>&amp;reg;</string>
+		  <string>&amp;macr;</string>
+		  <string>&amp;deg;</string>
+		  <string>&amp;plusmn;</string>
+		  <string>&amp;sup2;</string>
+		  <string>&amp;sup3;</string>
+		  <string>&amp;acute;</string>
+		  <string>&amp;micro;</string>
+		  <string>&amp;para;</string>
+		  <string>&amp;middot;</string>
+		  <string>&amp;cedil;</string>
+		  <string>&amp;sup1;</string>
+		  <string>&amp;ordm;</string>
+		  <string>&amp;raquo;</string>
+		  <string>&amp;frac14;</string>
+		  <string>&amp;frac12;</string>
+		  <string>&amp;frac34;</string>
+		  <string>&amp;iquest;</string>
+		  <string>&amp;times;</string>
+		  <string>&amp;divide;</string>
+		  <string>&amp;Agrave;</string>
+		  <string>&amp;Aacute;</string>
+		  <string>&amp;Acirc;</string>
+		  <string>&amp;Atilde;</string>
+		  <string>&amp;Auml;</string>
+		  <string>&amp;Aring;</string>
+		  <string>&amp;AElig;</string>
+		  <string>&amp;Ccedil;</string>
+		  <string>&amp;Egrave;</string>
+		  <string>&amp;Eacute;</string>
+		  <string>&amp;Ecirc;</string>
+		  <string>&amp;Euml;</string>
+		  <string>&amp;Igrave;</string>
+		  <string>&amp;Iacute;</string>
+		  <string>&amp;Icirc;</string>
+		  <string>&amp;Iuml;</string>
+		  <string>&amp;ETH;</string>
+		  <string>&amp;Ntilde;</string>
+		  <string>&amp;Ograve;</string>
+		  <string>&amp;Oacute;</string>
+		  <string>&amp;Ocirc;</string>
+		  <string>&amp;Otilde;</string>
+		  <string>&amp;Ouml;</string>
+		  <string>&amp;Oslash;</string>
+		  <string>&amp;Ugrave;</string>
+		  <string>&amp;Uacute;</string>
+		  <string>&amp;Ucirc;</string>
+		  <string>&amp;Uuml;</string>
+		  <string>&amp;Yacute;</string>
+		  <string>&amp;THORN;</string>
+		  <string>&amp;szlig;</string>
+		  <string>&amp;agrave;</string>
+		  <string>&amp;aacute;</string>
+		  <string>&amp;acirc;</string>
+		  <string>&amp;atilde;</string>
+		  <string>&amp;auml;</string>
+		  <string>&amp;aring;</string>
+		  <string>&amp;aelig;</string>
+		  <string>&amp;ccedil;</string>
+		  <string>&amp;egrave;</string>
+		  <string>&amp;eacute;</string>
+		  <string>&amp;ecirc;</string>
+		  <string>&amp;euml;</string>
+		  <string>&amp;igrave;</string>
+		  <string>&amp;iacute;</string>
+		  <string>&amp;icirc;</string>
+		  <string>&amp;iuml;</string>
+		  <string>&amp;eth;</string>
+		  <string>&amp;ntilde;</string>
+		  <string>&amp;ograve;</string>
+		  <string>&amp;oacute;</string>
+		  <string>&amp;ocirc;</string>
+		  <string>&amp;otilde;</string>
+		  <string>&amp;ouml;</string>
+		  <string>&amp;oslash;</string>
+		  <string>&amp;ugrave;</string>
+		  <string>&amp;uacute;</string>
+		  <string>&amp;ucirc;</string>
+		  <string>&amp;uuml;</string>
+		  <string>&amp;yacute;</string>
+		  <string>&amp;thorn;</string>
+		  <string>&amp;yuml;</string>
+	 </set>
+</completions>
