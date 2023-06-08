@@ -1,3 +1,7 @@
+## Version 1.8.2
+
+- Fix: Re-add support for HTML completions for compatibility with Nova 10+.
+
 ## Version 1.8.1
 
 - Add support for modifiers (e.g. `at head`) on fenced code blocks (`{% css %}` and `{% js %}`)

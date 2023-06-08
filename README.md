@@ -16,10 +16,10 @@ If you use Twig inside Markdown files (e.g. Grav CMS): Map “.md” to “Twig-
 
 Clone this repository and open the folder with Nova. In Nova, go to “Settings > General” and enable “Show extension development items in the Extension menu”. Then activate the extension via the “Extension” menu.
 
-## What’s next?
+## Ideas for future development
 
-I’d like to add more features to this extension in the future:
-
+- [ ] Migrate all syntax definitions and completions to Tree-sitter (Nova 10+)
+- [ ] Update completions for Craft 4+
 - [ ] Add support for matching Twig brackets (not possible at the moment?)
 
 If you have some tips or want to help with development, feel free to let me know!
