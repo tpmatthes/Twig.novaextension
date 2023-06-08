@@ -45,15 +45,22 @@
 	</brackets>
 
 	<surrounding-pairs>
-		<pair open="&lt;" close="&gt;" />
+		<pair open="{" close="}" />
 		<pair open="[" close="]" />
 		<pair open="(" close=")" />
 		<pair open="&apos;" close="&apos;" />
 		<pair open="&quot;" close="&quot;" />
 		<pair open="`" close="`" />
+		<pair open="“" close="”" />
+		<pair open="‘" close="’" />
 	</surrounding-pairs>
 
-	<scopes spell-check="true" lookup="dictionary">
+	<scopes spell-check="true" lookup="dictionary">		
+		<include syntax="html" collection="*" />
+	</scopes>
+
+	<template-scopes>
+		<!-- Code Blocks (Craft CMS) -->
 		<scope name="twig.block.code.language" spell-check="false">
 			<starts-with>
 				<expression>(\{\%)\s*(css|js)\s*(at|on)?\s*(head|beginBody|endBody|load|ready)?\s*(\%\})</expression>
@@ -71,13 +78,12 @@
 			</ends-with>
 			<subsyntax capture="2">
 				<alias key="js" value="javascript" />
+				<cut-off>
+					<expression>(?=\{\%\s*(endcss|endjs)\s*\%\})</expression>
+				</cut-off>
 			</subsyntax>
 		</scope>
-		
-		<include syntax="html" />
-	</scopes>
-
-	<template-scopes>
+	
 		<scope name="twig.comment.block" spell-check="true">
 			<starts-with>
 				<expression>\{\#</expression>
