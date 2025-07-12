@@ -1,3 +1,13 @@
+## Version 1.9.0
+
+When this plugin was released, syntax highlighting in Nova was regex-based. Starting with Nova 10, Panic migrated to Tree-sitter, a totally different form of syntax definitions. Until now, Nova included two versions for each built-in grammar: a new Tree-sitter version and an old regex-based version for backwards compatibility. The Twig plugin relies on the regex-based grammars for syntax highlighting of HTML and Markdown. Nova 13 removed them, so I decided to include the original grammars with this plugin to restore compatibility.
+
+**Pleae note:** Since Nova’s new built-in syntax definitions can’t be used as subsyntax inside of regex-based grammars, syntax highlighting inside of `<script>`, `<style>`, `{% css %}` and `{% js %}` isn’t supported anymore.
+
+- Re-add support for HTML syntax highlighting for compatibility with Nova 13+.
+- Re-add support for Markdown syntax highlighting for compatibility with Nova 13+.
+- Remove support for nested syntax highlighting inside `{% css %}` and `{% js %}` (Craft CMS).
+
 ## Version 1.8.2
 
 - Fix: Re-add support for HTML completions for compatibility with Nova 10+.
