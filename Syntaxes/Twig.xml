@@ -135,6 +135,11 @@
 					<string>until</string>
 					<string>missing</string>
 					<string>of</string>
+					<string>at head</string>
+					<string>at beginBody</string>
+					<string>at endBody</string>
+					<string>on load</string>
+					<string>on ready</string>
 				</strings>
 			</scope>
 		</collection>
