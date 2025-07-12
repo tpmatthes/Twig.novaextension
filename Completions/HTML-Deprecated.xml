@@ -1,18 +1,13 @@
 <!--
-Nova 10 introduced a new system for syntax definitions (Tree-sitter) and Panic migrated all built-in languages.
+When this plugin was released, syntax highlighting in Nova was regex-based. Starting with Nova 10, Panic migrated to Tree-sitter, a totally different form of syntax definitions.
 
-The Twig language plugin is still regex-based and includes the built-in syntax definition for HTML. 
-
-Because of backwards compatibility, syntax highlighting for HTML tags in Twig files still works. However, the built-in completions for HTML won’t show up until the Twig language plugin is migrated to Tree-sitter.
-
-That’s why this plugin includes a full copy of the built-in completions for HTML from Nova 9.6 (see below).
+The Twig plugin is still regex-based, so we need to include the original HTML completions from Nova 9.6 for backwards compatibility.
 -->
-
-<?xml version="1.0" encoding="UTF-8"?>
+<!-- <?xml version="1.0" encoding="UTF-8" ?> -->
 <completions>
 	 <!-- Tag -->
 	 <provider name="tags">
-		  <syntax>html</syntax>
+		  <syntax>html-deprecated</syntax>
 		  <selector>html.tag-bracket</selector>
 		  <expression>(?&lt;=\&lt;)</expression>
 		  
@@ -20,8 +15,8 @@ That’s why this plugin includes a full copy of the built-in completions for HT
 		  <set>html.tags.void</set>
 	 </provider>
 	 <provider name="tags">
-		  <syntax>html</syntax>
-		  <syntax>markdown</syntax>
+		  <syntax>html-deprecated</syntax>
+		  <syntax>markdown-deprecated</syntax>
 		  <selector>html.tag.open, html.tag.name</selector>
 		  <expression>(?&lt;=\&lt;)[a-zA-Z0-9_-]+</expression>
 		  
@@ -31,8 +26,8 @@ That’s why this plugin includes a full copy of the built-in completions for HT
 	 
 	 <!-- Attribute -->
 	 <provider name="attributes.generic">
-		  <syntax>html</syntax>
-		  <syntax>markdown</syntax>
+		  <syntax>html-deprecated</syntax>
+		  <syntax>markdown-deprecated</syntax>
 		  <selector>html.tag.open, html.tag.open html.tag.attribute:not(value)</selector>
 		  <expression>(?&lt;=\s)[a-zA-Z0-9-_]*$</expression>
 		  
@@ -42,15 +37,15 @@ That’s why this plugin includes a full copy of the built-in completions for HT
 	 
 	 <!-- Tag-specific Attribute -->
 	 <provider name="attributes.tag">
-		  <syntax>html</syntax>
-		  <syntax>markdown</syntax>
+		  <syntax>html-deprecated</syntax>
+		  <syntax>markdown-deprecated</syntax>
 		  <selector>html.tag.open:has-child(html.tag.name:capture(tag))</selector>
 		  <expression>(?&lt;=\s)[a-zA-Z0-9-_]*$</expression>
 		  
 		  <set>html.attributes.${tag}</set>
 	 </provider>
 	 <provider name="attributes.tag">
-		  <syntax>html</syntax>
+		  <syntax>html-deprecated</syntax>
 		  <selector>html.tag.open:has-child(html.tag.name:capture(tag)) html.tag.attribute:not(value)</selector>
 		  <expression>(?&lt;=\s)[a-zA-Z0-9-_]*$</expression>
 		  
@@ -59,8 +54,8 @@ That’s why this plugin includes a full copy of the built-in completions for HT
 	 
 	 <!-- Tag-specific Attribute Value -->
 	 <provider name="attributes.tag.values">
-		  <syntax>html</syntax>
-		  <syntax>markdown</syntax>
+		  <syntax>html-deprecated</syntax>
+		  <syntax>markdown-deprecated</syntax>
 		  <selector>html.tag.open:has-child(html.tag.name:capture(tag)) html.tag.attribute:has-child(html.tag.attribute.name:capture(attribute)) html.tag.attribute.value</selector>
 		  <expression>(?&lt;=(=&quot;|=\s&quot;|=&apos;|=\s&apos;|\s))[a-zA-Z0-9-_]*</expression>
 		  
@@ -70,8 +65,8 @@ That’s why this plugin includes a full copy of the built-in completions for HT
 	 
 	 <!-- Class Attribute Values -->
 	 <provider name="attributes.class.values">
-		  <syntax>html</syntax>
-		  <syntax>markdown</syntax>
+		  <syntax>html-deprecated</syntax>
+		  <syntax>markdown-deprecated</syntax>
 		  <selector>html.tag.attribute.class html.tag.attribute.value</selector>
 		  <expression>(?&lt;=(=&quot;|=\s&quot;|=&apos;|=\s&apos;|\s))[a-zA-Z0-9-_]*</expression>
 		  
@@ -82,8 +77,8 @@ That’s why this plugin includes a full copy of the built-in completions for HT
 	 
 	 <!-- ID Attribute Values -->
 	 <provider name="attributes.id.values">
-		  <syntax>html</syntax>
-		  <syntax>markdown</syntax>
+		  <syntax>html-deprecated</syntax>
+		  <syntax>markdown-deprecated</syntax>
 		  <selector>html.tag.attribute.id html.tag.attribute.value,
 				html.tag.attribute.aria-id html.tag.attribute.value</selector>
 		  <expression>(?&lt;=(=&quot;|=\s&quot;|=&apos;|=\s&apos;|\s))[a-zA-Z0-9-_]*</expression>
@@ -95,8 +90,8 @@ That’s why this plugin includes a full copy of the built-in completions for HT
 	 
 	 <!-- Entity -->
 	 <provider name="entities">
-		  <syntax>html</syntax>
-		  <syntax>markdown</syntax>
+		  <syntax>html-deprecated</syntax>
+		  <syntax>markdown-deprecated</syntax>
 		  <selector>html.entity</selector>
 		  <expression>&amp;[a-zA-Z0-9]*;?</expression>
 		  
