@@ -4,7 +4,7 @@
 		<name>Twig-HTML</name>
 		<type>markup</type>
 		<preferred-file-extension>twig</preferred-file-extension>
-		<parent>html</parent>
+		<parent>html-deprecated</parent>
 	</meta>
 
 	<detectors>
@@ -56,7 +56,7 @@
 	</surrounding-pairs>
 
 	<scopes spell-check="true" lookup="dictionary">		
-		<include syntax="html" collection="*" />
+		<include syntax="html-deprecated" collection="*" />
 	</scopes>
 
 	<template-scopes>

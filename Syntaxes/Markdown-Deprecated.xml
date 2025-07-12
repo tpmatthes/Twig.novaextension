@@ -1,0 +1,402 @@
+<!--
+When this plugin was released, syntax highlighting in Nova was regex-based. Starting with Nova 10, Panic migrated to Tree-sitter, a totally different form of syntax definitions.
+
+The Twig plugin is still regex-based, so we need to include the original Markdown grammar from Nova 9.6 for backwards compatibility.
+-->
+<!-- <?xml version="1.0" encoding="UTF-8" ?> -->
+<syntax name="markdown-deprecated">
+	 <meta>
+		  <name>Markdown-Deprecated</name>
+		  <type>markup</type>
+	 </meta>
+	 
+	 <comments>
+		  <multiline>
+				<starts-with>
+					 <expression>&lt;!--</expression>
+				</starts-with>
+				<ends-with>
+					 <expression>--&gt;</expression>
+				</ends-with>
+		  </multiline>
+	 </comments>
+	 
+	 <brackets>
+		  <pair open="{" close="}" />
+		  <pair open="[" close="]" />
+		  <pair open="(" close=")" />
+	 </brackets>
+	 
+	 <surrounding-pairs>
+		  <pair open="{" close="}" />
+		  <pair open="[" close="]" />
+		  <pair open="(" close=")" />
+		  <pair open="&apos;" close="&apos;" />
+		  <pair open="&quot;" close="&quot;" />
+		  <pair open="`" close="`" />
+		  <pair open="*" close="*" />
+		  <pair open="_" close="_" />
+		  <pair open="~" close="~" />
+		  <pair open="“" close="”" />
+		  <pair open="‘" close="’" />
+	 </surrounding-pairs>
+	 
+	 <scopes spell-check="true" lookup="dictionary">
+		  <include syntax="self" collection="frontmatter" />
+		  <include syntax="self" collection="blocks" />
+		  <include syntax="self" collection="spans" />
+		  
+		  <!-- HTML -->
+		  <include syntax="html-deprecated" collection="*" />
+	 </scopes>
+	 
+	 <collections>
+		  <!-- Frontmatter -->
+		  <collection name="frontmatter">
+				<scope name="markdown.frontmatter.yaml" spell-check="false">
+					 <starts-with>
+						  <expression>\A(---)</expression>
+						  <capture number="1" name="markdown.markup.processing" />
+					 </starts-with>
+					 <ends-with>
+						  <expression>---</expression>
+						  <capture number="0" name="markdown.markup.processing" />
+					 </ends-with>
+					 <subsyntax name="yaml">
+						 <cut-off>
+								<expression>(?=^---)</expression>
+						  </cut-off>
+					 </subsyntax>
+				</scope>
+				<scope name="markdown.frontmatter.json" spell-check="false">
+					 <starts-with>
+						  <expression>\A(\{)</expression>
+						  <capture number="1" name="markdown.markup.processing" />
+					 </starts-with>
+					 <ends-with>
+						  <expression>---</expression>
+						  <capture number="0" name="markdown.markup.processing" />
+					 </ends-with>
+					 <subsyntax name="yaml">
+						 <cut-off>
+								<expression>(?=^\})</expression>
+						  </cut-off>
+					 </subsyntax>
+				</scope>
+		  </collection>
+		  
+		  <!-- Blocks -->
+		  <collection name="blocks">
+				<scope name="markdown.markup.heading.h1">
+					 <symbol type="heading">
+						  <context behavior="next" group="h1" priority="100" />
+					 </symbol>
+					 <starts-with>
+						  <expression>^\#\s+</expression>
+					 </starts-with>
+					 <ends-with>
+						  <expression>$</expression>
+					 </ends-with>
+					 <subscopes>
+						  <scope name="markdown.markup.heading.h1.name">
+								<starts-with>
+									 <expression>(?!$)</expression>
+								</starts-with>
+								<ends-with>
+									 <expression>(?=$)</expression>
+								</ends-with>
+								<subscopes>
+									 <include syntax="self" collection="spans" />
+									 <include syntax="html" collection="*" />
+								</subscopes>
+						  </scope>
+					 </subscopes>
+				</scope>
+				<scope name="markdown.markup.heading.h2">
+					 <symbol type="heading">
+						  <context behavior="next" group="h2" priority="90" />
+					 </symbol>
+					 <starts-with>
+						  <expression>^\#\#\s+</expression>
+					 </starts-with>
+					 <ends-with>
+						  <expression>$</expression>
+					 </ends-with>
+					 <subscopes>
+						  <scope name="markdown.markup.heading.h2.name">
+								<starts-with>
+									 <expression>(?!$)</expression>
+								</starts-with>
+								<ends-with>
+									 <expression>(?=$)</expression>
+								</ends-with>
+								<subscopes>
+									 <include syntax="self" collection="spans" />
+									 <include syntax="html" collection="*" />
+								</subscopes>
+						  </scope>
+					 </subscopes>
+				</scope>
+				<scope name="markdown.markup.heading.h3">
+					 <symbol type="heading">
+						  <context behavior="next" group="h3" priority="80" />
+					 </symbol>
+					 <starts-with>
+						  <expression>^\#\#\#\s+</expression>
+					 </starts-with>
+					 <ends-with>
+						  <expression>$</expression>
+					 </ends-with>
+					 <subscopes>
+						  <scope name="markdown.markup.heading.h3.name">
+								<starts-with>
+									 <expression>(?!$)</expression>
+								</starts-with>
+								<ends-with>
+									 <expression>(?=$)</expression>
+								</ends-with>
+								<subscopes>
+									 <include syntax="self" collection="spans" />
+									 <include syntax="html" collection="*" />
+								</subscopes>
+						  </scope>
+					 </subscopes>
+				</scope>
+				<scope name="markdown.markup.heading.h4">
+					 <symbol type="heading">
+						  <context behavior="next" group="h4" priority="70" />
+					 </symbol>
+					 <starts-with>
+						  <expression>^\#\#\#\#\s+</expression>
+					 </starts-with>
+					 <ends-with>
+						  <expression>$</expression>
+					 </ends-with>
+					 <subscopes>
+						  <scope name="markdown.markup.heading.h4.name">
+								<starts-with>
+									 <expression>(?!$)</expression>
+								</starts-with>
+								<ends-with>
+									 <expression>(?=$)</expression>
+								</ends-with>
+								<subscopes>
+									 <include syntax="self" collection="spans" />
+									 <include syntax="html" collection="*" />
+								</subscopes>
+						  </scope>
+					 </subscopes>
+				</scope>
+				<scope name="markdown.markup.heading.h5">
+					 <symbol type="heading">
+						  <context behavior="next" group="h5" priority="60" />
+					 </symbol>
+					 <starts-with>
+						  <expression>^\#\#\#\#\#\s+</expression>
+					 </starts-with>
+					 <ends-with>
+						  <expression>$</expression>
+					 </ends-with>
+					 <subscopes>
+						  <scope name="markdown.markup.heading.h5.name">
+								<starts-with>
+									 <expression>(?!$)</expression>
+								</starts-with>
+								<ends-with>
+									 <expression>(?=$)</expression>
+								</ends-with>
+								<subscopes>
+									 <include syntax="self" collection="spans" />
+									 <include syntax="html" collection="*" />
+								</subscopes>
+						  </scope>
+					 </subscopes>
+				</scope>
+				<scope name="markdown.markup.heading.h6">
+					 <symbol type="heading">
+						  <context behavior="next" group="h6" priority="50" />
+					 </symbol>
+					 <starts-with>
+						  <expression>^\#\#\#\#\#\#\s+</expression>
+					 </starts-with>
+					 <ends-with>
+						  <expression>$</expression>
+					 </ends-with>
+					 <subscopes>
+						  <scope name="markdown.markup.heading.h6.name">
+								<starts-with>
+									 <expression>(?!$)</expression>
+								</starts-with>
+								<ends-with>
+									 <expression>(?=$)</expression>
+								</ends-with>
+								<subscopes>
+									 <include syntax="self" collection="spans" />
+									 <include syntax="html" collection="*" />
+								</subscopes>
+						  </scope>
+					 </subscopes>
+				</scope>
+				<scope name="markdown.markup.line">
+					 <expression>^(?:(?:=+)|(?:-+))\s*$</expression>
+				</scope>
+				<scope name="markdown.markup.block.quote">
+					 <expression>^&gt;</expression>
+				</scope>
+				<scope name="markdown.markup.list.unordered">
+					 <starts-with>
+						  <expression>^\s*(\*|-|\+)\s+</expression>
+						  <capture number="1" name="markdown.markup.list.item.unordered" />
+					 </starts-with>
+					 <ends-with>
+						  <expression>$</expression>
+					 </ends-with>
+					 <subscopes>
+						  <include syntax="self" collection="spans" />
+						  <include syntax="html" collection="*" />
+					 </subscopes>
+				</scope>
+				<scope name="markdown.markup.list.ordered">
+					 <starts-with>
+						  <expression>^\s*(\d+\.)\s+</expression>
+						  <capture number="1" name="markdown.markup.list.item.ordered" />
+					 </starts-with>
+					 <ends-with>
+						  <expression>$</expression>
+					 </ends-with>
+					 <subscopes>
+						  <include syntax="self" collection="spans" />
+						  <include syntax="html" collection="*" />
+					 </subscopes>
+				</scope>
+				<scope name="markdown.markup.block.code" spell-check="false">
+					 <expression>^(\t|\040{4})+.*$</expression>
+				</scope>
+				
+				<include syntax="self" collection="code-blocks" />
+				
+				<scope name="markdown.markup.reference" spell-check="false">
+					 <symbol type="reference" />
+					 <starts-with>
+						  <expression>^\s*\[([a-zA-Z0-9-_]*)\](\:)</expression>
+						  <capture number="1" name="markdown.link.identifier.name.key" />
+						  <capture number="2" name="markdown.bracket" />
+					 </starts-with>
+					 <ends-with>
+						  <expression>$</expression>
+					 </ends-with>
+					 <subscopes>
+						  <include syntax="self" collection="strings" />
+					 </subscopes>
+				</scope>
+		  </collection>
+		  
+		  <collection name="code-blocks">
+				<scope name="markdown.markup.block.code.language" spell-check="false">
+					 <starts-with>
+						  <expression>^\s*(```)([a-zA-Z_][a-zA-Z0-9_+\-]*)\b</expression>
+						  <capture number="1" name="markdown.markup.bracket" />
+						  <capture number="2" name="markdown.markup.block.code.langauge.name" />
+					 </starts-with>
+					 <ends-with>
+						  <expression>^\s*(```)</expression>
+						  <capture number="1" name="markdown.markup.bracket" />
+					 </ends-with>
+					 <subsyntax capture="2">
+						  <alias key="js" value="javascript" />
+						  <alias key="ts" value="typescript" />
+						  <alias key="py" value="python" />
+						  <alias key="python2" value="python" />
+						  <alias key="python3" value="python" />
+						  <alias key="rb" value="ruby" />
+						  <alias key="sh" value="shell" />
+						  <cut-off>
+								<expression>(?=```)</expression>
+						  </cut-off>
+					 </subsyntax>
+				</scope>
+				<scope name="markdown.markup.block.code.plain" spell-check="false">
+					 <starts-with>
+						  <expression>^\s*(```)</expression>
+						  <capture number="1" name="markdown.markup.bracket" />
+					 </starts-with>
+					 <ends-with>
+						  <expression>^\s*(```)</expression>
+						  <capture number="1" name="markdown.markup.bracket" />
+					 </ends-with>
+				</scope>
+		  </collection>
+		  
+		  <!-- Strings -->
+		  <collection name="strings">
+				<scope name="markdown.string.double-quoted">
+					 <expression>(?:\b(b|r|u))?&quot;((?:[^&quot;\\]|\\.)*)(?:&quot;|$)</expression>
+					 <capture number="1" name="markdown.string.double-quoted.prefix" />
+					 <capture number="2" name="markdown.string.double-quoted.text" />
+				</scope>
+				<scope name="markdown.string.single-quoted">
+					 <expression>(?:\b(b|r|u))?&apos;((?:[^&apos;\\]|\\.)*)(?:&apos;|$)</expression>
+					 <capture number="1" name="markdown.string.single-quoted.prefix" />
+					 <capture number="2" name="markdown.string.single-quoted.text" />
+				</scope>
+		  </collection>
+		  
+		  <!-- Spans -->
+		  <collection name="spans">
+				<scope name="markdown.markup.bold.asterisk">
+					 <expression>(?:\*\*(?!\s).+?(?!\s)\*\*)</expression>
+				</scope>
+				<scope name="markdown.markup.bold.underscore">
+					 <expression>(?&lt;![a-zA-Z0-9-_])(?:__(?!\s).+?(?!\s)__)(?![a-zA-Z0-9-_])</expression>
+				</scope>
+				<scope name="markdown.markup.italic.asterisk">
+					 <expression>(?:\*(?!\s).+?(?!\s)\*)</expression>
+				</scope>
+				<scope name="markdown.markup.italic.underscore">
+					 <expression>(?&lt;![a-zA-Z0-9-_])(?:_(?!\s).+?(?!\s)_)(?![a-zA-Z0-9-_])</expression>
+				</scope>
+				<scope name="markdown.markup.strikethrough">
+					 <expression>(?&lt;![a-zA-Z0-9-_])(?:~~(?!\s).+?(?!\s)~~)(?![a-zA-Z0-9-_])</expression>
+				</scope>
+				<scope name="markdown.markup.image-reference" spell-check="false">
+					 <expression>(!\[)((?:[^\[\]\\]|\\.)*)(\])(\[)(.*?)(\])</expression>
+					 <capture number="1" name="markdown.image.bracket" />
+					 <capture number="2" name="markdown.image.markup.link" />
+					 <capture number="3" name="markdown.image.bracket" />
+					 <capture number="4" name="markdown.image.bracket" />
+					 <capture number="5" name="markdown.image.string" />
+					 <capture number="6" name="markdown.image.bracket" />
+				</scope>
+				<scope name="markdown.markup.image-inline" spell-check="false">
+					 <expression>(!\[)((?:[^\[\]\\]|\\.)*)(\])(?:(\()(.*?)(\)))?</expression>
+					 <capture number="1" name="markdown.image.bracket" />
+					 <capture number="2" name="markdown.image.markup.link" />
+					 <capture number="3" name="markdown.image.bracket" />
+					 <capture number="4" name="markdown.image.bracket" />
+					 <capture number="5" name="markdown.image.string" />
+					 <capture number="6" name="markdown.image.bracket" />
+				</scope>
+				<scope name="markdown.markup.link-reference" spell-check="false">
+					 <expression>(\[)((?:[^\[\]\\]|\\.)*)(\])(\[)(.*?)(\])</expression>
+					 <capture number="1" name="markdown.image.bracket" />
+					 <capture number="2" name="markdown.image.markup.link" />
+					 <capture number="3" name="markdown.image.bracket" />
+					 <capture number="4" name="markdown.image.bracket" />
+					 <capture number="5" name="markdown.image.string" />
+					 <capture number="6" name="markdown.image.bracket" />
+				</scope>
+				<scope name="markdown.markup.link-inline" spell-check="false">
+					 <expression>(\[)((?:[^\[\]\\]|\\.)*)(\])(?:(\()(.*?)(\)))?</expression>
+					 <capture number="1" name="markdown.image.bracket" />
+					 <capture number="2" name="markdown.image.markup.link" />
+					 <capture number="3" name="markdown.image.bracket" />
+					 <capture number="4" name="markdown.image.bracket" />
+					 <capture number="5" name="markdown.image.string" />
+					 <capture number="6" name="markdown.image.bracket" />
+				</scope>
+				<scope name="markdown.markup.inline.code" spell-check="false" lookup="dictionary">
+					 <expression>`.*?`</expression>
+				</scope>
+		  </collection>
+	 </collections>
+</syntax>

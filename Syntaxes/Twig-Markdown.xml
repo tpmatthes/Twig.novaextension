@@ -3,7 +3,7 @@
 	<meta>
 		<name>Twig-Markdown</name>
 		<type>markup</type>
-		<parent>markdown</parent>
+		<parent>markdown-deprecated</parent>
 	</meta>
 	
 	<comments>
@@ -37,7 +37,7 @@
 	</surrounding-pairs>
 	
 	<scopes spell-check="true" lookup="dictionary">
-		<include syntax="markdown" collection="*" />
+		<include syntax="markdown-deprecated" collection="*" />
 	</scopes>
 
 	<template-scopes>
